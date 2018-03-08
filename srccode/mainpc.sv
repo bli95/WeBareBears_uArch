@@ -1,14 +1,29 @@
-module mainpc(wishbone.master mem);
-
-wishbone cpu_cache(mem.CLK);
-
-cpu cpu(cpu_cache);
-
-cache cache
-(
-	 .cpu(cpu_cache),
-	 .mem
+module mainpc(
+	wishbone.master ibus,
+	wishbone.master dbus
 );
+
+//wishbone cpu_cache(mem.CLK);
+
+cpu main_cpu(
+	.icache_if(ibus),
+	.dcache_if(dbus)
+);
+
+//cache icache
+//(
+//	.cpu(cpu_cache),
+//	.mem
+//);
+//
+//cache dcache
+//(
+//	
+//);
+
+//cache l2cache
+//(
+//);
 
 //comment out the above and connect cpu directly to memory
 //to test if your CPU adheres to Wishbone spec

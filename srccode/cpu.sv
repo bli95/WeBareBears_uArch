@@ -2,7 +2,8 @@ import lc3b_types::*;
 
 module cpu
 (
-    wishbone.master bus
+    wishbone.master icache_if,
+	 wishbone.master dcache_if
 );
 
 logic load_pc, load_ir, load_regfile, load_mar, load_mdr, load_cc,
