@@ -63,8 +63,6 @@ set_global_assignment -name EDA_TEST_BENCH_NAME mainpc_tb -section_id eda_simula
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME mainpc_tb -section_id mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE mainpc_tb.sv -section_id mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id mainpc_tb
 set_global_assignment -name SDC_FILE mainpc.out.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE inserter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cache_control.sv
@@ -88,8 +86,10 @@ set_global_assignment -name SYSTEMVERILOG_FILE register.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
 set_global_assignment -name SYSTEMVERILOG_FILE gencc.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ir.sv
-set_global_assignment -name SYSTEMVERILOG_FILE plus2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu.sv
 set_global_assignment -name SYSTEMVERILOG_FILE regfile.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mainpc.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE plus.sv
+set_global_assignment -name EDA_TEST_BENCH_FILE mainpc_tb.sv -section_id mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id mainpc_tb

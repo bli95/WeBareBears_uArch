@@ -93,7 +93,7 @@ register pc
     .in(pcmux_out),
     .out(pc_out)
 );
-plus2 pc_incr
+plus pc_incr_2
 (
 	.in(pc_out),
 	.out(pc_plus2_out)
