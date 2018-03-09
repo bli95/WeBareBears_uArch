@@ -2,38 +2,22 @@ import lc3b_types::*;
 
 module cpu_datapath
 (
-    input clk,
-
-    /* control signals */
-    input load_pc,
-	 input load_ir,
-	 input load_regfile,
-	 input load_mar,
-	 input load_mdr,
-	 input load_cc,
-    input [1:0] pcmux_sel,
-	 input adjmux_sel,
-	 input storemux_sel,
-	 input destmux_sel,
-	 input alumux1_sel,
-	 input [2:0] alumux2_sel,
-	 input [1:0] regfilemux_sel,
-	 input [1:0] marmux_sel,
-	 input [1:0] mdrmux_sel,
-	 input lc3b_aluop aluop,
-	 input lc3b_datbus mem_rdata,
-	 
-	 output lc3b_word mem_address,
-	 output lc3b_datbus mem_wdata,
-	 output lc3b_opcode opcode,
-	 output branch_enable,
-	 output immOrA_bit,
-	 output jsr_bit,
-	 output D_bit,
-	 output write_hb
+   input clk,
+	// only signals to L1 caches are external
+	input icache_resp,
+	input lc3b_datbus icache_rdata,
+	input dcache_resp,
+	input lc3b_datbus dcache_rdata,
+	output lc3b_word icache_addr,
+	output logic icache_req,
+	output lc3b_word dcache_addr,
+	output lc3b_datbus dcache_wdata,
+	output logic dcache_wr_en,
+	output lc3b_word dcache_wr_sel,
+	output logic dcache_req
 );
 
-/* declare internal signals */
+/* internal pipeline inter-stage signals */
 lc3b_reg sr1;
 lc3b_reg sr2;
 lc3b_reg dest;
@@ -251,12 +235,6 @@ register #(.width(3)) cc
     .load(load_cc),
     .in(gencc_out),
     .out(cc_out)
-);
-cccomp ccc
-(
-	.cc_in(cc_out),
-	.ir_src_cc(dest),
-	.branch_enable
 );
 
 lc3mask #(.outwidth(16)) srmask
