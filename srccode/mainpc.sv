@@ -6,8 +6,8 @@ module mainpc(
 //wishbone cpu_cache(mem.CLK);
 
 cpu main_cpu(
-	.icache_if(ibus),
-	.dcache_if(dbus)
+	.icache(ibus),
+	.dcache(dbus)
 );
 
 //cache icache

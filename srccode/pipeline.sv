@@ -7,14 +7,14 @@ module ifid_pipe
     
     output lc3b_word ifid_next_pc,
     output lc3b_opcode opcode,
-    output logic bit4, bit5, bit11,
+    output logic bit_4, bit_5, bit_11,
     output lc3b_reg ifid_dest, ifid_src1, ifid_src2,
-	output lc3b_offset4 ifid_imm4,
-	output lc3b_offset5 ifid_imm5,
+	 output lc3b_offset4 ifid_imm4,
+	 output lc3b_offset5 ifid_imm5,
     output lc3b_offset6 ifid_offset6,
     output lc3b_offset9 ifid_offset9,
-	output lc3b_offset11 ifid_offset11,
-	output lc3b_byte ifid_trapvect8,
+	 output lc3b_offset11 ifid_offset11,
+	 output lc3b_byte ifid_trapvect8
 );
 
 logic [31:0] data;
@@ -68,7 +68,7 @@ end
 always_comb
 begin
     idex_next_pc = data[112:97];
-    idex_pc_plus_offset = data[96:81];
+    idex_pc_offset = data[96:81];
     idex_dest = data[80:78];
     idex_src1 = data[77:75];
     idex_src2 = data[74:72];
