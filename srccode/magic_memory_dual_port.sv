@@ -1,7 +1,7 @@
 module magic_memory
 (
     wishbone.slave ifetch, // instruction fetch stage, assumed to never write
-	 wishbone.slave memory // memory stage
+	wishbone.slave memory // memory stage
 );
 
 timeunit 1ns;
@@ -28,7 +28,7 @@ enum int unsigned {
     idle,
     busy,
     respond,
-	 strobe
+	strobe
 } state, next_state;
 
 always_comb

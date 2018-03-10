@@ -19,4 +19,5 @@ begin
 	else
 	  gt = 1;
 end
-endmodule
+
+endmodule : comparator
