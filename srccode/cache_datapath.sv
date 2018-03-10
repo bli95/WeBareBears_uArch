@@ -126,7 +126,7 @@ comparator comp1_9b
 	.gt()
 );
 
-inserter modify_outdata
+cache_datamod modify_outdata
 (
 	.in(outdata_out),
 	.wdata(cpu_wdata),

@@ -1,4 +1,4 @@
-module inserter
+module cache_datamod
 (
 	input [127:0] in,
 	input [127:0] wdata,	//cpu datapath hands to-be-written byte|word in [15:0]
@@ -23,4 +23,4 @@ assign out[23:16] 	= (insel[2])?	wdata[23:16]	: in[23:16];
 assign out[15:8] 		= (insel[1])?	wdata[15:8]		: in[15:8];
 assign out[7:0] 		= (insel[0])?	wdata[7:0]		: in[7:0];
 
-endmodule : inserter
+endmodule : cache_datamod

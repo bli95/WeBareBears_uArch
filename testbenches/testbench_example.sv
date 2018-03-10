@@ -1,4 +1,4 @@
-module testbench();
+module testbench_example();
 
 timeunit 10ns;			// Time scale for delays.
 							// #1 -> 10ns
@@ -62,4 +62,4 @@ else
 	
 end						
 
-endmodule : testbench
+endmodule : testbench_example

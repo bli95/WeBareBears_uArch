@@ -111,7 +111,7 @@ begin
 			ctrl.wbdatamux_sel = 2'b10;
 			ctrl.dstmux_sel = 1;
 		end
-		/* ... other opcodes ... */
+		// op_rti not implemented
 		default: begin
 			ctrl = 0; /* Unknown opcode, set control word to zero */
 		end
