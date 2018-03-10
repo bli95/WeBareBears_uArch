@@ -2,20 +2,31 @@ import lc3b_types::*;
 
 module cpu
 (
-    wishbone.master icache_if,
-	 wishbone.master dcache_if
+    wishbone.master icache,
+	 wishbone.master dcache
 );
 
-// RTY safely ignored by cpu master here bc isolated bus
-assign clk = bus.CLK;
-assign mem_resp = bus.ACK;
-assign mem_rdata = bus.DAT_S;
-assign bus.DAT_M = mem_wdata;
-assign bus.ADR = mem_address[15:4];
-assign bus.STB = mem_read | mem_write;
-assign bus.CYC = bus.STB;	// effectively disregarded bc 1 transfer sufficient
-assign bus.WE = mem_write;
-assign bus.SEL = mem_byte_enable << {mem_address[3:1],1'b0};
+assign clk = icache.CLK;
+
+/* icache signals */
+assign icache_resp = icache.ACK;
+assign icache_rdata = icache.DAT_S;
+assign icache.DAT_M = 128'hx;
+assign icache.ADR = icache_addr[15:4];
+assign icache.STB = icache_read;
+assign icache.CYC = icache.STB;	// effectively disregarded bc 1 transfer sufficient
+assign icache.WE = 0;
+assign icache.SEL = 2'b11 << {imem_address[3:1],1'b0};
+
+/* dcache signals */
+assign dcache_resp = dcache.ACK;
+assign dcache_rdata = dcache.DAT_S;
+assign dcache.DAT_M = dcache_wdata;
+assign dcache.ADR = dcache_addr[15:4];
+assign dcache.STB = dcache_read | dcache_write;
+assign dcache.CYC = dcache.STB;	
+assign dcache.WE = dcache_write;
+assign dcache.SEL = dcache_byte_en << {dcache_addr[3:1],1'b0};
 
 cpu_datapath pl_datpath
 (

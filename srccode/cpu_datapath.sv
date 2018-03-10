@@ -8,14 +8,89 @@ module cpu_datapath
 	input lc3b_datbus icache_rdata,
 	input dcache_resp,
 	input lc3b_datbus dcache_rdata,
+	
 	output lc3b_word icache_addr,
-	output logic icache_req,
+	output logic icache_read,
 	output lc3b_word dcache_addr,
 	output lc3b_datbus dcache_wdata,
-	output logic dcache_wr_en,
-	output lc3b_word dcache_wr_sel,
-	output logic dcache_req
+	output logic dcache_write,
+	output lc3b_mem_wmask dcache_byte_en,
+	output logic dcache_read
 );
+
+/* INTERNAL SIGNALS */
+lc3b_word pc_plus2_out, brmux_out, jsrmux_out, pcmux_out, pc_out;
+lc3b_word instruction,
+
+/* IF STAGE */
+
+mux4 pcmux (.sel(pcmux_sel), .a(pc_plus2_out), .b(brmux_out), .c(jsrmux_out), .d(wbdata), .f(pcmux_out));
+register pc (.clk, .load(~stall), .in(pcmux_out), .out(pc_out));
+plus pc_incr_2 (.in(pc_out), .out(pc_plus2_out));
+
+assign icache_addr = pc_out;
+assign icache_read = 1 & ~stall;
+assign instruction = lc3b_word'(icache_rdata >> {icache_addr[3:1],4'h0});
+
+/* IF/ID REGISTER */
+register #(.width(32)) IF_ID (.clk, .load(~stall), .in({pc_plus2_out, instruction}), .out(if_id_out));
+
+/* ID STAGE */
+
+ext #(.width(5)) sext5 (.in(if_id_out[4:0]), .out(sext5_out));
+ext #(.width(6)) sext6 (.in(if_id_out[5:0]), .out(sext6_out));
+adj #(.width(6)) adj6 (.in(if_id_out[5:0]), .out(adj6_out));
+adj #(.width(9)) adj9 (.in(if_id_out[8:0]), .out(adj9_out));
+adj #(.sgn(0)) zadj8 (.in(if_id_out[7:0]), .out(zadj8_out));
+adj #(.width(11)) adj11 (.in(if_id_out[10:0]), .out(adj11_out));
+
+mux2 adjmux (.sel(adj_sel), .a(adj9_out), b(adj11_out), .z(adjmux_out));
+mux2 #(.width(3)) sr1mux (.sel(sr1_sel), .a(if_id_out[8:6]), b(if_id_out[11:9]), .z(sr1mux_out));
+mux2 #(.width(3)) sr2mux (.sel(sr2_sel), .a(if_id_out[2:0]), b(if_id_out[11:9]), .z(sr2mux_out));
+mux2 #(.width(3)) destmux (.sel(dest_sel), .a(if_id_out[11:9]), b(3'b111), .z(destmux_out));
+
+mux2 regAmux (.sel(regA_sel), .a(reg1_out), b(zadj8_out), .z(regAmux_out));
+mux4 immvalmux (.sel(imm_sel), .a(sext5_out), b({12'h000, imm4}), .c(adj6_out), .d(sext6_out), .z(immvalmux_out));
+
+regfile rf (.clk, .load(load_regfile), .in(regfilemux_out), .src_a(sr1mux_out), .src_b(sr2mux_out), 
+				.dest(destmux_out), .reg_a(reg1_out), .reg_b(reg2_out));
+
+/* ID/EX REGISTER */
+register #(.width(89+ctrl_word) ID_EX (.clk, .load(~stall), 
+			  .in({if_id_out[31:16], adjmux_out, if_id_out[11:6], if_id_out[2:0], regAmux_out, reg2_out, immvalmux_out, ctrl_word}), 
+			  .out(id_ex_out));
+
+/* EX STAGE */
+
+adj_add_pc pc_branch (.pc_in(id_ex_out[first16bits]), .adj_in(id_ex_out[second16bits]), .add_out(addr_out));
+
+mux2 brmux (.sel(br_en), .a(id_ex_out[first16bit]+3'b100), b(addr_out), .z(sr1mux_out));
+
+mux2 sr1mux (.sel(sr1_sel), .a(if_id_out[8:6]), b(if_id_out[11:9]), .z(sr1mux_out));
+mux2 sr1mux (.sel(sr1_sel), .a(if_id_out[8:6]), b(if_id_out[11:9]), .z(sr1mux_out));
+
+mux2 #(.width(3)) aluBmux (.sel(aluB_sel), .a(id_ex_out[regB]), b(id_ex_out[imm_val]), .z(aluBmux_out)); 
+
+mux2 #(.width(3)) mux (.sel(sr1_sel), .a(if_id_out[8:6]), b(if_id_out[11:9]), .z(sr1mux_out));
+
+alu alu (.aluop, .a(id_ex_out[regA]), .b(aluBmux_out), .f(alu_out));
+
+
+
+/* EX/ME REGISTER */
+register #(.width(5)) EX_ME ();
+
+/* ME STAGE */
+
+/* ME_WB REGISTER */
+register #(.width(5)) ME_WB ();
+
+/* WB STAGE */
+
+
+
+/* EVERYTHING BELOW HERE IS OLD SHIT----IGNORE! */
+
 
 /* internal pipeline inter-stage signals */
 lc3b_reg sr1;
