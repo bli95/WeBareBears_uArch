@@ -14,7 +14,7 @@ module cpu_datapath
 	output lc3b_word dcache_addr,
 	output lc3b_datbus dcache_wdata,
 	output logic dcache_write,
-	output lc3b_mem_wmask dcache_byte_en,
+	output lc3b_word dcache_byte_en,
 	output logic dcache_read
 );
 
