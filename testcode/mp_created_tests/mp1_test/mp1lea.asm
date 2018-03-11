@@ -1,0 +1,15 @@
+ORIGIN 4x0000
+
+SEGMENT CodeSegment:
+
+	LDR R0, R0, TEN		; R0 <- 10
+	LEA R0, 20 		; R0 <- 20
+	ADD R1, R0, 5		; R1 < R0 + 5 
+	LEA R2, FOUR 
+
+
+HALT:
+	BRnzp HALT
+
+TEN:    DATA2 4x000A
+FOUR:	DATA2 4x000F

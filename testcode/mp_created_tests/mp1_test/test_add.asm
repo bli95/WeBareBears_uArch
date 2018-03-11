@@ -1,0 +1,22 @@
+ORIGIN 4x0000
+
+SEGMENT CodeSegment:
+
+	LDR R0, R0, ONE
+	LDR R1, R1, GOOD
+
+;	AND R0, R0, 0
+;	AND R1, R1, 0
+;	AND R2, R2, 0
+;	ADD R1, R1, 1 ;  R1 <= 0 + 1
+;	ADD R0, R0, 2 ;  R0 <= 0 + 2
+;	ADD R2, R1, R0 ; R2 <= R1 + R2 (3)
+
+HALT:
+	BRnzp HALT
+
+ONE:    DATA2 4x0001
+TWO:    DATA2 4x0002
+EIGHT:  DATA2 4x0008
+RESULT: DATA2 4x0000
+GOOD:   DATA2 4x600D
