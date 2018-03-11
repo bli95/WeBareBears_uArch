@@ -8,7 +8,7 @@ module dcache_ctrlr
 	output logic stall,
 	output logic addrmux_sel,
 	output logic req_rw,
-	output logic w_en
+	output logic wr_en
 );
 
 logic dbreq_state = 0;	// used as a 2-states bit for sti/ldi ops
@@ -24,12 +24,12 @@ begin
 	stall = 0;
 	addrmux_sel = 0;
 	req_rw = 0;
-	w_en = 0;
+	wr_en = 0;
 
 	case(opcode)
 		op_str, op_stb: begin
 			req_rw = 1;
-			w_en = 1;
+			wr_en = 1;
 		end
 		op_sti: begin
 			// read first, then use as addr to write to; addrmux chooses based on state
@@ -38,7 +38,7 @@ begin
 			if (dbreq_state == 0)
 				stall = 1;		// NOTE: currently assume 2nd req (when state=1) returns very next cycle
 			else//if (dbreq_state != 0)
-				w_en = 1;
+				wr_en = 1;
 		end
 		op_ldr, op_ldb: begin
 			req_rw = 1;

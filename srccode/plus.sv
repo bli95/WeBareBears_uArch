@@ -4,6 +4,6 @@ module plus #(parameter width = 16, parameter operand = 2)
     output logic [width-1:0] out
 );
 
-assign out = in + operand;
+assign out = in + shortint'(operand);
 
 endmodule : plus

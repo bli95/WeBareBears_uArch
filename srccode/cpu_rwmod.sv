@@ -2,11 +2,11 @@ import lc3b_types::*;
 
 module cpu_rwmod
 (
-    input lc3b_word in,
+	input lc3b_word in,
 	input [3:0] opcode,
 	input lsb,
 	output lc3b_sel wrsel,
-    output lc3b_word out
+	output lc3b_word out
 );
 
 always_comb
