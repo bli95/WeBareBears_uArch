@@ -10,7 +10,7 @@ entity mux4 is
         b               : in     vl_logic_vector;
         c               : in     vl_logic_vector;
         d               : in     vl_logic_vector;
-        f               : out    vl_logic_vector
+        z               : out    vl_logic_vector
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of width : constant is 1;

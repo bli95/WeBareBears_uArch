@@ -59,6 +59,7 @@ begin
 		op_ldb: begin
 			ctrl.immmux_sel = 2'b11;
 			ctrl.aluBmux_sel = 1;
+			ctrl.aluop = alu_add;
 			ctrl.wbdatamux_sel = 2'b01;
 			ctrl.load_cc = 1;
 			ctrl.load_dst = 1;
@@ -66,7 +67,8 @@ begin
 		op_ldi,op_ldr: begin
 			ctrl.immmux_sel = 2'b10;
 			ctrl.aluBmux_sel = 1;
-			ctrl.wbdatamux_sel = 2'b01;
+			ctrl.aluop = alu_add;
+ 		   ctrl.wbdatamux_sel = 2'b01;
 			ctrl.load_cc = 1;
 			ctrl.load_dst = 1;
 		end

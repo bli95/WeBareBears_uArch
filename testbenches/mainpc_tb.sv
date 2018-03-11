@@ -13,11 +13,11 @@ wishbone cpu_icache(clk);
 wishbone cpu_dcache(clk);
 
 mainpc WeBareBears(
-	.icache_if(cpu_icache),
-	.dcache_if(cpu_dcache)
+	.ibus(cpu_icache),
+	.dbus(cpu_dcache)
 );
 
-magic_memory_dual_port memory(
+magic_memory memory(
 	.ifetch(cpu_icache),
 	.memory(cpu_dcache)
 );

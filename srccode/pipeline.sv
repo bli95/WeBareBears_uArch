@@ -17,14 +17,18 @@ module ifid_pipe
 	 output lc3b_byte ifid_trapvect8
 );
 
-logic [31:0] data;
+logic [31:0] data = '0;	// initializes interstage regs to 0 so prog starts correctly
 
 always_ff @(posedge clk)
 begin
-    if (reset == 0) begin   
-        if (load == 1) data = in;
-    end
-    else data = 32'b0;
+	if (reset == 0) begin
+		if (load == 1)	// not stalling, aka normal operations per cycle  
+			data = in;
+		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
+	end
+	else
+		/* squashing register values for br/jmp/jsr and trap, etc. */
+		data = '0;
 end
 
 always_comb
@@ -60,14 +64,18 @@ module idex_pipe
     output logic [24:0] idex_ctrl_word
 );
 
-logic [113:0] data;
+logic [113:0] data = '0;
 
 always_ff @(posedge clk)
 begin
-    if (reset == 0) begin   
-        if (load == 1) data = in;
-    end
-    else data = '0;
+	if (reset == 0) begin
+		if (load == 1)	// not stalling, aka normal operations per cycle  
+			data = in;
+		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
+	end
+	else
+		/* squashing register values for br/jmp/jsr and trap, etc. */
+		data = '0;
 end
 
 always_comb
@@ -96,14 +104,18 @@ module exme_pipe
     output logic [24:0] exme_ctrl_word
 );
 
-logic [83:0] data;
+logic [83:0] data = '0;
 
 always_ff @(posedge clk)
 begin
-    if (reset == 0) begin   
-        if (load == 1) data = in;
-    end
-    else data = '0;
+	if (reset == 0) begin
+		if (load == 1)	// not stalling, aka normal operations per cycle  
+			data = in;
+		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
+	end
+	else
+		/* squashing register values for br/jmp/jsr and trap, etc. */
+		data = '0;
 end
 
 always_comb
@@ -130,14 +142,17 @@ module mewb_pipe
     output logic [24:0] mewb_ctrl_word
 );
 
-logic [49:0] data;
+logic [49:0] data = '0;
 
 always_ff @(posedge clk)
 begin
-    if (reset == 0) begin   
-        if (load == 1) data = in;
-    end
-    else data = '0;
+	if (reset == 0) begin
+		if (load == 1)	// not stalling, aka normal operations per cycle  
+			data = in;
+		// for stalls when waiting for dcache to finish retrieval; THIS IS OPTIONAL
+	end
+	else
+		data = '0;
 end
 
 always_comb

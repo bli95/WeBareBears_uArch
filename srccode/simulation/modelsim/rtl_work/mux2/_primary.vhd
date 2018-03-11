@@ -8,7 +8,7 @@ entity mux2 is
         sel             : in     vl_logic;
         a               : in     vl_logic_vector;
         b               : in     vl_logic_vector;
-        f               : out    vl_logic_vector
+        z               : out    vl_logic_vector
     );
     attribute mti_svvh_generic_type : integer;
     attribute mti_svvh_generic_type of width : constant is 1;

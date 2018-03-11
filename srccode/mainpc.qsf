@@ -41,13 +41,13 @@ set_global_assignment -name DEVICE AUTO
 set_global_assignment -name TOP_LEVEL_ENTITY mainpc
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:00:00  AUGUST 25, 2014"
-set_global_assignment -name LAST_QUARTUS_VERSION 15.0.0
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 
 
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
-set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
@@ -61,6 +61,7 @@ set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id main
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME mainpc_tb -section_id mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/mainpc_tb.sv -section_id mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id mainpc_tb
+set_global_assignment -name SYSTEMVERILOG_FILE pcmux_ctrlr.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pipeline.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
 set_global_assignment -name SYSTEMVERILOG_FILE gencc.sv
@@ -87,6 +88,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE plus.sv
 set_global_assignment -name SYSTEMVERILOG_FILE control_rom.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cache_datamod.sv
 set_global_assignment -name SYSTEMVERILOG_FILE cpu_rwmod.sv
-set_global_assignment -name SYSTEMVERILOG_FILE eq_and_neq_comp.sv
 set_global_assignment -name SYSTEMVERILOG_FILE dcache_ctrlr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE special_db_comps.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
