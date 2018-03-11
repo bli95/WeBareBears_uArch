@@ -55,16 +55,16 @@ endmodule : ifid_pipe
 module idex_pipe
 (
     input clk, load, reset,
-    input logic [113:0] in,
+    input logic [111:0] in,
     
     output lc3b_word idex_next_pc, idex_pc_offset,
     output lc3b_reg idex_dest, idex_src1, idex_src2,
     output lc3b_word idex_regA, idex_regB,
     output lc3b_word idex_imm_val,
-    output logic [24:0] idex_ctrl_word
+    output logic [22:0] idex_ctrl_word
 );
 
-logic [113:0] data = '0;
+logic [111:0] data = '0;
 
 always_ff @(posedge clk)
 begin
@@ -80,15 +80,15 @@ end
 
 always_comb
 begin
-    idex_next_pc = data[113:98];
-    idex_pc_offset = data[97:82];
-    idex_dest = data[81:79];
-    idex_src1 = data[78:76];
-    idex_src2 = data[75:73];
-    idex_regA = data[72:57];
-    idex_regB = data[56:41];
-    idex_imm_val = data[40:25];
-    idex_ctrl_word = data[24:0];
+    idex_ctrl_word = data[111:89];
+    idex_next_pc = data[88:73];
+    idex_pc_offset = data[72:57];
+    idex_dest = data[56:54];
+    idex_src1 = data[53:51];
+    idex_src2 = data[50:48];
+    idex_regA = data[47:32];
+    idex_regB = data[31:16];
+    idex_imm_val = data[15:0];
 end
 
 endmodule : idex_pipe
@@ -96,15 +96,15 @@ endmodule : idex_pipe
 module exme_pipe
 (
     input clk, load, reset,
-    input logic [83:0] in,
+    input logic [81:0] in,
     
     output lc3b_word exme_next_pc, exme_mar, exme_mdr,
 	 output lc3b_sel exme_sel, 
     output lc3b_reg exme_dest, exme_src1, exme_src2,
-    output logic [24:0] exme_ctrl_word
+    output logic [22:0] exme_ctrl_word
 );
 
-logic [83:0] data = '0;
+logic [81:0] data = '0;
 
 always_ff @(posedge clk)
 begin
@@ -120,8 +120,8 @@ end
 
 always_comb
 begin
-    exme_next_pc = data[83:68];
-    exme_ctrl_word = data[67:43];
+    exme_ctrl_word = data[81:59];
+    exme_next_pc = data[58:43];
     exme_dest = data[42:40];
     exme_src1 = data[39:37];
     exme_src2 = data[36:34];
@@ -135,14 +135,14 @@ endmodule : exme_pipe
 module mewb_pipe
 (
     input clk, load, reset,
-    input logic [49:0] in,
+    input logic [47:0] in,
     
     output lc3b_word mewb_wbdata, 
     output lc3b_reg mewb_dest, mewb_src1, mewb_src2,
-    output logic [24:0] mewb_ctrl_word
+    output logic [22:0] mewb_ctrl_word
 );
 
-logic [49:0] data = '0;
+logic [47:0] data = '0;
 
 always_ff @(posedge clk)
 begin
@@ -157,8 +157,8 @@ end
 
 always_comb
 begin
-    mewb_wbdata = data[49:34];
-    mewb_ctrl_word = data[33:9];
+    mewb_ctrl_word = data[47:25];
+    mewb_wbdata = data[24:9];
     mewb_dest = data[8:6];
     mewb_src1 = data[5:3];
     mewb_src2 = data[2:0];

@@ -93,7 +93,7 @@ control_rom ctrl_rom (.opcode, .bit_4, .bit_5, .bit_11, .ctrl(ifid_ctrl_word));
 
 /* ID/EX REGISTER */
 idex_pipe ID_EX (.clk, .load(~stall), .reset(rst1 | rst2), 
-                 .in({ifid_next_pc, adjmux_out, ifid_dest, ifid_src1, ifid_src2, regAmux_out, reg2_out, immvalmux_out, ifid_ctrl_word}),
+                 .in({ifid_ctrl_word, ifid_next_pc, adjmux_out, ifid_dest, ifid_src1, ifid_src2, regAmux_out, reg2_out, immvalmux_out}),
                  .*);
 
 /* EX STAGE */
@@ -110,13 +110,13 @@ mux4 marmux (.sel(idex_ctrl_word.marmux_sel), .a(alu_out), .b(br_adder_out), .c(
 
 /* EX/ME REGISTER */
 exme_pipe EX_ME (.clk, .load(~stall), .reset(rst2),
-                 .in({idex_next_pc, idex_ctrl_word, idex_dest, idex_src1, idex_src2, marmux_out, stb_datmod_sel, stb_datmod_out}),
+                 .in({idex_ctrl_word, idex_next_pc, idex_dest, idex_src1, idex_src2, marmux_out, stb_datmod_sel, stb_datmod_out}),
                  .*);
 /* ME STAGE */
 mux2 dcaddrmux (.sel(dcaddrmux_sel), .a(exme_mar), .b(ldb_datmod_out), .z(dcaddrmux_out));
 mux4 wbdatamux (.sel(exme_ctrl_word.wbdatamux_sel), .a(exme_mar), .b(ldb_datmod_out), .c(exme_next_pc), .d(), .z(wbdatamux_out));
-register #(.width(3)) cc (.clk, .load(exme_ctrl_word.load_cc), .in(gencc_out), .out(cc_out));
-gencc gencc (.in(wbdatamux_out), .out(gencc_out));
+//register #(.width(3)) cc (.clk, .load(exme_ctrl_word.load_cc), .in(gencc_out), .out(cc_out));
+gencc cc (.in(wbdatamux_out), .load(exme_ctrl_word.load_cc), .out(cc_out));
 dcache_ctrlr stldtr_ctrl (.clk, .opcode(exme_ctrl_word.opcode), .rw_resp(dcache_resp), .stall, .addrmux_sel(dcaddrmux_sel), 
                           .req_rw(dcache_mem_req), .wr_en(dcache_we_on_req));
 cpu_rwmod ldb_datmod (.in(returned_data), .opcode(exme_ctrl_word.opcode), .lsb(exme_mar[0]), .wrsel(), .out(ldb_datmod_out));
@@ -128,7 +128,7 @@ assign returned_data = lc3b_word'(dcache_rdata >> {dcaddrmux_out[3:1],4'h0});
 
 /* ME_WB REGISTER */
 mewb_pipe ME_WB (.clk, .load(~stall), .reset(1'b0),
-                 .in({wbdatamux_out, exme_ctrl_word, exme_dest, exme_src1, exme_src2}),
+                 .in({exme_ctrl_word, wbdatamux_out, exme_dest, exme_src1, exme_src2}),
                  .*);
 
 /* WB STAGE */

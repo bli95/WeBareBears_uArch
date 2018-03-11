@@ -11,7 +11,6 @@ always_comb
 begin
 	/* Default assignments */
 	ctrl.opcode = opcode;
-	ctrl.pcmux_sel = 2'b00;
 	ctrl.adjmux_sel = 1'b0;
 	ctrl.sr1mux_sel = 1'b0;
 	ctrl.sr2mux_sel = 1'b0;
@@ -43,13 +42,10 @@ begin
 			ctrl.load_dst = 1;
 		end
 		op_br: begin
-			ctrl.pcmux_sel = 2'b01;
 		end
 		op_jmp: begin    /* also RET */
-			ctrl.pcmux_sel = 2'b10;
 		end
 		op_jsr: begin    /* also JSRR */
-			ctrl.pcmux_sel = 2'b10;
 			ctrl.adjmux_sel = 1;
 			ctrl.jsrmux_sel = bit_11;
 			ctrl.marmux_sel = 2'b10;
@@ -108,7 +104,6 @@ begin
 			ctrl.aluop = alu_add;
 		end
 		op_trap: begin
-			ctrl.pcmux_sel = 2'b11;
 			ctrl.regAmux_sel = 1;
 			ctrl.wbdatamux_sel = 2'b10;
 			ctrl.dstmux_sel = 1;
