@@ -223,6 +223,11 @@ JUMPTEST:
 	NOP
         RET                     ; PC should jump to [R7]
 OUTER_FN:
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
         ADD     R6, R7, 0       ; save ret addr
         LEA     R1, INNER_FN
 	NOP

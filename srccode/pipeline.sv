@@ -3,7 +3,7 @@ import lc3b_types::*;
 module ifid_pipe
 (
     input clk, load, reset,
-    input logic [31:0] in,
+    input lc3b_word pc_plus2_out, instruction,
     
     output lc3b_word ifid_next_pc,
     output lc3b_opcode opcode,
@@ -17,37 +17,43 @@ module ifid_pipe
 	 output lc3b_byte ifid_trapvect8
 );
 
-logic [31:0] data = '0;	// initializes interstage regs to 0 so prog starts correctly
+lc3b_word pc_plus2_int = '0;	// initializes interstage regs to 0 so prog starts correctly
+lc3b_word instruction_int = '0;
 
 always_ff @(posedge clk)
 begin
 	if (reset == 0) begin
-		if (load == 1)	// not stalling, aka normal operations per cycle  
-			data = in;
+		if (load == 1) begin	// not stalling, aka normal operations per cycle  
+			pc_plus2_int = pc_plus2_out;
+			instruction_int = instruction;
+		end
 		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
 	end
 	else
+	begin
 		/* squashing register values for br/jmp/jsr and trap, etc. */
-		data = '0;
+		pc_plus2_int = '0;
+		instruction_int = '0;
+	end
 end
 
 always_comb
 begin
-   ifid_next_pc = data[31:16];
-   ifid_dest = data[11:9];
-   ifid_src1 = data[8:6];
-   ifid_src2 = data[2:0];
-	ifid_imm4 = data[3:0];
-	ifid_imm5 = data[4:0];
-   ifid_offset6 = data[5:0];
-   ifid_offset9 = data[8:0];
-   ifid_offset11 = data[10:0];
-	ifid_trapvect8 = data[7:0];
+   ifid_next_pc = pc_plus2_int;
+   ifid_dest = instruction_int[11:9];
+   ifid_src1 = instruction_int[8:6];
+   ifid_src2 = instruction_int[2:0];
+	ifid_imm4 = instruction_int[3:0];
+	ifid_imm5 = instruction_int[4:0];
+   ifid_offset6 = instruction_int[5:0];
+   ifid_offset9 = instruction_int[8:0];
+   ifid_offset11 = instruction_int[10:0];
+	ifid_trapvect8 = instruction_int[7:0];
 	
-	opcode = lc3b_opcode'(data[15:12]);
-	bit_4 = data[4];
-	bit_5 = data[5];
-	bit_11 = data[11];
+	opcode = lc3b_opcode'(instruction_int[15:12]);
+	bit_4 = instruction_int[4];
+	bit_5 = instruction_int[5];
+	bit_11 = instruction_int[11];
 end
 
 endmodule : ifid_pipe
@@ -55,40 +61,47 @@ endmodule : ifid_pipe
 module idex_pipe
 (
     input clk, load, reset,
-    input logic [111:0] in,
+    input lc3b_word ifid_next_pc, adjmux_out, regAmux_out, reg2_out, immvalmux_out,
+	 input lc3b_reg ifid_dest, ifid_src1, ifid_src2,
+	 input lc3b_control_word ifid_ctrl_word, 
     
     output lc3b_word idex_next_pc, idex_pc_offset,
     output lc3b_reg idex_dest, idex_src1, idex_src2,
     output lc3b_word idex_regA, idex_regB,
     output lc3b_word idex_imm_val,
-    output logic [22:0] idex_ctrl_word
+    output lc3b_control_word idex_ctrl_word
 );
 
-logic [111:0] data = '0;
+lc3b_word idex_int_next_pc = '0, adjmux_int = '0, regAmux_int = '0, reg2_int = '0, immvalmux_int = '0;
+lc3b_reg idex_int_dest = '0, idex_int_src1 = '0, idex_int_src2 = '0;
+lc3b_control_word idex_int_ctrl_word = '0;
 
 always_ff @(posedge clk)
 begin
 	if (reset == 0) begin
-		if (load == 1)	// not stalling, aka normal operations per cycle  
-			data = in;
+		if (load == 1) begin	// not stalling, aka normal operations per cycle  
+			idex_int_next_pc = ifid_next_pc; adjmux_int = adjmux_out; regAmux_int = regAmux_out; reg2_int = reg2_out; immvalmux_int = immvalmux_out;
+			idex_int_dest = ifid_dest; idex_int_src1 = ifid_src1; idex_int_src2 = ifid_src2;
+			idex_int_ctrl_word = ifid_ctrl_word;
+		end
 		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
 	end
 	else
+	begin
 		/* squashing register values for br/jmp/jsr and trap, etc. */
-		data = '0;
+		idex_int_next_pc = '0; adjmux_int = '0; regAmux_int = '0; reg2_int = '0; immvalmux_int = '0;
+		idex_int_dest = '0; idex_int_src1 = '0; idex_int_src2 = '0;
+		idex_int_ctrl_word = '0;
+	end
 end
 
 always_comb
 begin
-    idex_ctrl_word = data[111:89];
-    idex_next_pc = data[88:73];
-    idex_pc_offset = data[72:57];
-    idex_dest = data[56:54];
-    idex_src1 = data[53:51];
-    idex_src2 = data[50:48];
-    idex_regA = data[47:32];
-    idex_regB = data[31:16];
-    idex_imm_val = data[15:0];
+    idex_next_pc = idex_int_next_pc; idex_pc_offset = adjmux_int;
+    idex_dest = idex_int_dest; idex_src1 = idex_int_src1; idex_src2 = idex_int_src2;
+    idex_regA = regAmux_int; idex_regB = reg2_int;
+    idex_imm_val = immvalmux_int;
+    idex_ctrl_word = idex_int_ctrl_word;
 end
 
 endmodule : idex_pipe
@@ -96,38 +109,49 @@ endmodule : idex_pipe
 module exme_pipe
 (
     input clk, load, reset,
-    input logic [81:0] in,
+    input lc3b_word idex_next_pc, marmux_out, stb_datmod_out,
+	 input lc3b_sel stb_datmod_sel,
+	 input lc3b_reg idex_dest, idex_src1, idex_src2,
+	 input lc3b_control_word idex_ctrl_word,
     
     output lc3b_word exme_next_pc, exme_mar, exme_mdr,
 	 output lc3b_sel exme_sel, 
     output lc3b_reg exme_dest, exme_src1, exme_src2,
-    output logic [22:0] exme_ctrl_word
+    output lc3b_control_word exme_ctrl_word
 );
 
-logic [81:0] data = '0;
+lc3b_word idex_int_next_pc = '0, marmux_int = '0, stb_datmod_int = '0;
+lc3b_sel stb_datmod_sel_int = '0;
+lc3b_reg idex_int_dest = '0, idex_int_src1 = '0, idex_int_src2 = '0;
+lc3b_control_word idex_int_ctrl_word = '0;
 
 always_ff @(posedge clk)
 begin
 	if (reset == 0) begin
-		if (load == 1)	// not stalling, aka normal operations per cycle  
-			data = in;
+		if (load == 1) begin	// not stalling, aka normal operations per cycle  
+			idex_int_next_pc = idex_next_pc; marmux_int = marmux_out; stb_datmod_int = stb_datmod_out;
+			stb_datmod_sel_int = stb_datmod_sel;
+			idex_int_dest = idex_dest; idex_int_src1 = idex_src1; idex_int_src2 = idex_src2;
+			idex_int_ctrl_word = idex_ctrl_word;
+		end
 		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
 	end
 	else
+	begin
 		/* squashing register values for br/jmp/jsr and trap, etc. */
-		data = '0;
+		idex_int_next_pc = '0; marmux_int = '0; stb_datmod_int = '0;
+		stb_datmod_sel_int = '0;
+		idex_int_dest = '0; idex_int_src1 = '0; idex_int_src2 = '0;
+		idex_int_ctrl_word = '0;
+	end
 end
 
 always_comb
 begin
-    exme_ctrl_word = data[81:59];
-    exme_next_pc = data[58:43];
-    exme_dest = data[42:40];
-    exme_src1 = data[39:37];
-    exme_src2 = data[36:34];
-    exme_mar = data[33:18];
-    exme_sel = data[17:16];
-    exme_mdr = data[15:0];
+    exme_next_pc = idex_int_next_pc; exme_mar = marmux_int; exme_mdr = stb_datmod_int;
+	 exme_sel = stb_datmod_sel_int; 
+    exme_dest = idex_int_dest; exme_src1 = idex_int_src1; exme_src2 = idex_int_src2;
+    exme_ctrl_word = idex_int_ctrl_word;
 end
 
 endmodule : exme_pipe
@@ -135,33 +159,43 @@ endmodule : exme_pipe
 module mewb_pipe
 (
     input clk, load, reset,
-    input logic [47:0] in,
+    input lc3b_word wbdatamux_out, 
+	 input lc3b_reg exme_dest, exme_src1, exme_src2,
+	 input lc3b_control_word exme_ctrl_word,
     
     output lc3b_word mewb_wbdata, 
     output lc3b_reg mewb_dest, mewb_src1, mewb_src2,
-    output logic [22:0] mewb_ctrl_word
+    output lc3b_control_word mewb_ctrl_word
 );
 
-logic [47:0] data = '0;
+lc3b_word wbdatamux_int = '0;
+lc3b_reg exme_int_dest = '0, exme_int_src1 = '0, exme_int_src2 = '0;
+lc3b_control_word exme_int_ctrl_word = '0;
 
 always_ff @(posedge clk)
 begin
 	if (reset == 0) begin
-		if (load == 1)	// not stalling, aka normal operations per cycle  
-			data = in;
-		// for stalls when waiting for dcache to finish retrieval; THIS IS OPTIONAL
+		if (load == 1) begin	// not stalling, aka normal operations per cycle  
+			wbdatamux_int = wbdatamux_out;
+			exme_int_dest = exme_dest; exme_int_src1 = exme_src1; exme_int_src2 = exme_src2;
+			exme_int_ctrl_word = exme_ctrl_word;
+		end
+		// for stalls when waiting for dcache to respond; nothing happens bc we want to retain data
 	end
 	else
-		data = '0;
+	begin
+		/* squashing register values for br/jmp/jsr and trap, etc. */
+		wbdatamux_int = '0;
+		exme_int_dest = '0; exme_int_src1 = '0; exme_int_src2 = '0;
+		exme_int_ctrl_word = '0;
+	end
 end
 
 always_comb
 begin
-    mewb_ctrl_word = data[47:25];
-    mewb_wbdata = data[24:9];
-    mewb_dest = data[8:6];
-    mewb_src1 = data[5:3];
-    mewb_src2 = data[2:0];
+    mewb_wbdata = wbdatamux_int; 
+    mewb_dest = exme_int_dest; mewb_src1 = exme_int_src1; mewb_src2 = exme_int_src2;
+    mewb_ctrl_word = exme_int_ctrl_word;
 end
 
 endmodule : mewb_pipe
