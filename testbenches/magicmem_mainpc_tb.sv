@@ -1,4 +1,4 @@
-module mainpc_tb;
+module magicmem_mainpc_tb;
 
 timeunit 1ns;
 timeprecision 1ns;
@@ -17,9 +17,9 @@ mainpc WeBareBears(
 	.dbus(cpu_dcache)
 );
 
-magic_memory memory(
+magic_memory_dual_port memory(
 	.ifetch(cpu_icache),
 	.memory(cpu_dcache)
 );
 
-endmodule : mainpc_tb
+endmodule : magicmem_mainpc_tb

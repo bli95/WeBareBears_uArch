@@ -24,7 +24,14 @@ SEGMENT 0 CODE:
 LEA R1, line1      
 LDR R2, R0, l2p         ; cache miss to load l2p into cl0_1
 LDR R3, R0, l3p         ; cache hit to load l3p
+NOP
+NOP
+NOP
 LDR R4, R1, 0           ; cache miss to load line1 cl0_2
+NOP
+NOP
+NOP
+NOP
 STR R4, R1, 3           ; cache hit to store into line1
 STR R4, R2, 3           ; cache miss to load line2 into cl1_2 and write to it 
 STR R4, R3, 3           ; cache miss and write back
@@ -36,7 +43,7 @@ Halt:
 l2p:   DATA2 line2
 l3p:   DATA2 line3
 
-SEGMENT 32 line1:
+SEGMENT 64 line1:
 X0:	DATA2 4x1111
 NOP
 NOP

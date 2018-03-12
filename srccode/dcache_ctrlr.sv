@@ -13,12 +13,13 @@ module dcache_ctrlr
 
 logic dbreq_state = 0;	// used as a 2-states bit for sti/ldi ops
 
-always_ff @(posedge clk)
-begin
-	//if (rw_resp == 1)		// NOTE: currently assume magic memory that responds immediately
-	if(opcode == op_ldi || opcode == op_sti)
-		dbreq_state = ~dbreq_state;
-end
+//always_ff @(posedge clk)
+//begin
+//	if (rw_resp == 1)		// NOTE: currently assume magic memory that responds immediately
+//		
+//	if(opcode == op_ldi || opcode == op_sti)
+//		dbreq_state = ~dbreq_state;
+//end
 
 always_comb
 begin
@@ -31,6 +32,10 @@ begin
 		op_str, op_stb: begin
 			req_rw = 1;
 			wr_en = 1;
+			if (rw_resp)
+				stall = 0;
+			else
+				stall = 1;
 		end
 		op_sti: begin
 			// read first, then use as addr to write to; addrmux chooses based on state
@@ -43,6 +48,10 @@ begin
 		end
 		op_ldr, op_ldb: begin
 			req_rw = 1;
+			if (rw_resp)
+				stall = 0;
+			else
+				stall = 1;
 		end
 		op_ldi: begin
 			// read first, then use as addr to read (again) from

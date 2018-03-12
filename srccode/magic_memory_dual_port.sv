@@ -1,4 +1,4 @@
-module magic_memory
+module magic_memory_dual_port
 (
     wishbone.slave ifetch, // instruction fetch stage, assumed to never write
 	 wishbone.slave memory // memory stage
@@ -43,4 +43,49 @@ begin
 		mem[memory.ADR] <= wdata;
 end
 
+endmodule : magic_memory_dual_port
+
+module magic_memory
+(
+    wishbone.slave wb
+);
+
+timeunit 1ns;
+timeprecision 1ns;
+
+logic [127:0] mem [0:(2**12)-1];
+logic [127:0] wdata;
+
+/* Initialize memory contents from memory.lst file */
+initial
+begin
+    $readmemh("memory.lst", mem);
+end
+
+
+assign wb.DAT_S = mem[wb.ADR];
+assign wb.ACK = 1'b1;
+assign wb.RTY = 1'b0;
+
+enum int unsigned {
+    idle,
+    busy,
+    respond,
+    strobe
+} state, next_state;
+
+/* Uncomment out below for emulating data caches that modifies and returns data */
+//always_comb
+//begin
+//	for (int i = 0; i < 16; i++)
+//		wdata[i*8 +:8] = wb.SEL[i] ? wb.DAT_M[i*8 +:8] : mem[wb.ADR][i*8 +:8];
+//end
+
+//always @(posedge wb.CLK)
+//begin
+//	if (wb.WE)
+//		mem[wb.ADR] <= wdata;
+//end
+
 endmodule : magic_memory
+
