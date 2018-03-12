@@ -23,6 +23,8 @@
 greybox_tmp
 *.ipinfo
 *.tis_db_list.ddb
+.cds*
+cds.*
 
 ############################
 # Modelsim gitignore files #

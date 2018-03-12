@@ -107,6 +107,7 @@ begin
 			ctrl.regAmux_sel = 1;
 			ctrl.wbdatamux_sel = 2'b10;
 			ctrl.dstmux_sel = 1;
+			ctrl.load_dst = 1;
 		end
 		// op_rti not implemented
 		default: begin
