@@ -1,161 +1,92 @@
+import lc3b_types::*;
+
 module cache_datapath
 (
 	input clk,
-	input [11:0] cpu_address,
-	input [15:0] cpu_wb_sel,
-	input [127:0] cpu_wdata,
+
+	input R_W,
+	input load_data_1, load_data_2,
+	input dirty_bit, load_dirty_1, load_dirty_2,
+	input load_LRU, LRU_in,
+	input lc3b_word sel_mask,
+	output way1_hit, way2_hit,
+	output read_hit, write_hit,
+	output LRU_out, dirty_out,
+							  
 	input [127:0] mem_rdata,
-	input indata_muxsel, outdata_muxsel,
-	input [1:0] memaddr_muxsel,
-	input lru_we, lru_in,
-	input val_in, dir_in,
-	input write0, write1,
-	output logic [11:0] mem_address,
-	output logic [127:0] mem_wdata,
-	output logic [127:0] cpu_rdata,
-	output logic hit0, hit1,
-	output logic lru_out,
-	output logic dir0_out, dir1_out
+	output lc3b_word mem_address,
+	output [127:0] mem_wdata,
+	output [1:0] mem_byte_enable,
+							  
+	input cache_read, cache_write,
+	input [1:0] cache_byte_enable,
+	input lc3b_word cache_address,
+	input lc3b_word cache_wdata,
+	output lc3b_word cache_rdata
 );
+							 
+	logic [2:0] index;
+	logic [8:0] tag;						 
+	
+	logic valid_out_1, valid_out_2;
+	logic dirty_out_1, dirty_out_2;
+	logic way1_found, way2_found;
+	logic [8:0] tag_out_1, tag_out_2, tag_out;
+	logic [127:0] data_in;
+	logic [127:0] data_out_1, data_out_2, data_out;
+	logic [127:0] wdata_128, wdata_out;
 
-/* internal signal declarations */
-logic [8:0] tag;
-logic [2:0] set;
-logic val0_out, val1_out;
-logic [8:0] tag0_out, tag1_out;
-logic [127:0] data0_out, data1_out;
-logic [127:0] indata_out, outdata_out;
-logic comp0_out, comp1_out;
-logic [127:0] modified_data;
+	assign index = cache_address[6:4];
+	assign tag = cache_address[15:7];
+	
+	array DATA_1 (.clk, .write(load_data_1), .index, .datain(data_in), .dataout(data_out_1));
+	array DATA_2 (.clk, .write(load_data_2), .index, .datain(data_in), .dataout(data_out_2));
+	
+	array #(.width(9)) TAG_1 (.clk, .write(load_data_1), .index, .datain(tag), .dataout(tag_out_1));
+	array #(.width(9)) TAG_2 (.clk, .write(load_data_2), .index, .datain(tag), .dataout(tag_out_2));
+	
+	array #(.width(1)) VALID_1 (.clk, .write(load_data_1), .index, .datain(1'b1), .dataout(valid_out_1));
+	array #(.width(1)) VALID_2 (.clk, .write(load_data_2), .index, .datain(1'b1), .dataout(valid_out_2));
+	 
+	array #(.width(1)) DIRTY_1 (.clk, .write(load_dirty_1), .index, .datain(dirty_bit), .dataout(dirty_out_1));
+	array #(.width(1)) DIRTY_2 (.clk, .write(load_dirty_2), .index, .datain(dirty_bit), .dataout(dirty_out_2));
+	
+	array #(.width(1)) LRU (.clk, .write(load_LRU), .index, .datain(LRU_in), .dataout(LRU_out));
+	
+	// Reading Process
+	
+	comparator CHECK_WAY1 (.a(tag_out_1), .b(tag), .f(way1_found));
 
-/* constant signal assignments */
-assign tag = cpu_address[11:3];
-assign set = cpu_address[2:0];
-assign mem_wdata = outdata_out;
-assign cpu_rdata = outdata_out;
-assign hit0 = val0_out & comp0_out;
-assign hit1 = val1_out & comp1_out;
-
-array #(.width(1)) lru
-(
-	.clk,
-	.write(lru_we),
-	.index(set),
-	.datain(lru_in),
-	.dataout(lru_out)
-);
-array #(.width(1)) valid0
-(
-	.clk,
-	.write(write0),
-	.index(set),
-	.datain(val_in),
-	.dataout(val0_out)
-);
-array #(.width(1)) valid1
-(
-	.clk,
-	.write(write1),
-	.index(set),
-	.datain(val_in),
-	.dataout(val1_out)
-);
-array #(.width(1)) dirty0
-(
-	.clk,
-	.write(write0),
-	.index(set),
-	.datain(dir_in),
-	.dataout(dir0_out)
-);
-array #(.width(1)) dirty1
-(
-	.clk,
-	.write(write1),
-	.index(set),
-	.datain(dir_in),
-	.dataout(dir1_out)
-);
-array #(.width(9)) tag0
-(
-	.clk,
-	.write(write0),
-	.index(set),
-	.datain(tag),
-	.dataout(tag0_out)
-);
-array #(.width(9)) tag1
-(
-	.clk,
-	.write(write1),
-	.index(set),
-	.datain(tag),
-	.dataout(tag1_out)
-);
-array data0
-(
-	.clk,
-	.write(write0),
-	.index(set),
-	.datain(indata_out),
-	.dataout(data0_out)
-);
-array data1
-(
-	.clk,
-	.write(write1),
-	.index(set),
-	.datain(indata_out),
-	.dataout(data1_out)
-);
-
-comparator comp0_9b
-(
-	.a(tag),
-	.b(tag0_out),
-	.eq(comp0_out),
-	.lt(),
-	.gt()
-);
-comparator comp1_9b
-(
-	.a(tag),
-	.b(tag1_out),
-	.eq(comp1_out),
-	.lt(),
-	.gt()
-);
-
-cache_datamod modify_outdata
-(
-	.in(outdata_out),
-	.wdata(cpu_wdata),
-	.insel(cpu_wb_sel),
-	.out(modified_data)
-);
-
-mux4 #(.width(12)) memaddr_mux
-(
-	.sel(memaddr_muxsel),
-	.a(cpu_address),
-	.b({tag0_out,set}),
-	.c({tag1_out,set}),
-	.d(),
-	.f(mem_address)
-);
-mux2 #(.width(128)) outdata_mux
-(
-	.sel(outdata_muxsel),
-	.a(data0_out),
-	.b(data1_out),
-	.f(outdata_out)
-);
-mux2 #(.width(128)) indata_mux
-(
-	.sel(indata_muxsel),
-	.a(mem_rdata),
-	.b(modified_data),
-	.f(indata_out)
-);
-
+	comparator CHECK_WAY2 (.a(tag_out_2), .b(tag), .f(way2_found));
+	
+	assign way1_hit = way1_found && valid_out_1;
+	
+	assign way2_hit = way2_found && valid_out_2;
+	
+	assign read_hit = (way1_hit || way2_hit) && cache_read;
+	
+	mux2 #(.width(128)) DATA_READ (.sel(~way1_hit && way2_hit), .a(data_out_1), .b(data_out_2), .z(data_out));
+	
+	mux2 #(.width(128)) DATA_WRITE (.sel(LRU_out), .a(data_out_1), .b(data_out_2), .z(wdata_out));
+	
+	extract_16 READ_WORD (.data_128(data_out), .sel_mask, .data_16(cache_rdata));
+	
+	// Writing Process
+	
+	mux2 #(.width(9)) TAG_OUT (.sel(LRU_out), .a(tag_out_1), .b(tag_out_2), .z(tag_out));
+	
+	mux2 #(.width(1)) DIRTY_OUT (.sel(~way1_hit && way2_hit), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
+	
+	assign write_hit = (way1_hit || way2_hit) && cache_write; 
+	
+	extend_128 WRITE_WORD (.data_old_128(data_out), .sel_mask, .data_16(cache_wdata), .data_new_128(wdata_128));
+	
+	assign mem_wdata = wdata_out;
+	
+	mux2 #(.width(128)) DATA_IN (.sel(R_W), .a(mem_rdata), .b(wdata_128), .z(data_in));
+	
+	mux2 #(.width(16)) MEM_ADDRESS (.sel(R_W), .a(cache_address), .b({{tag_out}, {index}, 4'h0}), .z(mem_address));
+	
+	assign mem_byte_enable = 2'b11;
+	
 endmodule : cache_datapath

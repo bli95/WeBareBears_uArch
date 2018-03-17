@@ -55,35 +55,6 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
 set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH dcache_phys_mainpc_tb -section_id eda_simulation
-set_global_assignment -name SYSTEMVERILOG_FILE pcmux_ctrlr.sv
-set_global_assignment -name SYSTEMVERILOG_FILE pipeline.sv
-set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
-set_global_assignment -name SYSTEMVERILOG_FILE gencc.sv
-set_global_assignment -name SDC_FILE mainpc.out.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE cache_control.sv
-set_global_assignment -name SYSTEMVERILOG_FILE comparator.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cache_datapath.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cpu_datapath.sv
-set_global_assignment -name SYSTEMVERILOG_FILE adj_add_pc.sv
-set_global_assignment -name SYSTEMVERILOG_FILE ext.sv
-set_global_assignment -name SYSTEMVERILOG_FILE wishbone.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mux4.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cache.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mux8.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mux2.sv
-set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE adj.sv
-set_global_assignment -name SYSTEMVERILOG_FILE array.sv
-set_global_assignment -name SYSTEMVERILOG_FILE register.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cpu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE regfile.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mainpc.sv
-set_global_assignment -name SYSTEMVERILOG_FILE plus.sv
-set_global_assignment -name SYSTEMVERILOG_FILE control_rom.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cache_datamod.sv
-set_global_assignment -name SYSTEMVERILOG_FILE cpu_rwmod.sv
-set_global_assignment -name SYSTEMVERILOG_FILE dcache_ctrlr.sv
-set_global_assignment -name SYSTEMVERILOG_FILE special_db_comps.sv
 set_global_assignment -name EDA_TEST_BENCH_NAME magicmem_mainpc_tb -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id magicmem_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id magicmem_mainpc_tb
@@ -97,4 +68,36 @@ set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -secti
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/dcache_phys_mainpc_tb.sv -section_id dcache_phys_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id dcache_phys_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id dcache_phys_mainpc_tb
+set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pcmux_ctrlr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE pipeline.sv
+set_global_assignment -name SYSTEMVERILOG_FILE gencc.sv
+set_global_assignment -name SDC_FILE mainpc.out.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE cpu_datapath.sv
+set_global_assignment -name SYSTEMVERILOG_FILE adj_add_pc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ext.sv
+set_global_assignment -name SYSTEMVERILOG_FILE wishbone.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mux4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mux8.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mux2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE adj.sv
+set_global_assignment -name SYSTEMVERILOG_FILE register.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cpu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE regfile.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mainpc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE plus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE control_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cache_datamod.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cpu_rwmod.sv
+set_global_assignment -name SYSTEMVERILOG_FILE dcache_ctrlr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE special_db_comps.sv
+set_global_assignment -name SYSTEMVERILOG_FILE extract_16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE extend_128.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cache_control.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cache_datapath.sv
+set_global_assignment -name SYSTEMVERILOG_FILE array.sv
+set_global_assignment -name SYSTEMVERILOG_FILE comparator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE sel_bytes.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

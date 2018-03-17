@@ -3,23 +3,24 @@ module mainpc(
 	wishbone.master dbus
 );
 
-//wishbone cpu_cache(mem.CLK);
+wishbone cpu_dcache(dbus.CLK);
+wishbone cpu_icache(ibus.CLK);
 
 cpu main_cpu(
-	.icache(ibus),
-	.dcache(dbus)
+	.icache(cpu_icache),
+	.dcache(cpu_dcache)
 );
 
-//cache icache
-//(
-//	.cpu(cpu_cache),
-//	.mem
-//);
-//
-//cache dcache
-//(
-//	
-//);
+cache icache
+(
+	.sb(cpu_icache),
+	.wb(ibus)
+);
+
+cache dcache(
+	.sb(cpu_dcache),
+	.wb(dbus)
+);
 
 //cache l2cache
 //(

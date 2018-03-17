@@ -1,0 +1,30 @@
+__date__, Define
+__file__, Define
+__line__, Define
+__time__, Define
+__version_3__, Define
+__version__, Define
+code, Label, 4x0, 4x0
+l2p, Label, 4x1E, 4x1E
+l3p, Label, 4x20, 4x20
+line1, Label, 4x40, 4x0
+line2, Label, 4xC0, 4x0
+line3, Label, 4x140, 4x0
+stop, Label, 4x1C, 4x1C
+x0, Label, 4x40, 4x0
+y0, Label, 4xC0, 4x0
+y1, Label, 4xC2, 4x2
+y2, Label, 4xC4, 4x4
+y3, Label, 4xC6, 4x6
+y4, Label, 4xC8, 4x8
+y5, Label, 4xCA, 4xA
+y6, Label, 4xCC, 4xC
+y7, Label, 4xCE, 4xE
+z0, Label, 4x140, 4x0
+z1, Label, 4x142, 4x2
+z2, Label, 4x144, 4x4
+z3, Label, 4x146, 4x6
+z4, Label, 4x148, 4x8
+z5, Label, 4x14A, 4xA
+z6, Label, 4x14C, 4xC
+z7, Label, 4x14E, 4xE

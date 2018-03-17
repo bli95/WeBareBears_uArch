@@ -9,20 +9,20 @@ logic clk;
 initial clk = 0;
 always #5 clk = ~clk;
 
-wishbone cpu_icache(clk);
-wishbone cpu_dcache(clk);
+wishbone icache_mem(clk);
+wishbone dcache_mem(clk);
 
 mainpc WeBareBears(
-	.ibus(cpu_icache),
-	.dbus(cpu_dcache)
+	.ibus(icache_mem),
+	.dbus(dcache_mem)
 );
 
-magic_memory mmemory(
-	.wb(cpu_icache)
+physical_memory imemory(
+	.wb(icache_mem)
 );
 
-physical_memory pmemory(
-	.wb(cpu_dcache)
+physical_memory dmemory(
+	.wb(dcache_mem)
 );
 
 endmodule : dcache_phys_mainpc_tb
