@@ -18,6 +18,7 @@ entity cache_datapath is
         write_hit       : out    vl_logic;
         LRU_out         : out    vl_logic;
         dirty_out       : out    vl_logic;
+        data_out        : out    vl_logic_vector(127 downto 0);
         mem_rdata       : in     vl_logic_vector(127 downto 0);
         mem_address     : out    vl_logic_vector(15 downto 0);
         mem_wdata       : out    vl_logic_vector(127 downto 0);

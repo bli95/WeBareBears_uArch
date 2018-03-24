@@ -12,6 +12,7 @@ module cache_datapath
 	output way1_hit, way2_hit,
 	output read_hit, write_hit,
 	output LRU_out, dirty_out,
+	output [127:0] data_out,
 							  
 	input [127:0] mem_rdata,
 	output lc3b_word mem_address,
@@ -33,7 +34,7 @@ module cache_datapath
 	logic way1_found, way2_found;
 	logic [8:0] tag_out_1, tag_out_2, tag_out;
 	logic [127:0] data_in;
-	logic [127:0] data_out_1, data_out_2, data_out;
+	logic [127:0] data_out_1, data_out_2;
 	logic [127:0] wdata_128, wdata_out;
 
 	assign index = cache_address[6:4];

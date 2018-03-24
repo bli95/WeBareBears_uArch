@@ -14,8 +14,8 @@ always #5 clk = ~clk;
 
 wishbone icache_arbiter(clk);
 wishbone dcache_arbiter(clk);
-
-wishbone arbiter_mem(clk);
+wishbone arbiter_L2cache(clk);
+wishbone L2cache_mem(clk);
 
 mainpc WeBareBears(
 	.ibus(icache_arbiter),
@@ -33,11 +33,16 @@ mainpc WeBareBears(
 arbiter sel_cache(
 	.icache_arbiter,
 	.dcache_arbiter,
-	.arbiter_mem
+	.arbiter_L2cache
+);
+
+cache L2_cache(
+	.wb(L2cache_mem),
+	.sb(arbiter_L2cache)
 );
 
 physical_memory mem(
-	.wb(arbiter_mem)
+	.wb(L2cache_mem)
 );
 
 endmodule : dcache_phys_mainpc_tb

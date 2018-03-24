@@ -1,4 +1,4 @@
-# do /tmp/tmp.QrMpcEUFGG/do.do 
+# do /tmp/tmp.xpiTMDQohp/do.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -6,43 +6,43 @@
 # vmap work rtl_work
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/lc3b_types.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/lc3b_types.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package lc3b_types
 # 
 # Top level modules:
 # 	--none--
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/wishbone.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/wishbone.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling interface wishbone
 # 
 # Top level modules:
 # 	--none--
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/mux4.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/mux4.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module mux4
 # 
 # Top level modules:
 # 	mux4
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/mux2.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/mux2.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module mux2
 # 
 # Top level modules:
 # 	mux2
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/register.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/register.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module register
 # 
 # Top level modules:
 # 	register
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/plus.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/plus.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module plus
 # 
 # Top level modules:
 # 	plus
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/special_db_comps.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/special_db_comps.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module eq_and_neq_comp
 # -- Compiling module band_and_neq_comp
@@ -50,7 +50,7 @@
 # Top level modules:
 # 	eq_and_neq_comp
 # 	band_and_neq_comp
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cache_control.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cache_control.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cache_control_sv_unit
 # -- Importing package lc3b_types
@@ -58,7 +58,7 @@
 # 
 # Top level modules:
 # 	cache_control
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/array.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/array.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package array_sv_unit
 # -- Importing package lc3b_types
@@ -66,13 +66,13 @@
 # 
 # Top level modules:
 # 	array
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/comparator.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/comparator.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module comparator
 # 
 # Top level modules:
 # 	comparator
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package pcmux_ctrlr_sv_unit
 # -- Importing package lc3b_types
@@ -80,7 +80,7 @@
 # 
 # Top level modules:
 # 	pcmux_ctrlr
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/pipeline.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/pipeline.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package pipeline_sv_unit
 # -- Importing package lc3b_types
@@ -94,7 +94,7 @@
 # 	idex_pipe
 # 	exme_pipe
 # 	mewb_pipe
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/gencc.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/gencc.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package gencc_sv_unit
 # -- Importing package lc3b_types
@@ -102,7 +102,7 @@
 # 
 # Top level modules:
 # 	gencc
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/adj_add_pc.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/adj_add_pc.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package adj_add_pc_sv_unit
 # -- Importing package lc3b_types
@@ -110,7 +110,7 @@
 # 
 # Top level modules:
 # 	adj_add_pc
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/ext.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/ext.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package ext_sv_unit
 # -- Importing package lc3b_types
@@ -118,7 +118,7 @@
 # 
 # Top level modules:
 # 	ext
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/alu.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/alu.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package alu_sv_unit
 # -- Importing package lc3b_types
@@ -126,7 +126,7 @@
 # 
 # Top level modules:
 # 	alu
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/adj.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/adj.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package adj_sv_unit
 # -- Importing package lc3b_types
@@ -134,7 +134,7 @@
 # 
 # Top level modules:
 # 	adj
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/regfile.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/regfile.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package regfile_sv_unit
 # -- Importing package lc3b_types
@@ -142,7 +142,7 @@
 # 
 # Top level modules:
 # 	regfile
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/control_rom.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/control_rom.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package control_rom_sv_unit
 # -- Importing package lc3b_types
@@ -150,7 +150,7 @@
 # 
 # Top level modules:
 # 	control_rom
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cpu_rwmod.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cpu_rwmod.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cpu_rwmod_sv_unit
 # -- Importing package lc3b_types
@@ -158,7 +158,7 @@
 # 
 # Top level modules:
 # 	cpu_rwmod
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/dcache_ctrlr.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/dcache_ctrlr.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package dcache_ctrlr_sv_unit
 # -- Importing package lc3b_types
@@ -166,7 +166,7 @@
 # 
 # Top level modules:
 # 	dcache_ctrlr
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/extract_16.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/extract_16.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package extract_16_sv_unit
 # -- Importing package lc3b_types
@@ -174,7 +174,7 @@
 # 
 # Top level modules:
 # 	extract_16
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/extend_128.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/extend_128.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package extend_128_sv_unit
 # -- Importing package lc3b_types
@@ -182,7 +182,7 @@
 # 
 # Top level modules:
 # 	extend_128
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/sel_bytes.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/sel_bytes.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package sel_bytes_sv_unit
 # -- Importing package lc3b_types
@@ -190,7 +190,7 @@
 # 
 # Top level modules:
 # 	sel_bytes
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cpu_datapath.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cpu_datapath_sv_unit
 # -- Importing package lc3b_types
@@ -198,7 +198,7 @@
 # 
 # Top level modules:
 # 	cpu_datapath
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cache_datapath.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cache_datapath.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cache_datapath_sv_unit
 # -- Importing package lc3b_types
@@ -206,7 +206,7 @@
 # 
 # Top level modules:
 # 	cache_datapath
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cpu.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cpu.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cpu_sv_unit
 # -- Importing package lc3b_types
@@ -214,7 +214,7 @@
 # 
 # Top level modules:
 # 	cpu
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/cache.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/cache.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package cache_sv_unit
 # -- Importing package lc3b_types
@@ -222,20 +222,20 @@
 # 
 # Top level modules:
 # 	cache
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/mainpc.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/mainpc.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module mainpc
 # 
 # Top level modules:
 # 	mainpc
 # 
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/physical_memory.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/physical_memory.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module physical_memory
 # 
 # Top level modules:
 # 	physical_memory
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/magic_memory_dual_port.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/magic_memory_dual_port.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module magic_memory_dual_port
 # -- Compiling module magic_memory
@@ -243,13 +243,13 @@
 # Top level modules:
 # 	magic_memory_dual_port
 # 	magic_memory
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode/../testbenches {/home/hornits2/ece411/mp3/srccode/../testbenches/dcache_phys_mainpc_tb.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode/../testbenches {/home/hornits2/ece411/webarebears/srccode/../testbenches/dcache_phys_mainpc_tb.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module dcache_phys_mainpc_tb
 # 
 # Top level modules:
 # 	dcache_phys_mainpc_tb
-# vlog -sv -work work +incdir+/home/hornits2/ece411/mp3/srccode {/home/hornits2/ece411/mp3/srccode/arbiter.sv}
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/arbiter.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package arbiter_sv_unit
 # -- Importing package lc3b_types
@@ -276,6 +276,8 @@
 # Loading work.mux4
 # Loading work.register
 # Loading work.plus
+# Loading work.extract_16_sv_unit
+# Loading work.extract_16
 # Loading work.pipeline_sv_unit
 # Loading work.ifid_pipe
 # Loading work.ext_sv_unit
@@ -309,8 +311,6 @@
 # Loading work.array_sv_unit
 # Loading work.array
 # Loading work.comparator
-# Loading work.extract_16_sv_unit
-# Loading work.extract_16
 # Loading work.extend_128_sv_unit
 # Loading work.extend_128
 # Loading work.cache_control_sv_unit
@@ -323,55 +323,110 @@
 #view structure
 #view signals
 # add list -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data}
-# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
-# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
-# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
-# ** Error: Cannot lock WLF file: "vsim.wlf"
-#           errno 11: Resource temporarily unavailable.
-# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
-#           File in use by: hornits2  Hostname: linux-18.ews.illinois.edu  ProcessID: 2994
-#           Attempting to use alternate WLF file "./wlftUTTFVC".
-# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftUTTFVC
 # run 5000ns
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/mp3/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# write list /tmp/tmp.QrMpcEUFGG/test_list.lst
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux4.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# write list /tmp/tmp.xpiTMDQohp/test_list.lst
 # exit

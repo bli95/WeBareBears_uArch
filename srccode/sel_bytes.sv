@@ -27,7 +27,12 @@ module sel_bytes
 			end
 			4'h1:
 			begin
-				sel_mask = 16'h0002;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0002;
+				end
+				else begin
+					sel_mask = 16'h0003;
+				end
 			end
 			4'h2: 
 			begin
@@ -46,7 +51,12 @@ module sel_bytes
 			end
 			4'h3:
 			begin
-				sel_mask = 16'h0008;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0008;
+				end
+				else begin 
+					sel_mask = 16'h000c;
+				end
 			end
 			4'h4:
 			begin
@@ -65,7 +75,12 @@ module sel_bytes
 			end
 			4'h5:
 			begin
-				sel_mask = 16'h0020;
+			   if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0020;
+				end
+				else begin
+					sel_mask = 16'h0030;
+				end
 			end
 			4'h6: 
 			begin
@@ -84,7 +99,12 @@ module sel_bytes
 			end
 			4'h7:
 			begin
-				sel_mask = 16'h0080;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0080;
+				end
+				else begin
+					sel_mask = 16'h00c0;
+				end
 			end
 			4'h8:
 			begin
@@ -103,7 +123,12 @@ module sel_bytes
 			end
 			4'h9:
 			begin
-				sel_mask = 16'h0200;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0200;
+				end
+				else begin
+					sel_mask = 16'h0300;
+				end
 			end
 			4'ha:
 			begin
@@ -122,7 +147,12 @@ module sel_bytes
 			end
 			4'hb:
 			begin
-				sel_mask = 16'h0800;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h0800;
+				end
+				else begin
+					sel_mask = 16'h0c00;
+				end
 			end
 			4'hc: 
 			begin
@@ -141,7 +171,12 @@ module sel_bytes
 			end
 			4'hd:
 			begin
-				sel_mask = 16'h2000;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h2000;
+				end
+				else begin
+					sel_mask = 16'h3000;
+				end
 			end
 			4'he: 
 			begin
@@ -160,7 +195,12 @@ module sel_bytes
 			end
 			4'hf:
 			begin
-				sel_mask = 16'h8000;
+				if (mem_byte_enable != 2'b11) begin
+					sel_mask = 16'h8000;
+				end
+				else begin
+					sel_mask = 16'hc000;
+				end
 			end
 			default: sel_mask = 16'hxxxx;
 		endcase

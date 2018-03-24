@@ -3,12 +3,14 @@ import lc3b_types::*;
 module cpu_datapath
 (
    input clk,
+	input lc3b_word isel_mask, dsel_mask,
 	// only signals to L1 caches are external
 	input icache_resp,
 	input lc3b_datbus icache_rdata,
 	input dcache_resp,
 	input lc3b_datbus dcache_rdata,
 	
+	output lc3b_sel exme_sel,
 	output lc3b_word icache_addr,
 	output logic icache_read,
 	output lc3b_word dcache_addr,
@@ -39,16 +41,16 @@ lc3b_word idex_next_pc, idex_pc_offset, idex_imm_val, br_adder_out, aluBmux_out;
 lc3b_word alu_out, stb_datmod_out, jsrmux_out, jmpmux_out, marmux_out, idex_regA, idex_regB;
 logic br_en, jmp_en;
 lc3b_reg idex_dest, idex_src1, idex_src2;
-lc3b_sel stb_datmod_sel;
 lc3b_control_word idex_ctrl_word;
 
 lc3b_word exme_next_pc, exme_mar, exme_mdr, dcaddrmux_out, ldb_datmod_out, wbdatamux_out, returned_data, phase2_addr;
-lc3b_sel exme_sel;
+//lc3b_sel exme_sel;
 logic dcaddrmux_sel, stall1, stall2;
 lc3b_reg exme_dest, exme_src1, exme_src2;
 lc3b_nzp cc_out;
 lc3b_control_word exme_ctrl_word;
 
+lc3b_sel stb_datmod_sel;
 lc3b_word mewb_wbdata; 
 lc3b_reg mewb_dest, mewb_src1, mewb_src2, destmux_out;
 lc3b_control_word mewb_ctrl_word;
@@ -66,7 +68,8 @@ plus pc_incr_2 (.in(pc_out), .out(pc_plus2_out));
 
 assign icache_addr = pc_out;
 assign icache_read = 1;
-assign instruction = lc3b_word'(icache_rdata >> {icache_addr[3:1],4'h0});
+extract_16 GET_INSTRUCTION (icache_rdata, isel_mask, instruction);
+//assign instruction = lc3b_word'(icache_rdata >> {icache_addr[3:1],4'h0});
 
 /* IF/ID PIPELINE */
 ifid_pipe IF_ID (.clk, .load(~stall1 && ~stall2), .reset((rst1 | rst2) && (~stall1 && ~stall2)), .*);
@@ -121,8 +124,9 @@ dcache_ctrlr stldtr_ctrl (.clk, .opcode(exme_ctrl_word.opcode), .rw_resp(dcache_
 
 assign dcache_addr = dcaddrmux_out;
 assign dcache_wdata = {8{exme_mdr}}; //<< {dcaddrmux_out[3:1],4'h0};
-assign dcache_byte_en = exme_sel << {dcaddrmux_out[3:1],1'b0};
-assign returned_data = lc3b_word'(dcache_rdata >> {dcaddrmux_out[3:1],4'h0});
+assign dcache_byte_en = dsel_mask;//exme_sel << {dcaddrmux_out[3:1],1'b0};
+extract_16 GET_DATA (dcache_rdata, dsel_mask, returned_data);
+//assign returned_data = lc3b_word'(dcache_rdata >> {dcaddrmux_out[3:1],4'h0});
 
 /* ME_WB REGISTER */
 mewb_pipe ME_WB (.clk, .load(~stall1), .reset(1'b0), .*);

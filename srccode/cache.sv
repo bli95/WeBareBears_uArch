@@ -22,6 +22,7 @@ module cache
 	logic [1:0] cache_byte_enable;
 	lc3b_word cache_address;
 	lc3b_word cache_rdata, cache_wdata;
+	
 		
    /* Internal signals */		
 	logic load_data_1, load_data_2;
@@ -30,6 +31,7 @@ module cache
 	logic R_W;
 	logic read_hit, write_hit;
 	logic way1_hit, way2_hit;
+	logic [127:0] data_out;
 	
 	lc3b_word sel_mask;
 		
@@ -42,7 +44,7 @@ module cache
 	assign wb.WE = mem_write;
 	assign wb.STB = (mem_read || mem_write) && !mem_done;
 	assign wb.CYC = (mem_read || mem_write) && !mem_done;
-	assign wb.SEL = 16'hffff;
+	assign wb.SEL = sel_mask;
 		
 	assign cache_read = (sb.STB && sb.CYC) && !sb.WE;
 	assign cache_write = sb.WE;
@@ -51,7 +53,7 @@ module cache
 	assign sel_mask = sb.SEL;
 		
 	assign sb.ACK = cache_resp;
-	assign sb.DAT_S = {8{cache_rdata}};
+	assign sb.DAT_S = data_out;
 	
 	cache_datapath CD (.*);
 	cache_control CC (.*);

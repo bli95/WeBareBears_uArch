@@ -4,12 +4,6 @@ add wave -noupdate /dcache_phys_mainpc_tb/clk
 add wave -noupdate /dcache_phys_mainpc_tb/clk
 add wave -noupdate /dcache_phys_mainpc_tb/clk
 add wave -noupdate /dcache_phys_mainpc_tb/clk
-add wave -noupdate /dcache_phys_mainpc_tb/clk
-add wave -noupdate /dcache_phys_mainpc_tb/clk
-add wave -noupdate /dcache_phys_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/clk
 add wave -noupdate -label reg_0 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[0]}
 add wave -noupdate -label reg_1 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[1]}
 add wave -noupdate -label reg_2 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[2]}
@@ -18,31 +12,44 @@ add wave -noupdate -label reg_4 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBar
 add wave -noupdate -label reg_5 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[5]}
 add wave -noupdate -label reg_6 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[6]}
 add wave -noupdate -label reg_7 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[7]}
-add wave -noupdate -label br_en /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/br_en
-add wave -noupdate -label idex_opcode /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ID_EX/idex_ctrl_word.opcode
+add wave -noupdate -label br_en -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/br_en
+add wave -noupdate -label idex_opcode -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ID_EX/idex_ctrl_word.opcode
 add wave -noupdate -label exme_opcode -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/EX_ME/exme_ctrl_word.opcode
 add wave -noupdate -label PC -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/pc/data
-add wave -noupdate /dcache_phys_mainpc_tb/sel_cache/state
-add wave -noupdate /dcache_phys_mainpc_tb/icache_arbiter/STB
-add wave -noupdate /dcache_phys_mainpc_tb/dcache_arbiter/STB
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/ACK
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/ADR
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/DAT_M
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/DAT_S
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/SEL
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/STB
-add wave -noupdate /dcache_phys_mainpc_tb/arbiter_mem/WE
-add wave -noupdate -label data_stall /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/stall1
-add wave -noupdate -label instruction_stall /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/stall2
+add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/exme_sel
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/dcache/cache_wdata
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/returned_data
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/dcache_rdata
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/ACK
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/ADR
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/DAT_M
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/DAT_S
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/ACK
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/SEL
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/STB
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/WE
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/ADR
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_dcache/SEL
-add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction_int
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/ACK
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/ADR
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/DAT_M
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/DAT_S
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/SEL
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/STB
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/WE
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/ACK
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/ADR
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/DAT_M
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/DAT_S
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/SEL
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/STB
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/arbiter_L2cache/WE
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/ACK
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/ADR
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/DAT_M
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/DAT_S
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/SEL
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/STB
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/L2cache_mem/WE
+add wave -noupdate -label data_stall -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/stall1
+add wave -noupdate -label instruction_stall -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/stall2
 add wave -noupdate -label dcache_way0_line0 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/dcache/CD/DATA_1/data[0]}
 add wave -noupdate -label dcache_way0_line1 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/dcache/CD/DATA_1/data[1]}
 add wave -noupdate -label dcache_way0_line2 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/dcache/CD/DATA_1/data[2]}
@@ -76,7 +83,7 @@ add wave -noupdate -label icache_way1_line5 -radix hexadecimal {/dcache_phys_mai
 add wave -noupdate -label icache_way1_line6 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/icache/CD/DATA_2/data[6]}
 add wave -noupdate -label icache_way1_line7 -radix hexadecimal {/dcache_phys_mainpc_tb/WeBareBears/icache/CD/DATA_2/data[7]}
 add wave -noupdate -label ifid_opcode -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/opcode
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ME_WB/mewb_ctrl_word.opcode
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ME_WB/mewb_ctrl_word.opcode
 add wave -noupdate -label instruction -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/DAT_M
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_icache/DAT_S
@@ -88,20 +95,20 @@ add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/cpu_ica
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/icache/cache_rdata
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/icache/CD/data_out
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/icache/CD/sel_mask
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/instruction
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/pcmux/c
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/pcmux/z
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rst1
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rst2
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ID_EX/load
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rst1
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rst2
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ID_EX/load
 add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/clk
-add wave -noupdate /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/EX_ME/exme_ctrl_word.opcode
+add wave -noupdate -radix hexadecimal /dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/EX_ME/exme_ctrl_word.opcode
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {2027276 ps} 0}
+WaveRestoreCursors {{Cursor 1} {30115313 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 389
-configure wave -valuecolwidth 104
+configure wave -namecolwidth 390
+configure wave -valuecolwidth 201
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
 configure wave -snapdistance 10
@@ -114,4 +121,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {1741963 ps} {2201606 ps}
+WaveRestoreZoom {59603971 ps} {60020844 ps}

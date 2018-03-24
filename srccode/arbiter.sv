@@ -4,7 +4,7 @@ module arbiter
 (
 	wishbone.slave icache_arbiter,
 	wishbone.slave dcache_arbiter,
-	wishbone.master arbiter_mem
+	wishbone.master arbiter_L2cache
 );
 
 	enum int unsigned {none, ireq, dreq, both, hold_single, hold_both} state, next_state;
@@ -13,10 +13,10 @@ module arbiter
 	
 	always_comb begin
 	
-		icache_arbiter.DAT_S = arbiter_mem.DAT_S;
-		dcache_arbiter.DAT_S = arbiter_mem.DAT_S;
-		icache_arbiter.ACK = arbiter_mem.ACK && ~w;
-		dcache_arbiter.ACK = arbiter_mem.ACK && (state == dreq || state == both);
+		icache_arbiter.DAT_S = arbiter_L2cache.DAT_S;
+		dcache_arbiter.DAT_S = arbiter_L2cache.DAT_S;
+		icache_arbiter.ACK = arbiter_L2cache.ACK && ~w;
+		dcache_arbiter.ACK = arbiter_L2cache.ACK && (state == dreq || state == both);
 		icache_arbiter.RTY = (icache_arbiter.ACK && icache_arbiter.STB) ? 0 : 1;
 		dcache_arbiter.RTY = (dcache_arbiter.ACK && dcache_arbiter.STB) ? 0 : 1;
 		
@@ -25,58 +25,58 @@ module arbiter
 		case(state)
 			none:
 			begin
-				arbiter_mem.STB = 0;
-				arbiter_mem.CYC = 0;
-				arbiter_mem.WE = 0;
-				arbiter_mem.ADR = 12'hxxx;
-				arbiter_mem.SEL = 16'hxxxx;
-				arbiter_mem.DAT_M = 128'dx;
+				arbiter_L2cache.STB = 0;
+				arbiter_L2cache.CYC = 0;
+				arbiter_L2cache.WE = 0;
+				arbiter_L2cache.ADR = 12'hxxx;
+				arbiter_L2cache.SEL = 16'hxxxx;
+				arbiter_L2cache.DAT_M = 128'dx;
 			end
 			ireq:
 			begin
-				arbiter_mem.STB = icache_arbiter.STB;
-				arbiter_mem.CYC = icache_arbiter.CYC;
-				arbiter_mem.WE = 0;
-				arbiter_mem.ADR = icache_arbiter.ADR;
-				arbiter_mem.SEL = icache_arbiter.SEL;
-				arbiter_mem.DAT_M = 128'dx;
+				arbiter_L2cache.STB = icache_arbiter.STB;
+				arbiter_L2cache.CYC = icache_arbiter.CYC;
+				arbiter_L2cache.WE = 0;
+				arbiter_L2cache.ADR = icache_arbiter.ADR;
+				arbiter_L2cache.SEL = icache_arbiter.SEL;
+				arbiter_L2cache.DAT_M = 128'dx;
 			end
 			dreq:
 			begin
-				arbiter_mem.STB = dcache_arbiter.STB;
-				arbiter_mem.CYC = dcache_arbiter.CYC;
-				arbiter_mem.WE = dcache_arbiter.WE;
-				arbiter_mem.ADR = dcache_arbiter.ADR;
-				arbiter_mem.SEL = dcache_arbiter.SEL;
-				arbiter_mem.DAT_M = dcache_arbiter.DAT_M;
+				arbiter_L2cache.STB = dcache_arbiter.STB;
+				arbiter_L2cache.CYC = dcache_arbiter.CYC;
+				arbiter_L2cache.WE = dcache_arbiter.WE;
+				arbiter_L2cache.ADR = dcache_arbiter.ADR;
+				arbiter_L2cache.SEL = dcache_arbiter.SEL;
+				arbiter_L2cache.DAT_M = dcache_arbiter.DAT_M;
 			end
 			both:
 			begin
-				arbiter_mem.STB = dcache_arbiter.STB;
-				arbiter_mem.CYC = dcache_arbiter.CYC;
-				arbiter_mem.WE = dcache_arbiter.WE;
-				arbiter_mem.ADR = dcache_arbiter.ADR;
-				arbiter_mem.SEL = dcache_arbiter.SEL;
-				arbiter_mem.DAT_M = dcache_arbiter.DAT_M;
+				arbiter_L2cache.STB = dcache_arbiter.STB;
+				arbiter_L2cache.CYC = dcache_arbiter.CYC;
+				arbiter_L2cache.WE = dcache_arbiter.WE;
+				arbiter_L2cache.ADR = dcache_arbiter.ADR;
+				arbiter_L2cache.SEL = dcache_arbiter.SEL;
+				arbiter_L2cache.DAT_M = dcache_arbiter.DAT_M;
 				w = 1;
 			end
 			hold_single:
 			begin
-				arbiter_mem.STB = 0;
-				arbiter_mem.CYC = 0;
-				arbiter_mem.WE = 0;
-				arbiter_mem.ADR = 12'hxxx;
-				arbiter_mem.SEL = 16'hxxxx;
-				arbiter_mem.DAT_M = 128'dx;
+				arbiter_L2cache.STB = 0;
+				arbiter_L2cache.CYC = 0;
+				arbiter_L2cache.WE = 0;
+				arbiter_L2cache.ADR = 12'hxxx;
+				arbiter_L2cache.SEL = 16'hxxxx;
+				arbiter_L2cache.DAT_M = 128'dx;
 			end
 			hold_both:
 			begin
-				arbiter_mem.STB = 0;
-				arbiter_mem.CYC = 0;
-				arbiter_mem.WE = 0;
-				arbiter_mem.ADR = 12'hxxx;
-				arbiter_mem.SEL = 16'hxxxx;
-				arbiter_mem.DAT_M = 128'dx;
+				arbiter_L2cache.STB = 0;
+				arbiter_L2cache.CYC = 0;
+				arbiter_L2cache.WE = 0;
+				arbiter_L2cache.ADR = 12'hxxx;
+				arbiter_L2cache.SEL = 16'hxxxx;
+				arbiter_L2cache.DAT_M = 128'dx;
 				w = 1;
 			end
 		endcase
@@ -102,7 +102,7 @@ module arbiter
 			end
 			ireq:
 			begin
-				if (arbiter_mem.ACK == 1'b0 && icache_arbiter.STB == 1'b1) begin
+				if (arbiter_L2cache.ACK == 1'b0 && icache_arbiter.STB == 1'b1) begin
 					next_state = ireq;
 				end
 				else if (icache_arbiter.STB == 1'b1 || dcache_arbiter.STB == 1'b0) begin
@@ -114,7 +114,7 @@ module arbiter
 			end
 			dreq:
 			begin
-				if (arbiter_mem.ACK == 1'b0 && dcache_arbiter.STB == 1'b1) begin
+				if (arbiter_L2cache.ACK == 1'b0 && dcache_arbiter.STB == 1'b1) begin
 					next_state = dreq;
 				end
 				else if (icache_arbiter.STB == 1'b1 && dcache_arbiter.STB == 1'b0) begin
@@ -126,7 +126,7 @@ module arbiter
 			end
 			both:
 			begin
-				if (arbiter_mem.ACK == 1'b0 && dcache_arbiter.STB == 1'b1) begin
+				if (arbiter_L2cache.ACK == 1'b0 && dcache_arbiter.STB == 1'b1) begin
 					next_state = both;
 				end
 				else begin
@@ -155,7 +155,7 @@ module arbiter
 		endcase
 	end
 		
-	always_ff @(posedge arbiter_mem.CLK) begin: next_state_assignment
+	always_ff @(posedge arbiter_L2cache.CLK) begin: next_state_assignment
 		state <= next_state;
 	end
 	
