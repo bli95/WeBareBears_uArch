@@ -14,7 +14,7 @@ begin
 	ctrl.adjmux_sel = 1'b0;
 	ctrl.sr1mux_sel = 1'b0;
 	ctrl.sr2mux_sel = 1'b0;
-	ctrl.immmux_sel = 2'b00;
+	ctrl.immmux_sel = 2'b00;	
 	ctrl.regAmux_sel = 1'b0;
 	ctrl.aluBmux_sel = 1'b0;
 	ctrl.aluop = alu_pass;

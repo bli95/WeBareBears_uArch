@@ -41,6 +41,8 @@ lc3b_word idex_next_pc, idex_pc_offset, idex_imm_val, br_adder_out, aluBmux_out;
 lc3b_word alu_out, stb_datmod_out, jsrmux_out, jmpmux_out, marmux_out, idex_regA, idex_regB;
 logic br_en, jmp_en;
 lc3b_reg idex_dest, idex_src1, idex_src2;
+logic [1:0] fwdAmux_sel, fwdBmux_sel;
+lc3b_word fwdAmux_out, fwdBmux_out;
 lc3b_control_word idex_ctrl_word;
 
 lc3b_word exme_next_pc, exme_mar, exme_mdr, dcaddrmux_out, ldb_datmod_out, wbdatamux_out, returned_data, phase2_addr;
@@ -102,13 +104,18 @@ idex_pipe ID_EX (.clk, .load(~stall1 && ~stall2), .reset((rst1 | rst2) && (~stal
 adj_add_pc pc_branch (.pc_in(idex_next_pc), .adj_in(idex_pc_offset), .add_out(br_adder_out));
 band_and_neq_comp brcomp (.a(idex_dest), .b(cc_out), .c(idex_dest), .d(3'b000), .true(br_en));
 eq_and_neq_comp jmpcomp (.a(idex_src1), .b(3'b111), .c(idex_ctrl_word.opcode), .d(4'b1100), .true(jmp_en));
-alu alu (.aluop(idex_ctrl_word.aluop), .a(idex_regA), .b(aluBmux_out), .f(alu_out));
+alu alu (.aluop(idex_ctrl_word.aluop), .a(fwdAmux_out), .b(fwdBmux_out), .f(alu_out));
 cpu_rwmod stb_datmod (.in(idex_regB), .opcode(idex_ctrl_word.opcode), .lsb(alu_out[0]), .wrsel(stb_datmod_sel), .out(stb_datmod_out));
 
 mux2 aluBmux (.sel(idex_ctrl_word.aluBmux_sel), .a(idex_regB), .b(idex_imm_val), .z(aluBmux_out)); 
 mux2 jmpmux (.sel(jmp_en), .a(idex_regA), .b(idex_next_pc), .z(jmpmux_out));
 mux2 jsrmux (.sel(idex_ctrl_word.jsrmux_sel), .a(jmpmux_out), .b(br_adder_out), .z(jsrmux_out)); 
 mux4 marmux (.sel(idex_ctrl_word.marmux_sel), .a(alu_out), .b(br_adder_out), .c(idex_next_pc), .d(), .z(marmux_out));
+
+/* FORWARDING */
+fwd_unit fwd (.exme_ld_dest(exme_ctrl_word.load_dst), .mewb_ld_dest(mewb_ctrl_word.load_dst), .idex_opcode(idex_ctrl_word.opcode), .exme_opcode(exme_ctrl_word.opcode), .mewb_opcode(mewb_ctrl_word.opcode),.*);
+mux4 fwdAmux (.sel(fwdAmux_sel), .a(idex_regA), .b(exme_mar), .c(mewb_wbdata), .d(16'hxxxx), .z(fwdAmux_out));
+mux4 fwdBmux (.sel(fwdBmux_sel), .a(aluBmux_out), .b(exme_mar), .c(mewb_wbdata), .d(16'hxxxx), .z(fwdBmux_out));
 
 /* EX/ME REGISTER */
 exme_pipe EX_ME (.clk, .load(~stall1 && ~stall2), .reset((rst2) && (~stall1 && ~stall2)), .*);
