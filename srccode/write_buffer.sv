@@ -3,87 +3,95 @@ import lc3b_types::*;
 module write_buffer
 (
 	input logic [127:0] wdata,
-	input logic [11:0] w_address, r_address,
-	input logic mem_ack, w_req, r_req,
+	input logic [11:0] w_address,
+	input logic mem_ack, w_req, 
 	
-	output logic [127:0] rdata,
-	output logic EWB_ack, EWB_data_found,
+	output logic EWB_ack,
 );
 
-	logic [127:0] data_out_1, data_out_2;
-	logic [11:0] addr_out_1, addr_out_2;
-	logic valid_1, valid_2;
+	logic [127:0] data_1;
+	logic [11:0] addr_1;
+	logic valid_1, load_1;
 	
-	enum int unsigned {hold, imm_write, wait_write} state, next_state;
+	enum int unsigned {hold_nbd, hold_sbd, mem_write, mem_break} state, next_state;
 	
 	always_comb begin
-	
-		EWB_ack = 1'b0;
+		
+		load_1 = 1'b0;
 		EWB_data_found = 1'b0;
 	
 		case(state)
-			hold:
+			hold_nbd:
+			begin
+				if (w_req) begin
+					load_1 = 1'b1;
+					EWB_ack = 1'b1;
+				end
+				else begin
+					EWB_ack = 1'b0;
+				end
+			end
+			hold_sbd:
 			begin
 				EWB_ack = 1'b0;
 			end
-			imm_read:
+			mem_write:
 			begin
-				EWB_ack = 1'b1;
+				if (mem_ack) begin
+					EWB_ack = 1'b1;
+				end
+				else begin
+					EWB_ack = 1'b0;
+				end
 			end
-			imm_write:
-			begin
-				EWB_ack = 1'b1;
-			end
-			wait_write:
+			mem_break:
 			begin
 				EWB_ack = 1'b0;
 			end
 		endcase
-		
 	end
 	
 	always_comb begin
 		
 		case(state)
-			hold:
+			hold_nbd:
 			begin
-				if (r_req && (((r_address == addr_out_1) && valid_1) || ((r_address == addr_out_2) && valid_2)))) begin
-					next_state = imm_read;
-				end
-				else if (w_req && (!valid_1 || !valid_2)) begin
-					next_state = imm_wait;
-				end
-				else if (valid_1 || valid_2) begin
-					next_state = wait_write;
+				if (w_req) begin
+					next_state = mem_break;
 				end
 				else begin
-					next_state = hold;
+					next_state = hold_nbd;
 				end
 			end
-			imm_read:
+			hold_sbd:
 			begin
-				next_state = hold;
+				if (mem_ack) begin
+					next_state = mem_write;
+				end
+				else begin
+					next_state = hold_sbd;
+				end
 			end
-			imm_write:
+			mem_write:
 			begin
-				next_state = hold;
+				if (mem_ack) begin
+					next_state = mem_break;
+				end
+				else begin
+					next_state = mem_write;
+				end
 			end
-			wait_write:
+			mem_break:
 			begin
-				if (
+				next_state = hold_sbd;
 			end
-			
-			
-				
-	
-	
+		endcase
+	end
 	
 	register #(.width(1)) EWB_VALID_1 (.clk, .load(load_1), .in(), .out(valid_1));
-	register #(.width(1)) EWB_VALID_2 (.clk, .load(load_2), .in(), .out(valid_2));
 	
 	register #(.width(12)) EWB_ADDR_1 (.clk, .load(load_1), .in(w_address), .out(addr_out_1));
-	register #(.width(12)) EWB_ADDR_2 (.clk, .load(load_2), .in(w_address), .out(addr_out_2));
 
 	register #(.width(128)) EWB_DATA_1 (.clk, .load(load_1), .in(wdata), .out(data_out_1));
-	register #(.width(128)) EWB_DATA_2 (.clk, .load(load_2), .in(wdata), .out(data_out_2));
 
+endmodule : write_buffer
