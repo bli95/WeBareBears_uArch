@@ -16,10 +16,12 @@ module cache_control
 	output logic load_data_1, load_data_2,
 	output logic dirty_bit,
 	output logic load_dirty_1, load_dirty_2,
-	output logic load_LRU, LRU_in
+	output logic load_LRU, LRU_in,
+	output logic got_hit_likah_bih, miss_me_wifdat_bs
 );
 								 
 	enum int unsigned {hold, read_mem, write_mem, mem_break} state, next_state;
+	logic visited_miss_state = 0;
 		
 	always_comb begin
 			
@@ -88,6 +90,28 @@ module cache_control
 			end
 		endcase
 			
+	end
+	
+	always_ff @(posedge clk)
+	begin
+		miss_me_wifdat_bs = 0;
+		got_hit_likah_bih = 0;
+		
+		case(state)
+			hold: begin
+				if (read_hit | write_hit) begin
+					if (visited_miss_state) begin
+						miss_me_wifdat_bs = 1;
+						visited_miss_state = 0;		// reset so that very next req, if hit, won't be mistaken for a miss
+					end
+					else
+						got_hit_likah_bih = 1;
+				end
+			end
+			read_mem:
+				visited_miss_state = 1;	// assumes that any cache miss would cause this state to be visited at some point
+			default: ;
+		endcase
 	end
 			
 	always_comb begin

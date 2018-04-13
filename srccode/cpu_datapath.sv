@@ -9,6 +9,7 @@ module cpu_datapath
 	input lc3b_datbus icache_rdata,
 	input dcache_resp,
 	input lc3b_datbus dcache_rdata,
+	input lc3b_word counter_val_out,
 	
 	output lc3b_sel exme_sel,
 	output lc3b_word icache_addr,
@@ -17,7 +18,13 @@ module cpu_datapath
 	output lc3b_datbus dcache_wdata,
 	output logic dcache_we_on_req,
 	output lc3b_word dcache_byte_en,
-	output logic dcache_mem_req
+	output logic dcache_mem_req,
+	
+	output lc3b_word phase2_addr,
+	output logic sti_zero_cntr,
+	output logic br_in_exstage,
+	output logic br_en_in_exstage,
+	output logic global_stall
 );
 
 /* INTERNAL SIGNALS */
@@ -46,9 +53,9 @@ logic [1:0] fwdCmux_sel;
 lc3b_word fwdAmux_out, fwdBmux_out, fwdCmux_out;
 lc3b_control_word idex_ctrl_word;
 
-lc3b_word exme_next_pc, exme_mar, exme_mdr, dcaddrmux_out, ldb_datmod_out, wbdatamux_out, returned_data, phase2_addr;
+lc3b_word exme_next_pc, exme_mar, exme_mdr, dcaddrmux_out, dcdatamux_out, wbdatamux_out, returned_data;
 //lc3b_sel exme_sel;
-logic dcaddrmux_sel, stall1, stall2;
+logic dcaddrmux_sel, dcdatamux_sel;
 lc3b_reg exme_dest, exme_src1, exme_src2;
 lc3b_nzp cc_out;
 lc3b_control_word exme_ctrl_word;
@@ -61,12 +68,14 @@ lc3b_control_word mewb_ctrl_word;
 logic rst1, rst2;
 assign rst1 = ((idex_ctrl_word.opcode == op_br) && br_en) || idex_ctrl_word.opcode==op_jsr || idex_ctrl_word.opcode==op_jmp;
 
+logic stall1, stall2;
 assign stall2 = ~icache_resp && idex_ctrl_word.opcode != op_jmp && idex_ctrl_word.opcode != op_jsr && ~((idex_ctrl_word.opcode == op_br) && br_en);
+assign global_stall = stall1 | stall2;
 
 /* IF STAGE */
 pcmux_ctrlr pc_ctrl (.exme_opcode(exme_ctrl_word.opcode), .idex_opcode(idex_ctrl_word.opcode), .br_en, .pcmux_sel);
-mux4 pcmux (.sel(pcmux_sel), .a(pc_plus2_out), .b(br_adder_out), .c(jsrmux_out), .d(ldb_datmod_out), .z(pcmux_out));
-register pc (.clk, .load(~stall1 && ~stall2), .in(pcmux_out), .out(pc_out));
+mux4 pcmux (.sel(pcmux_sel), .a(pc_plus2_out), .b(br_adder_out), .c(jsrmux_out), .d(returned_data), .z(pcmux_out));
+register pc (.clk, .load(~stall1 & ~stall2), .in(pcmux_out), .out(pc_out));
 plus pc_incr_2 (.in(pc_out), .out(pc_plus2_out));
 
 assign icache_addr = pc_out;
@@ -75,7 +84,7 @@ extract_16 GET_INSTRUCTION (icache_rdata, isel_mask, instruction);
 //assign instruction = lc3b_word'(icache_rdata >> {icache_addr[3:1],4'h0});
 
 /* IF/ID PIPELINE */
-ifid_pipe IF_ID (.clk, .load(~stall1 && ~stall2), .reset((rst1 | rst2) && (~stall1 && ~stall2)), .*);
+ifid_pipe IF_ID (.clk, .load(~stall1 & ~stall2), .reset((rst1 | rst2) && (~stall1 & ~stall2)), .*);
 
 /* ID STAGE */
 ext #(.width(4), .sgn(0)) zext4 (.in(ifid_imm4), .out(zext4_out));
@@ -97,12 +106,12 @@ regfile rf (.clk, .load(mewb_ctrl_word.load_dst), .in(mewb_wbdata), .src_a(sr1mu
 			.dest(destmux_out), .reg_a(reg1_out), .reg_b(reg2_out));
 			
 logic [19:0] hold_reg_out;
-register #(.width(20)) hold_reg (.clk, .load(mewb_ctrl_word.load_dst && ~stall1 && ~stall2), .in({{mewb_ctrl_word.load_dst}, {destmux_out}, {mewb_wbdata}}), .out(hold_reg_out));
+register #(.width(20)) hold_reg (.clk, .load(mewb_ctrl_word.load_dst && ~stall1 & ~stall2), .in({{mewb_ctrl_word.load_dst}, {destmux_out}, {mewb_wbdata}}), .out(hold_reg_out));
 
 control_rom ctrl_rom (.opcode, .bit_4, .bit_5, .bit_11, .ctrl(ifid_ctrl_word));
 
 /* ID/EX REGISTER */
-idex_pipe ID_EX (.clk, .load(~stall1 && ~stall2), .reset((rst1 | rst2) && (~stall1 && ~stall2)), .*);
+idex_pipe ID_EX (.clk, .load(~stall1 & ~stall2), .reset((rst1 | rst2) && (~stall1 & ~stall2)), .*);
 
 /* EX STAGE */
 adj_add_pc pc_branch (.pc_in(idex_next_pc), .adj_in(idex_pc_offset), .add_out(br_adder_out));
@@ -116,6 +125,9 @@ mux2 jmpmux (.sel(jmp_en), .a(idex_regA), .b(idex_next_pc), .z(jmpmux_out));
 mux2 jsrmux (.sel(idex_ctrl_word.jsrmux_sel), .a(jmpmux_out), .b(br_adder_out), .z(jsrmux_out)); 
 mux4 marmux (.sel(idex_ctrl_word.marmux_sel), .a(alu_out), .b(br_adder_out), .c(idex_next_pc), .d(), .z(marmux_out));
 
+assign br_in_exstage = (idex_ctrl_word.opcode == op_br) && (idex_dest != 3'b000);
+assign br_en_in_exstage = br_en;
+
 /* FORWARDING */
 fwd_unit fwd (.exme_ld_dest(exme_ctrl_word.load_dst), .mewb_ld_dest(mewb_ctrl_word.load_dst), .idex_opcode(idex_ctrl_word.opcode), .bit_5(idex_ctrl_word.aluBmux_sel), .bit_11(idex_ctrl_word.jsrmux_sel), .*);
 mux8 fwdAmux (.sel(fwdAmux_sel), .a(idex_regA), .b(exme_mar), .c(wbdatamux_out), .d(mewb_wbdata), .e(hold_reg_out[15:0]), .z(fwdAmux_out));
@@ -123,16 +135,17 @@ mux8 fwdBmux (.sel(fwdBmux_sel), .a(aluBmux_out), .b(exme_mar), .c(wbdatamux_out
 mux4 fwdCmux (.sel(fwdCmux_sel), .a(idex_regB), .b(wbdatamux_out), .c(mewb_wbdata), .d(hold_reg_out[15:0]), .z(fwdCmux_out));
 
 /* EX/ME REGISTER */
-exme_pipe EX_ME (.clk, .load(~stall1 && ~stall2), .reset((rst2) && (~stall1 && ~stall2)), .*);
+exme_pipe EX_ME (.clk, .load(~stall1 & ~stall2), .reset((rst2) && (~stall1 & ~stall2)), .*);
 
 /* ME STAGE */
 mux2 dcaddrmux (.sel(dcaddrmux_sel), .a(exme_mar), .b(phase2_addr), .z(dcaddrmux_out));
-mux4 wbdatamux (.sel(exme_ctrl_word.wbdatamux_sel), .a(exme_mar), .b(ldb_datmod_out), .c(exme_next_pc), .d(), .z(wbdatamux_out));
+mux4 wbdatamux (.sel(exme_ctrl_word.wbdatamux_sel), .a(exme_mar), .b(dcdatamux_out), .c(exme_next_pc), .d(), .z(wbdatamux_out));
 gencc cc (.in(wbdatamux_out), .load(exme_ctrl_word.load_cc), .out(cc_out));
-cpu_rwmod ldb_datmod (.in(returned_data), .opcode(exme_ctrl_word.opcode), .lsb(exme_mar[0]), .wrsel(), .out(ldb_datmod_out));
+dcache_ctrlr stldtr_ctrl (.clk, .opcode(exme_ctrl_word.opcode), .rw_resp(dcache_resp), .resp_data_addr(returned_data), .stall1, .addrmux_sel(dcaddrmux_sel), 
+                          .datamux_sel(dcdatamux_sel), .req_rw(dcache_mem_req), .wr_en(dcache_we_on_req), .phase2_addr, .rst2);
 
-dcache_ctrlr stldtr_ctrl (.clk, .opcode(exme_ctrl_word.opcode), .rw_resp(dcache_resp), .resp_data_addr(ldb_datmod_out), .stall1, .addrmux_sel(dcaddrmux_sel), 
-                          .req_rw(dcache_mem_req), .wr_en(dcache_we_on_req), .phase2_addr, .rst2);
+mux2 dcdatamux (.sel(dcdatamux_sel), .a(returned_data), .b(counter_val_out), .z(dcdatamux_out));
+assign sti_zero_cntr = (exme_ctrl_word.opcode == op_sti);
 
 assign dcache_addr = dcaddrmux_out;
 assign dcache_wdata = {8{exme_mdr}}; //<< {dcaddrmux_out[3:1],4'h0};
@@ -141,7 +154,7 @@ extract_16 GET_DATA (dcache_rdata, dsel_mask, returned_data);
 //assign returned_data = lc3b_word'(dcache_rdata >> {dcaddrmux_out[3:1],4'h0});
 
 /* ME_WB REGISTER */
-mewb_pipe ME_WB (.clk, .load(~stall1 && ~stall2), .reset(1'b0), .*);
+mewb_pipe ME_WB (.clk, .load(~stall1 & ~stall2), .reset(1'b0), .*);
 
 /* WB STAGE */
 mux2 #(.width(3)) destmux (.sel(mewb_ctrl_word.dstmux_sel), .a(mewb_dest), .b(3'b111), .z(destmux_out));

@@ -3,7 +3,8 @@ import lc3b_types::*;
 module cache 
 (
 	wishbone.master wb,
-	wishbone.slave sb
+	wishbone.slave sb,
+	output logic got_hit_likah_bih, miss_me_wifdat_bs
 );
 				  
 	logic clk;

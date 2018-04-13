@@ -1,34 +1,49 @@
 module mainpc(
-	wishbone.master ibus,
-	wishbone.master dbus
+	wishbone.master pmembus
 );
 
-wishbone cpu_dcache(dbus.CLK);
-wishbone cpu_icache(ibus.CLK);
+wishbone cpu_dcache(pmembus.CLK);
+wishbone cpu_icache(pmembus.CLK);
+wishbone icache_arbiter(pmembus.CLK);
+wishbone dcache_arbiter(pmembus.CLK);
+wishbone arbiter_L2cache(pmembus.CLK);
+
+logic icache_hit, icache_miss, dcache_hit, dcache_miss, l2cache_hit, l2cache_miss;
 
 cpu main_cpu(
 	.icache(cpu_icache),
-	.dcache(cpu_dcache)
+	.dcache(cpu_dcache),
+	.icache_hit, .icache_miss,
+	.dcache_hit, .dcache_miss,
+	.l2cache_hit, .l2cache_miss
 );
 
 cache icache
 (
 	.sb(cpu_icache),
-	.wb(ibus)
+	.wb(icache_arbiter),
+	.got_hit_likah_bih(icache_hit),
+	.miss_me_wifdat_bs(icache_miss)
 );
 
 cache dcache(
 	.sb(cpu_dcache),
-	.wb(dbus)
+	.wb(dcache_arbiter),
+	.got_hit_likah_bih(dcache_hit),
+	.miss_me_wifdat_bs(dcache_miss)
 );
 
-//cache l2cache
-//(
-//);
+arbiter sel_cache(
+	.icache_arbiter,
+	.dcache_arbiter,
+	.arbiter_L2cache
+);
 
-//comment out the above and connect cpu directly to memory
-//to test if your CPU adheres to Wishbone spec
-//(not a rigorous test, but will catch some obvious errors)
-//cpu cpu(mem);
+cache L2_cache(
+	.wb(pmembus),
+	.sb(arbiter_L2cache),
+	.got_hit_likah_bih(l2cache_hit),
+	.miss_me_wifdat_bs(l2cache_miss)
+);
 
 endmodule : mainpc

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Settings
-DEFAULT_TARGET=$HOME/ece411/webarebears/srccode/simulation/modelsim/memory.lst
-ASSEMBLER=$HOME/ece411/webarebears/bin/LC3bAssembler
+DEFAULT_TARGET=$HOME/WeBareBears_uArch/srccode/simulation/modelsim/memory.lst
+ASSEMBLER=$HOME/WeBareBears_uArch/bin/LC3bAssembler
 ADDRESSABILITY=16
 
 # Command line parameters

@@ -9,41 +9,22 @@ logic clk;
 initial clk = 0;
 always #5 clk = ~clk;
 
-//wishbone icache_mem(clk);
-//wishbone dcache_mem(clk);
-
-wishbone icache_arbiter(clk);
-wishbone dcache_arbiter(clk);
-wishbone arbiter_L2cache(clk);
-wishbone L2cache_mem(clk);
+wishbone cpu_icache(clk);
+wishbone cpu_dcache(clk);
 
 mainpc WeBareBears(
-	.ibus(icache_arbiter),
-	.dbus(dcache_arbiter)
+	.ibus(cpu_icache),
+	.dbus(cpu_dcache)
 );
 
-//physical_memory imemory(
-	//.wb(icache_mem)
-//);
-
-//physical_memory dmemory(
-	//.wb(dcache_mem)
-//);
-
-arbiter sel_cache(
-	.icache_arbiter,
-	.dcache_arbiter,
-	.arbiter_L2cache
+magic_memory mmemory(
+	.wb(cpu_icache)
 );
 
-cache L2_cache(
-	.wb(L2cache_mem),
-	.sb(arbiter_L2cache)
-);
-
-physical_memory mem(
-	.wb(L2cache_mem)
+physical_memory pmemory(
+	.wb(cpu_dcache)
 );
 
 endmodule : dcache_phys_mainpc_tb
+
 

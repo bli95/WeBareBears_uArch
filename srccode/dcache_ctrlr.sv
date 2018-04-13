@@ -8,6 +8,7 @@ module dcache_ctrlr
 	input lc3b_word resp_data_addr,
 	output logic stall1,
 	output logic addrmux_sel,
+	output logic datamux_sel,
 	output logic req_rw,
 	output logic wr_en,
 	output lc3b_word phase2_addr,
@@ -40,30 +41,46 @@ begin
 		end
 		
 		op_sti: begin
-			// read first, then use as addr to write to; addr src and whether to write is based on our bit state
-			if (rw_resp == 0)
+			if (resp_data_addr < 16'hFFF6)
 			begin
-				req_rw = 1;
-				wr_en = dbreq_state;
-				addrmux_sel = dbreq_state;
+				// read first, then use as addr to write to; addr src and whether to write is based on our bit state
+				if (rw_resp == 0)
+				begin
+					req_rw = 1;
+					wr_en = dbreq_state;
+					addrmux_sel = dbreq_state;
+				end
+				else
+				begin
+					// on a response, we flip our state to indicate 2nd mem op with retrived address (1) or reset it (0)
+					dbreq_state = ~dbreq_state;
+					stildi_p2addr = resp_data_addr;
+				end
 			end
 			else
 			begin
-				// on a response, we flip our state to indicate 2nd mem op with retrived address (1) or reset it (0)
-				dbreq_state = ~dbreq_state;
+				dbreq_state = 0;	// reset our state bit because pre-defined addr doesn't refer to actual memory but to performance counter
 				stildi_p2addr = resp_data_addr;
 			end
 		end
 		op_ldi: begin
-			// read first, then use as addr to read (again) from
-			if (rw_resp == 0)
+			if (resp_data_addr < 16'hFFF6)
 			begin
-				req_rw = 1;
-				addrmux_sel = dbreq_state;
+				// read first, then use as addr to read (again) from
+				if (rw_resp == 0)
+				begin
+					req_rw = 1;
+					addrmux_sel = dbreq_state;
+				end
+				else
+				begin
+					dbreq_state = ~dbreq_state;
+					stildi_p2addr = resp_data_addr;
+				end
 			end
 			else
 			begin
-				dbreq_state = ~dbreq_state;
+				dbreq_state = 0;
 				stildi_p2addr = resp_data_addr;
 			end
 		end
@@ -78,6 +95,7 @@ begin
 	rst2 = (opcode == op_trap) && (rw_resp == 1);
 	
 	stall1 = 0;
+	datamux_sel = 0;
 
 	case(opcode)
 		// easy enough: stall interstage regs while awaiting data from memory
@@ -93,16 +111,24 @@ begin
 		/* We want to stall for sure any time when we are waiting for data to be returned from mem, but we also want to stall the one cycle of the first ACK for sti/ldi. 
 			Note that ACK is returned the 1st time, our bit state is low, and is high the 2nd ACK, right before it flips so setting stall to its negation cleverly works. */
 		op_sti: begin
-			if (rw_resp == 0)
-				stall1 = 1;
-			else
-				stall1 = ~dbreq_state;
+			if (resp_data_addr < 16'hFFF6)
+			begin
+				if (rw_resp == 0)
+					stall1 = 1;
+				else
+					stall1 = ~dbreq_state;
+			end
 		end
 		op_ldi: begin
-			if (rw_resp == 0)
-				stall1 = 1;
+			if (resp_data_addr < 16'hFFF6)
+			begin
+				if (rw_resp == 0)
+					stall1 = 1;
+				else
+					stall1 = ~dbreq_state;
+			end
 			else
-				stall1 = ~dbreq_state;
+				datamux_sel = 1; 	// flip ME/WB data register to use performance counter output as source instead of dcache on read
 		end
 		default: ;
 	endcase
