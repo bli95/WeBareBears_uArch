@@ -17,75 +17,10 @@
 
 ORIGIN 0
 SEGMENT 0 CODE:
-;   
-; START TEST FOR STR 
-                    
-                       	; cache miss to load instructions into cl0_0
-;LEA R1, line1      
-;LDR R2, R0, l2p         ; cache miss to load l2p into cl0_1
-;LDR R3, R0, l3p         ; cache hit to load l3p
-;NOP
-;NOP
-;LDR R4, R1, 0           ; cache miss to load line1 cl0_2
-;NOP
-;NOP
-;NOP
-;NOP
-;STR R4, R1, 3           ; cache miss to store into cl0_4
-;STR R4, R2, 3           ; cache miss to load line2 into cl1_2 and write to it 
-;STR R4, R3, 3           ; cache miss and write back
-;LDR R5, R1, 3           ; cache miss to load and verify write back worked;
-
-;STOP:
-;	BRnzp STOP
-
-;l2p:   DATA2 line2
-;l3p:   DATA2 line3
-
-;SEGMENT 64 line1:
-;X0:	DATA2 4x1111
-;NOP
-;NOP
-;NOP
-;NOP
-;NOP
-;NOP
-;NOP
-
-;SEGMENT 128 line2:
-;Y0:	DATA2 4x2222
-;Y1:	DATA2 4x2222
-;Y2:	DATA2 4x2222
-;Y3:	DATA2 4x2222
-;Y4:	DATA2 4x2222
-;Y5:	DATA2 4x2222
-;Y6:	DATA2 4x2222
-;Y7:	DATA2 4x2222
-
-;SEGMENT 128 line3:
-;Z0:	DATA2 4x3333
-;Z1:	DATA2 4x3333
-;Z2:	DATA2 4x3333
-;Z3:	DATA2 4x3333
-;Z4:	DATA2 4x3333
-;Z5:	DATA2 4x3333
-;Z6:	DATA2 4x3333
-;Z7:	DATA2 4x3333
-
-; Final Values ;
- 
-; R0 = R6 = R7 = 4x0000
-; R1 = 4x0020
-; R2 = 4x00a0
-; R3 = 4x0120
-; R4 = 4x1111
-; R5 = 4x1111
-
-; END TEST FOR STR 
    
-; START TEST FOR STB 
-                    
-                        ; cache miss to load instructions into cl0_0
+;START TEST FOR STR 
+                   
+                      	; cache miss to load instructions into cl0_0
 LEA R1, line1      
 LDR R2, R0, l2p         ; cache miss to load l2p into cl0_1
 LDR R3, R0, l3p         ; cache hit to load l3p
@@ -96,19 +31,19 @@ NOP
 NOP
 NOP
 NOP
-STB R4, R1, 4           ; cache hit to store into line1
-STB R4, R2, 7           ; cache miss to load line2 into cl1_2 and write to it 
-STB R4, R3, 14          ; cache miss and write back
-LDR R5, R1, 2           ; cache miss to load and verify write back worked
+STR R4, R1, 3           ; cache miss to store into cl0_4
+STR R4, R2, 3           ; cache miss to load line2 into cl1_2 and write to it 
+STR R4, R3, 3           ; cache miss and write back
+LDR R5, R1, 3           ; cache miss to load and verify write back worked;
 
-Stop:
-	BRnzp Stop
+STOP:
+	BRnzp STOP
 
-l2p:    DATA2 line2
-l3p:    DATA2 line3
+l2p:   DATA2 line2
+l3p:   DATA2 line3
 
 SEGMENT 64 line1:
-X0:	    DATA2 4xABCD
+X0:	DATA2 4x1111
 NOP
 NOP
 NOP
@@ -118,27 +53,92 @@ NOP
 NOP
 
 SEGMENT 128 line2:
-Y0:	    DATA2 4x2222
-Y1:	    DATA2 4x2222
-Y2:	    DATA2 4x2222
-Y3:	    DATA2 4x2222
-Y4:	    DATA2 4x2222
-Y5:	    DATA2 4x2222
-Y6:	    DATA2 4x2222
-Y7: 	    DATA2 4x2222
+Y0:	DATA2 4x2222
+Y1:	DATA2 4x2222
+Y2:	DATA2 4x2222
+Y3:	DATA2 4x2222
+Y4:	DATA2 4x2222
+Y5:	DATA2 4x2222
+Y6:	DATA2 4x2222
+Y7:	DATA2 4x2222
 
 SEGMENT 128 line3:
-Z0:	    DATA2 4x3333
-Z1:	    DATA2 4x3333
-Z2:	    DATA2 4x3333
-Z3:	    DATA2 4x3333
-Z4:	    DATA2 4x3333
-Z5:	    DATA2 4x3333
-Z6:	    DATA2 4x3333
-Z7:	    DATA2 4x3333
+Z0:	DATA2 4x3333
+Z1:	DATA2 4x3333
+Z2:	DATA2 4x3333
+Z3:	DATA2 4x3333
+Z4:	DATA2 4x3333
+Z5:	DATA2 4x3333
+Z6:	DATA2 4x3333
+Z7:	DATA2 4x3333
 
+; Final Values ;
+;
+; R0 = R6 = R7 = 4x0000
+; R1 = 4x0020
+; R2 = 4x00a0
+; R3 = 4x0120
+; R4 = 4x1111
+; R5 = 4x1111
+;
+; END TEST FOR STR 
+;   
+;; START TEST FOR STB 
+;                    
+;                        ; cache miss to load instructions into cl0_0
+;LEA R1, line1      
+;LDR R2, R0, l2p         ; cache miss to load l2p into cl0_1
+;LDR R3, R0, l3p         ; cache hit to load l3p
+;NOP
+;NOP
+;LDR R4, R1, 0           ; cache miss to load line1 cl0_2
+;NOP
+;NOP
+;NOP
+;NOP
+;STB R4, R1, 4           ; cache hit to store into line1
+;STB R4, R2, 7           ; cache miss to load line2 into cl1_2 and write to it 
+;STB R4, R3, 14          ; cache miss and write back
+;LDR R5, R1, 2           ; cache miss to load and verify write back worked
+;
+;Stop:
+;	BRnzp Stop
+;
+;l2p:    DATA2 line2
+;l3p:    DATA2 line3
+;
+;SEGMENT 64 line1:
+;X0:	    DATA2 4xABCD
+;NOP
+;NOP
+;NOP
+;NOP
+;NOP
+;NOP
+;NOP
+;
+;SEGMENT 128 line2:
+;Y0:	    DATA2 4x2222
+;Y1:	    DATA2 4x2222
+;Y2:	    DATA2 4x2222
+;Y3:	    DATA2 4x2222
+;Y4:	    DATA2 4x2222
+;Y5:	    DATA2 4x2222
+;Y6:	    DATA2 4x2222
+;Y7: 	    DATA2 4x2222
+;
+;SEGMENT 128 line3:
+;Z0:	    DATA2 4x3333
+;Z1:	    DATA2 4x3333
+;Z2:	    DATA2 4x3333
+;Z3:	    DATA2 4x3333
+;Z4:	    DATA2 4x3333
+;Z5:	    DATA2 4x3333
+;Z6:	    DATA2 4x3333
+;Z7:	    DATA2 4x3333
+;
 ;; Final Values ;
- 
+; 
 ;; R0 = R6 = R7 = 4x0000
 ;; R1 = 4x0020
 ;; R2 = 4x00a0

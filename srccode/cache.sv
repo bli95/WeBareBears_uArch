@@ -3,7 +3,8 @@ import lc3b_types::*;
 module cache 
 (
 	wishbone.master wb,
-	wishbone.slave sb
+	wishbone.slave sb,
+	output logic write_hit
 );
 				  
 	logic clk;
@@ -29,7 +30,7 @@ module cache
 	logic dirty_bit, dirty_out, load_dirty_1, load_dirty_2;
 	logic load_LRU, LRU_in, LRU_out;
 	logic R_W;
-	logic read_hit, write_hit;
+	logic read_hit;
 	logic way1_hit, way2_hit;
 	logic [127:0] data_out;
 	

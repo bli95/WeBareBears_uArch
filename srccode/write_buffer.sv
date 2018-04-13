@@ -5,7 +5,7 @@ module write_buffer
 	input clk,
 	input logic [127:0] w_data_in,
 	input logic [11:0] w_addr_in,
-	input logic mem_ack, L2_req, 
+	input logic mem_ack, L2_req, L2_hit,
 	
 	output logic [127:0] w_data_out,
 	output logic [11:0] w_addr_out,
@@ -21,23 +21,27 @@ module write_buffer
 		load_v = 1'b0;
 		load_d = 1'b0;
 		EWB_ack = 1'b0;
+		EWB_req = 1'b0;
 			
 		case(state)
 			hold_nbd:
 			begin
 				if (L2_req) begin
-					load_v = 1'b1;
-					load_d = 1'b1;
-					EWB_ack = 1'b1;
+					load_v = 1;
+					load_d = 1;
+					EWB_ack = 1;
 				end
 			end	
 			mem_write:
 			begin
+				EWB_req = 1;
 				if (mem_ack) begin
 					load_v = 1;
 				end
 			end
-			hold_sbd, mem_break_1, mem_break_2: ;
+			hold_sbd: ;
+			mem_break_1: ;
+			mem_break_2: ;
 		endcase
 	end
 	
@@ -50,7 +54,7 @@ module write_buffer
 					next_state = mem_break_1;
 				end
 				else begin
-					next_state = state;
+					next_state = hold_nbd;
 				end
 			end
 			hold_sbd:
@@ -59,7 +63,7 @@ module write_buffer
 					next_state = mem_break_2;
 				end
 				else begin
-					next_state = state;
+					next_state = hold_sbd;
 				end
 			end
 			mem_write:
@@ -68,7 +72,7 @@ module write_buffer
 					next_state = hold_nbd;
 				end
 				else begin
-					next_state = state;
+					next_state = mem_write;
 				end
 			end
 			mem_break_1:
@@ -80,6 +84,10 @@ module write_buffer
 				next_state = mem_write;
 			end
 		endcase
+	end
+	
+	always_ff @(posedge clk) begin: next_state_assignment
+		state <= next_state;
 	end
 	
 	register #(.width(1)) EWB_VALID_1 (.clk, .load(load_v), .in(!valid_bit), .out(valid_bit));

@@ -9,10 +9,10 @@ module cache_datapath
 	input dirty_bit, load_dirty_1, load_dirty_2,
 	input load_LRU, LRU_in,
 	input lc3b_word sel_mask,
-	output way1_hit, way2_hit,
-	output read_hit, write_hit,
-	output LRU_out, dirty_out,
-	output [127:0] data_out,
+	output logic way1_hit, way2_hit,
+	output logic read_hit, write_hit,
+	output logic LRU_out, dirty_out,
+	output logic [127:0] data_out,
 							  
 	input [127:0] mem_rdata,
 	output lc3b_word mem_address,
@@ -76,7 +76,7 @@ module cache_datapath
 	
 	mux2 #(.width(9)) TAG_OUT (.sel(LRU_out), .a(tag_out_1), .b(tag_out_2), .z(tag_out));
 	
-	mux2 #(.width(1)) DIRTY_OUT (.sel(~way1_hit && way2_hit), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
+	mux2 #(.width(1)) DIRTY_OUT (.sel(LRU_out), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
 	
 	assign write_hit = (way1_hit || way2_hit) && cache_write; 
 	
