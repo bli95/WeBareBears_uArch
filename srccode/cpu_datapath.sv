@@ -112,7 +112,7 @@ alu alu (.aluop(idex_ctrl_word.aluop), .a(fwdAmux_out), .b(fwdBmux_out), .f(alu_
 cpu_rwmod stb_datmod (.in(fwdCmux_out), .opcode(idex_ctrl_word.opcode), .lsb(alu_out[0]), .wrsel(stb_datmod_sel), .out(stb_datmod_out));
 
 mux2 aluBmux (.sel(idex_ctrl_word.aluBmux_sel), .a(idex_regB), .b(idex_imm_val), .z(aluBmux_out)); 
-mux2 jmpmux (.sel(jmp_en), .a(idex_regA), .b(idex_next_pc), .z(jmpmux_out));
+mux2 jmpmux (.sel(jmp_en), .a(fwdAmux_out), .b(idex_next_pc), .z(jmpmux_out));
 mux2 jsrmux (.sel(idex_ctrl_word.jsrmux_sel), .a(jmpmux_out), .b(br_adder_out), .z(jsrmux_out)); 
 mux4 marmux (.sel(idex_ctrl_word.marmux_sel), .a(alu_out), .b(br_adder_out), .c(idex_next_pc), .d(), .z(marmux_out));
 

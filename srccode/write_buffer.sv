@@ -5,16 +5,16 @@ module write_buffer
 	input clk,
 	input logic [127:0] w_data_in,
 	input logic [11:0] w_addr_in,
-	input logic mem_ack, L2_req, L2_hit,
+	input logic mem_ack, L2_req, 
 	
 	output logic [127:0] w_data_out,
 	output logic [11:0] w_addr_out,
-	output logic EWB_ack, EWB_req
+	output logic EWB_ack, EWB_req, EWB_busy
 );
 
 	logic valid_bit, load_v, load_d;
 	
-	enum int unsigned {hold_nbd, hold_sbd, mem_write, mem_break_1, mem_break_2} state, next_state;
+	enum int unsigned {hold_nbd, hold_sbd, mem_write, mem_break_1, mem_break_2, mem_break_3} state, next_state;
 	
 	always_comb begin
 		
@@ -22,6 +22,7 @@ module write_buffer
 		load_d = 1'b0;
 		EWB_ack = 1'b0;
 		EWB_req = 1'b0;
+		EWB_busy = 1'b0;
 			
 		case(state)
 			hold_nbd:
@@ -35,6 +36,7 @@ module write_buffer
 			mem_write:
 			begin
 				EWB_req = 1;
+				EWB_busy = 1;
 				if (mem_ack) begin
 					load_v = 1;
 				end
@@ -42,6 +44,10 @@ module write_buffer
 			hold_sbd: ;
 			mem_break_1: ;
 			mem_break_2: ;
+			mem_break_3: 
+			begin
+				EWB_busy = 1;
+			end
 		endcase
 	end
 	
@@ -69,7 +75,7 @@ module write_buffer
 			mem_write:
 			begin
 				if (mem_ack) begin
-					next_state = hold_nbd;
+					next_state = mem_break_3;
 				end
 				else begin
 					next_state = mem_write;
@@ -82,6 +88,10 @@ module write_buffer
 			mem_break_2:
 			begin
 				next_state = mem_write;
+			end
+			mem_break_3:
+			begin
+				next_state = hold_nbd;
 			end
 		endcase
 	end

@@ -10,6 +10,7 @@ entity write_buffer is
         w_data_out      : out    vl_logic_vector(127 downto 0);
         w_addr_out      : out    vl_logic_vector(11 downto 0);
         EWB_ack         : out    vl_logic;
-        EWB_req         : out    vl_logic
+        EWB_req         : out    vl_logic;
+        EWB_busy        : out    vl_logic
     );
 end write_buffer;
