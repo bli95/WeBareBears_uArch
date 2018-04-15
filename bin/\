@@ -1,0 +1,46 @@
+ORIGIN 4x0000
+
+    ; List of registers used in the program
+    ; R1 - Takes in the initial value and holds the running result
+    ; R2 - Negative 1 used for subtraction
+    ; R3 - Positive 1 used to revert subtraction
+    ; R4 - Factorial counter
+    ; R5 - Multiply counter
+    ; R7 - BLANK REGISTER CONTAINING 0 FROM RESET
+	    
+    LDR R2, R0, NEG_ONE 
+    LDR R3, R0, POS_ONE
+    LDR R4, R0, INPUT
+    LDR R1, R0, INPUT
+
+FACTORIAL_LOOP:
+    ADD R4, R4, R2
+    BRnzp CHECK_ONE_F
+
+RET_FCHECK:
+    ADD R5, R4, R7
+
+MULTIPLY_LOOP:
+    ADD R1, R1, R1
+    ADD R5, R5, R2
+    BRp MULTIPLY_LOOP
+    BRnzp FACTORIAL_LOOP
+
+CHECK_ONE_F:
+    ADD R4, R4, R2
+    BRnz DONE
+    ADD R4, R4, R3
+    BRnzp RET_FCHECK 
+
+DONE:
+    STR R0, R6, RESULT
+
+HALT:                   ; Infinite loop to keep the processor
+    BRnzp HALT          ; from trying to execute the data below.
+                        ; Your own programs should also make use
+                        ; of an infinite loop at the end.
+
+POS_ONE:    DATA2 4x0001
+NEG_ONE:    DATA2 4xFFFF
+INPUT:      DATA2 4x0005
+RESULT:     DATA2 4x0000

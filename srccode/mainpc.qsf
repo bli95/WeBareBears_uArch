@@ -64,6 +64,7 @@ set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id dcache_phys_
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id dcache_phys_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME dcache_phys_mainpc_tb -section_id dcache_phys_mainpc_tb
 set_global_assignment -name SYSTEMVERILOG_FILE mux16.sv
+set_global_assignment -name SYSTEMVERILOG_FILE write_buffer.sv
 set_global_assignment -name SYSTEMVERILOG_FILE fwd_unit.sv
 set_global_assignment -name SYSTEMVERILOG_FILE arbiter.sv
 set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv

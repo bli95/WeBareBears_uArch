@@ -4,15 +4,15 @@ module cache_datapath
 (
 	input clk,
 
-	input R_W,
+	input R_W, level,
 	input load_data_1, load_data_2,
 	input dirty_bit, load_dirty_1, load_dirty_2,
 	input load_LRU, LRU_in,
 	input lc3b_word sel_mask,
-	output way1_hit, way2_hit,
-	output read_hit, write_hit,
-	output LRU_out, dirty_out,
-	output [127:0] data_out,
+	output logic way1_hit, way2_hit,
+	output logic read_hit, write_hit,
+	output logic LRU_out, dirty_out,
+	output logic [127:0] data_out,
 							  
 	input [127:0] mem_rdata,
 	output lc3b_word mem_address,
@@ -22,7 +22,8 @@ module cache_datapath
 	input cache_read, cache_write,
 	input [1:0] cache_byte_enable,
 	input lc3b_word cache_address,
-	input lc3b_word cache_wdata,
+	input lc3b_word cache_wdata_16,
+	input [127:0] cache_wdata_128,
 	output lc3b_word cache_rdata
 );
 							 
@@ -76,15 +77,15 @@ module cache_datapath
 	
 	mux2 #(.width(9)) TAG_OUT (.sel(LRU_out), .a(tag_out_1), .b(tag_out_2), .z(tag_out));
 	
-	mux2 #(.width(1)) DIRTY_OUT (.sel(~way1_hit && way2_hit), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
+	mux2 #(.width(1)) DIRTY_OUT (.sel(LRU_out), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
 	
 	assign write_hit = (way1_hit || way2_hit) && cache_write; 
 	
-	extend_128 WRITE_WORD (.data_old_128(data_out), .sel_mask, .data_16(cache_wdata), .data_new_128(wdata_128));
+	extend_128 WRITE_WORD (.data_old_128(data_out), .sel_mask, .data_16(cache_wdata_16), .data_new_128(wdata_128));
 	
 	assign mem_wdata = wdata_out;
 	
-	mux2 #(.width(128)) DATA_IN (.sel(R_W), .a(mem_rdata), .b(wdata_128), .z(data_in));
+	mux4 #(.width(128)) DATA_IN (.sel({level, R_W}), .a(mem_rdata), .b(wdata_128), .c(mem_rdata), .d(cache_wdata_128), .z(data_in));
 	
 	mux2 #(.width(16)) MEM_ADDRESS (.sel(R_W), .a(cache_address), .b({{tag_out}, {index}, 4'h0}), .z(mem_address));
 	
