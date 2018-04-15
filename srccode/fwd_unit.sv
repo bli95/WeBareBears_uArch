@@ -87,26 +87,32 @@ begin
 		end
 		op_stb, op_sti, op_str:
 		begin
-			if(exme_ld_dest && (exme_dest == idex_dest || exme_dest == idex_src1)) begin
+			if(exme_ld_dest && (exme_dest == idex_dest)) begin
 				if(exme_dest == idex_dest) begin
 					fwdCmux_sel = 2'b01;
 				end
+			end
+			else if(mewb_ld_dest && (destmux_out == idex_dest)) begin
+				if(destmux_out == idex_dest) begin
+					fwdCmux_sel = 2'b10;
+				end
+			end
+			else if(hold_reg_out[19] && (hold_reg_out[18:16] == idex_dest)) begin
+				if(hold_reg_out[18:16] == idex_dest) begin
+					fwdCmux_sel = 2'b11;
+				end
+			end
+			if(exme_ld_dest && (exme_dest == idex_src1)) begin
 				if(exme_dest == idex_src1) begin
 					fwdAmux_sel = 2'b10;
 				end
 			end
-			else if(mewb_ld_dest && (destmux_out == idex_dest || destmux_out == idex_src1)) begin
-				if(destmux_out == idex_dest) begin
-					fwdCmux_sel = 2'b10;
-				end
+			else if (mewb_ld_dest && (destmux_out == idex_src1)) begin
 				if(destmux_out == idex_src1) begin
 					fwdAmux_sel = 2'b11;
 				end
 			end
-			else if(hold_reg_out[19] && (hold_reg_out[18:16] == idex_dest || hold_reg_out[18:16] == idex_src1)) begin
-				if(hold_reg_out[18:16] == idex_dest) begin
-					fwdCmux_sel = 2'b11;
-				end
+			else if (hold_reg_out[19] && (hold_reg_out[18:16] == idex_src1)) begin
 				if(hold_reg_out[18:16] == idex_src1) begin
 					fwdAmux_sel = 3'b100;
 				end

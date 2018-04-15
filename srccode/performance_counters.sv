@@ -41,65 +41,65 @@ mux16 select_counter
 
 counter total_branches (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == TOTAL_BR)),
+	.reset(sti_zero_cntr && (data_addr == TOTAL_BR)),
 	.increment(br_in_exstage & ~(global_stall)),	/* ensures that pipeline is not stalling so counter is not continuously increment for duration of stall */
 	.out(tot_br_cnt)
 );
 counter br_mispredictions (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == BR_MISP)),
+	.reset(sti_zero_cntr && (data_addr == BR_MISP)),
 	.increment(br_in_exstage & br_en_in_exstage & ~(global_stall)),
 	.out(br_mis_cnt)
 );
 
 counter l1i_hit (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == IC_HIT)),
-	.increment(icache_hit),
+	.reset(sti_zero_cntr && (data_addr == IC_HIT)),
+	.increment(icache_hit && ~global_stall),
 	.out(ic_hit_cnt)
 );
 counter l1i_miss (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == IC_MISS)),
+	.reset(sti_zero_cntr && (data_addr == IC_MISS)),
 	.increment(icache_miss),
 	.out(ic_miss_cnt)
 );
 
 counter l1d_hit (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == DC_HIT)),
-	.increment(dcache_hit),
+	.reset(sti_zero_cntr && (data_addr == DC_HIT)),
+	.increment(dcache_hit && ~global_stall),
 	.out(dc_hit_cnt)
 );
 counter l1d_miss (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == DC_MISS)),
+	.reset(sti_zero_cntr && (data_addr == DC_MISS)),
 	.increment(dcache_miss),
 	.out(dc_miss_cnt)
 );
 
 counter l2_hit (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == L2_HIT)),
+	.reset(sti_zero_cntr && (data_addr == L2_HIT)),
 	.increment(l2cache_hit),
 	.out(l2_hit_cnt)
 );
 counter l2_miss (
 	.clk,
-	.reset(sti_zero_cntr && !(data_addr == L2_MISS)),
+	.reset(sti_zero_cntr && (data_addr == L2_MISS)),
 	.increment(l2cache_miss),
 	.out(l2_miss_cnt)
 );
 
 //counter icache_stalls (
 //	.clk,
-//	.reset(sti_zero_cntr && !(data_addr == IC_STAL)),
+//	.reset(sti_zero_cntr && (data_addr == IC_STAL)),
 //	.increment(istall),
 //	.out(ic_stall_cnt)
 //);
 //counter dcache_stalls (
 //	.clk,
-//	.reset(sti_zero_cntr && !(data_addr == DC_STAL)),
+//	.reset(sti_zero_cntr && (data_addr == DC_STAL)),
 //	.increment(dstall),
 //	.out(dc_stall_cnt)
 //);

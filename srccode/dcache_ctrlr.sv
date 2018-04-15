@@ -59,7 +59,7 @@ begin
 			end
 			else
 			begin
-				dbreq_state = 0;	// reset our state bit because pre-defined addr doesn't refer to actual memory but to performance counter
+				dbreq_state = ~dbreq_state;
 				stildi_p2addr = resp_data_addr;
 			end
 		end
@@ -80,7 +80,7 @@ begin
 			end
 			else
 			begin
-				dbreq_state = 0;
+				dbreq_state = ~dbreq_state;
 				stildi_p2addr = resp_data_addr;
 			end
 		end
@@ -118,6 +118,8 @@ begin
 				else
 					stall1 = ~dbreq_state;
 			end
+			else
+				stall1 = ~dbreq_state;
 		end
 		op_ldi: begin
 			if (resp_data_addr < 16'hFFF6)
@@ -128,7 +130,10 @@ begin
 					stall1 = ~dbreq_state;
 			end
 			else
+			begin
+				stall1 = ~dbreq_state;
 				datamux_sel = 1; 	// flip ME/WB data register to use performance counter output as source instead of dcache on read
+			end
 		end
 		default: ;
 	endcase

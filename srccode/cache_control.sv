@@ -37,6 +37,8 @@ module cache_control
 		mem_read = 1'b0;
 		mem_write = 1'b0;
 		mem_done = 1'b0;
+		miss_me_wifdat_bs = 0;
+		got_hit_likah_bih = 0;
 			
 		case (state) 
 			hold:
@@ -62,6 +64,13 @@ module cache_control
 						LRU_in = 1'b0;
 					end
 					cache_resp = 1'b1;
+				end
+				
+				if (read_hit | write_hit) begin
+					if (visited_miss_state)
+						miss_me_wifdat_bs = 1;
+					else
+						got_hit_likah_bih = 1;
 				end
 			end
 			read_mem:
@@ -94,19 +103,10 @@ module cache_control
 	
 	always_ff @(posedge clk)
 	begin
-		miss_me_wifdat_bs = 0;
-		got_hit_likah_bih = 0;
-		
 		case(state)
 			hold: begin
-				if (read_hit | write_hit) begin
-					if (visited_miss_state) begin
-						miss_me_wifdat_bs = 1;
-						visited_miss_state = 0;		// reset so that very next req, if hit, won't be mistaken for a miss
-					end
-					else
-						got_hit_likah_bih = 1;
-				end
+				if ((read_hit | write_hit) && visited_miss_state)
+					visited_miss_state = 0;		// reset so that very next req, if hit, won't be mistaken for a miss
 			end
 			read_mem:
 				visited_miss_state = 1;	// assumes that any cache miss would cause this state to be visited at some point
