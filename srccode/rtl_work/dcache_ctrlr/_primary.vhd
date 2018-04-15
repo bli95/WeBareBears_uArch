@@ -8,6 +8,7 @@ entity dcache_ctrlr is
         resp_data_addr  : in     vl_logic_vector(15 downto 0);
         stall1          : out    vl_logic;
         addrmux_sel     : out    vl_logic;
+        datamux_sel     : out    vl_logic;
         req_rw          : out    vl_logic;
         wr_en           : out    vl_logic;
         phase2_addr     : out    vl_logic_vector(15 downto 0);

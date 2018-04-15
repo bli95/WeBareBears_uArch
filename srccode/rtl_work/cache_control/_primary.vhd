@@ -23,6 +23,8 @@ entity cache_control is
         load_dirty_1    : out    vl_logic;
         load_dirty_2    : out    vl_logic;
         load_LRU        : out    vl_logic;
-        LRU_in          : out    vl_logic
+        LRU_in          : out    vl_logic;
+        got_hit_likah_bih: out    vl_logic;
+        miss_me_wifdat_bs: out    vl_logic
     );
 end cache_control;

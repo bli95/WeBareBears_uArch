@@ -8,21 +8,21 @@
 #MP project name
 MP=mainpc
 #MP directory
-MP_DIR=$HOME/ece411/webarebears/srccode
+MP_DIR=$HOME/WeBareBears_uArch/srccode
 #Location of LC3bAssembler; Should usually be in bin
-ASSEMBLER=$HOME/ece411/webarebears/bin/LC3bAssembler
+ASSEMBLER=$HOME/WeBareBears_uArch/bin/LC3bAssembler
 #Addressability of physical memory; from load_memory.sh
 ADDRESSABILITY=16
 
 #Testcode directory;Not required but can be used to avoid entering path everytime
-TESTCODE_DIR=$HOME/ece411/webarebears/testcode
+TESTCODE_DIR=$HOME/WeBareBears_uArch/testcode
 
 ####
 ####Change according to your design
 
 #See line :183
 #If regfile not found comment out 184 and uncomment 183 and the following line
-REG_FILE={/dcache_phys_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data}
+REG_FILE={/full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data}
 RUN_TIME=5000ns
 
 #Other debug signals

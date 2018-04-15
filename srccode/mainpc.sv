@@ -2,12 +2,6 @@ module mainpc(
 	wishbone.master pmembus
 );
 
-wishbone cpu_dcache(pmembus.CLK);
-wishbone cpu_icache(pmembus.CLK);
-wishbone icache_arbiter(pmembus.CLK);
-wishbone dcache_arbiter(pmembus.CLK);
-wishbone arbiter_L2cache(pmembus.CLK);
-
 logic icache_hit, icache_miss, dcache_hit, dcache_miss, l2cache_hit, l2cache_miss;
 logic EWB_ack, EWB_req, EWB_busy;
 logic [11:0] w_addr_out;
@@ -53,9 +47,9 @@ arbiter sel_cache (
 
 cache L2_cache (
 	.wb(L2cache_ewb),
-	.sb(arbiter_L2cache)
+	.sb(arbiter_L2cache),
 	.got_hit_likah_bih(l2cache_hit),
-	.miss_me_wifdat_bs(l2cache_miss),,
+	.miss_me_wifdat_bs(l2cache_miss),
 	.level(1'b1)
 );
 
