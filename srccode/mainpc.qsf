@@ -63,11 +63,27 @@ set_global_assignment -name EDA_TEST_BENCH_NAME dcache_phys_mainpc_tb -section_i
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id dcache_phys_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id dcache_phys_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME dcache_phys_mainpc_tb -section_id dcache_phys_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/magicmem_mainpc_tb.sv -section_id magicmem_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id magicmem_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id dcache_phys_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id dcache_phys_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/dcache_phys_mainpc_tb.sv -section_id dcache_phys_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_NAME full_mainpc_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id full_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id full_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME full_mainpc_tb -section_id full_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/full_mainpc_tb.sv -section_id full_mainpc_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id full_mainpc_tb
+
+set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
+set_global_assignment -name SYSTEMVERILOG_FILE L2cache_datapath.sv
+set_global_assignment -name SYSTEMVERILOG_FILE L2cache_control.sv
+set_global_assignment -name SYSTEMVERILOG_FILE L2cache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE performance_counters.sv
 set_global_assignment -name SYSTEMVERILOG_FILE mux16.sv
 set_global_assignment -name SYSTEMVERILOG_FILE write_buffer.sv
 set_global_assignment -name SYSTEMVERILOG_FILE fwd_unit.sv
 set_global_assignment -name SYSTEMVERILOG_FILE arbiter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pcmux_ctrlr.sv
 set_global_assignment -name SYSTEMVERILOG_FILE pipeline.sv
 set_global_assignment -name SYSTEMVERILOG_FILE gencc.sv
@@ -99,17 +115,4 @@ set_global_assignment -name SYSTEMVERILOG_FILE cache_datapath.sv
 set_global_assignment -name SYSTEMVERILOG_FILE array.sv
 set_global_assignment -name SYSTEMVERILOG_FILE comparator.sv
 set_global_assignment -name SYSTEMVERILOG_FILE sel_bytes.sv
-set_global_assignment -name SYSTEMVERILOG_FILE performance_counters.sv
-set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/magicmem_mainpc_tb.sv -section_id magicmem_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id magicmem_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id dcache_phys_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE magic_memory_dual_port.sv -section_id dcache_phys_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/dcache_phys_mainpc_tb.sv -section_id dcache_phys_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_NAME full_mainpc_tb -section_id eda_simulation
-set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id full_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_RUN_SIM_FOR "200 ns" -section_id full_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME full_mainpc_tb -section_id full_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/full_mainpc_tb.sv -section_id full_mainpc_tb
-set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id full_mainpc_tb
-
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

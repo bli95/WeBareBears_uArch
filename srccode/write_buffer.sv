@@ -5,7 +5,7 @@ module write_buffer
 	input clk,
 	input logic [127:0] w_data_in,
 	input logic [11:0] w_addr_in,
-	input logic mem_ack, L2_req, 
+	input logic mem_ack, L2_req, L2_busy, L2_read,
 	
 	output logic [127:0] w_data_out,
 	output logic [11:0] w_addr_out,
@@ -30,7 +30,7 @@ module write_buffer
 				if (L2_req) begin
 					load_v = 1;
 					load_d = 1;
-					EWB_ack = 1;
+					EWB_ack = 1'b1;
 				end
 			end	
 			mem_write:
@@ -57,7 +57,12 @@ module write_buffer
 			hold_nbd:
 			begin
 				if (L2_req) begin
-					next_state = mem_break_1;
+				   if (L2_read) begin
+						next_state = mem_break_1;
+					end
+					else begin
+						next_state = mem_write;
+					end
 				end
 				else begin
 					next_state = hold_nbd;
@@ -65,7 +70,7 @@ module write_buffer
 			end
 			hold_sbd:
 			begin
-				if (mem_ack) begin
+				if (!L2_busy) begin
 					next_state = mem_break_2;
 				end
 				else begin

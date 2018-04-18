@@ -3,7 +3,7 @@ module mainpc(
 );
 
 logic icache_hit, icache_miss, dcache_hit, dcache_miss, l2cache_hit, l2cache_miss;
-logic EWB_ack, EWB_req, EWB_busy;
+logic EWB_ack, EWB_req, EWB_busy, L2_busy;
 logic [11:0] w_addr_out;
 logic [127:0] w_data_out;
 logic write_hit;
@@ -45,15 +45,14 @@ arbiter sel_cache (
 	.arbiter_L2cache
 );
 
-cache L2_cache (
+L2cache L2_cache (
 	.wb(L2cache_ewb),
 	.sb(arbiter_L2cache),
 	.got_hit_likah_bih(l2cache_hit),
-	.miss_me_wifdat_bs(l2cache_miss),
-	.level(1'b1)
+	.miss_me_wifdat_bs(l2cache_miss)
 );
 
-mux2 #(.width(1)) select_ACK (.sel(EWB_req), .a(pmembus.ACK), .b(EWB_ack), .z(L2cache_ewb.ACK));
+mux2 #(.width(1)) select_ACK (.sel(L2cache_ewb.WE || (L2cache_ewb.STB && EWB_busy)), .a(pmembus.ACK), .b(EWB_ack), .z(L2cache_ewb.ACK));
 
 write_buffer EWB (
 	.clk(pmembus.CLK),
@@ -61,19 +60,18 @@ write_buffer EWB (
 	.w_addr_in(L2cache_ewb.ADR),
 	.mem_ack(pmembus.ACK),
 	.L2_req(L2cache_ewb.WE),
-	.w_data_out,
-	.w_addr_out,
-	.EWB_ack,
-	.EWB_req,
-	.EWB_busy
+	.L2_busy(L2cache_ewb.STB),
+	.L2_read(arbiter_L2cache.STB && !arbiter_L2cache.WE),
+	.w_data_out, .w_addr_out,
+	.EWB_ack, .EWB_req, .EWB_busy
 );
 
 assign L2cache_ewb.DAT_S = pmembus.DAT_S;
 assign pmembus.DAT_M = w_data_out;
 mux2 #(.width(12)) select_ADR (.sel(EWB_req), .a(L2cache_ewb.ADR), .b(w_addr_out), .z(pmembus.ADR));
 assign pmembus.WE = EWB_req;
-assign pmembus.STB = EWB_req || (L2cache_ewb.STB && !EWB_busy);
-assign pmembus.CYC = EWB_req || (L2cache_ewb.CYC && !EWB_busy);
+assign pmembus.STB = EWB_req || (L2cache_ewb.STB && !EWB_busy && !L2cache_ewb.WE);
+assign pmembus.CYC = EWB_req || (L2cache_ewb.CYC && !EWB_busy && !L2cache_ewb.WE);
 assign pmembus.SEL = 16'hffff;
 
 endmodule : mainpc
