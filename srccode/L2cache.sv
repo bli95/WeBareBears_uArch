@@ -26,17 +26,17 @@ module L2cache
 	logic [127:0] cache_wdata;
 		
    /* Internal signals */		
-	logic load_data_1, load_data_2;
-	logic dirty_bit, dirty_out, load_dirty_1, load_dirty_2;
-	logic valid_out_1, valid_out_2;
-	logic load_LRU, LRU_in, LRU_out;
+	logic load_data_1, load_data_2, load_data_3, load_data_4;
+	logic dirty_bit, dirty_out, load_dirty_1, load_dirty_2, load_dirty_3, load_dirty_4;
+	logic valid_out_1, valid_out_2, valid_out_3, valid_out_4;
+	logic load_LRU;
+	logic [1:0] LRU_way; 
+	logic [7:0] LRU_in, LRU_out;
 	logic R_W;
 	logic read_hit, write_hit;
-	logic way1_hit, way2_hit;
+	logic way1_hit, way2_hit, way3_hit, way4_hit;
 	logic [127:0] data_out;
 	
-	lc3b_word sel_mask;
-		
 	assign clk = wb.CLK;
 	assign mem_resp = wb.ACK;
 	assign mem_rdata = wb.DAT_S;

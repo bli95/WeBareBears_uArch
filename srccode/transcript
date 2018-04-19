@@ -1,4 +1,4 @@
-# do /tmp/tmp.W1h7Vje6Kg/do.do 
+# do /tmp/tmp.0uxJwWHs7k/do.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
@@ -92,6 +92,14 @@
 # 
 # Top level modules:
 # 	comparator
+# vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/L2array.sv}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling package L2array_sv_unit
+# -- Importing package lc3b_types
+# -- Compiling module L2array
+# 
+# Top level modules:
+# 	L2array
 # vlog -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode {/home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling package L2cache_datapath_sv_unit
@@ -381,6 +389,8 @@
 # Loading work.L2cache
 # Loading work.L2cache_datapath_sv_unit
 # Loading work.L2cache_datapath
+# Loading work.L2array_sv_unit
+# Loading work.L2array
 # Loading work.L2cache_control_sv_unit
 # Loading work.L2cache_control
 # Loading work.write_buffer_sv_unit
@@ -398,6 +408,14 @@
 # ** Warning: (vsim-3722) /home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv(134): [TFMPC] - Missing connection for port 'h'.
 # ** Warning: (vsim-3015) /home/hornits2/ece411/webarebears/srccode/performance_counters.sv(40): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'sel'. The port definition is at: /home/hornits2/ece411/webarebears/srccode/mux16.sv(3).
 #         Region: /full_mainpc_tb/WeBareBears/main_cpu/pfc/select_counter
+# ** Warning: (vsim-3015) /home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv(46): [PCDPC] - Port size (9 or 9) does not match connection size (7) for port 'datain'. The port definition is at: /home/hornits2/ece411/webarebears/srccode/L2array.sv(8).
+#         Region: /full_mainpc_tb/WeBareBears/L2_cache/CD/TAG_1
+# ** Warning: (vsim-3015) /home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv(46): [PCDPC] - Port size (9 or 9) does not match connection size (7) for port 'dataout'. The port definition is at: /home/hornits2/ece411/webarebears/srccode/L2array.sv(9).
+#         Region: /full_mainpc_tb/WeBareBears/L2_cache/CD/TAG_1
+# ** Warning: (vsim-3015) /home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv(47): [PCDPC] - Port size (9 or 9) does not match connection size (7) for port 'datain'. The port definition is at: /home/hornits2/ece411/webarebears/srccode/L2array.sv(8).
+#         Region: /full_mainpc_tb/WeBareBears/L2_cache/CD/TAG_2
+# ** Warning: (vsim-3015) /home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv(47): [PCDPC] - Port size (9 or 9) does not match connection size (7) for port 'dataout'. The port definition is at: /home/hornits2/ece411/webarebears/srccode/L2array.sv(9).
+#         Region: /full_mainpc_tb/WeBareBears/L2_cache/CD/TAG_2
 # 
 #add wave *
 #view structure
@@ -509,18 +527,7 @@
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
@@ -531,18 +538,6 @@
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
-# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
@@ -576,6 +571,23 @@
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/mux2.sv(10): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
@@ -609,5 +621,13 @@
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
 # ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
-# write list /tmp/tmp.W1h7Vje6Kg/test_list.lst
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# ** Warning: (vsim-8315) /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv(18): No condition is true in the unique/priority if/case statement.
+# write list /tmp/tmp.0uxJwWHs7k/test_list.lst
 # exit
