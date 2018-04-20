@@ -4,7 +4,6 @@ module cache
 (
 	wishbone.master wb,
 	wishbone.slave sb,
-	input logic level,
 	output logic got_hit_likah_bih, miss_me_wifdat_bs
 );
 				  
@@ -47,7 +46,7 @@ module cache
 	assign wb.WE = mem_write;
 	assign wb.STB = (mem_read || mem_write) && !mem_done;
 	assign wb.CYC = (mem_read || mem_write) && !mem_done;
-	assign wb.SEL = sel_mask;
+	assign wb.SEL = 16'hffff;
 		
 	assign cache_read = (sb.STB && sb.CYC) && !sb.WE;
 	assign cache_write = sb.WE;

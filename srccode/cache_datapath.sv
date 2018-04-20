@@ -4,7 +4,7 @@ module cache_datapath
 (
 	input clk,
 
-	input R_W, level,
+	input R_W,
 	input load_data_1, load_data_2,
 	input dirty_bit, load_dirty_1, load_dirty_2,
 	input load_LRU, LRU_in,
@@ -27,25 +27,25 @@ module cache_datapath
 	output lc3b_word cache_rdata
 );
 							 
-	logic [2:0] index;
-	logic [8:0] tag;						 
+	logic [3:0] index;
+	logic [7:0] tag;						 
 	
 	logic valid_out_1, valid_out_2;
 	logic dirty_out_1, dirty_out_2;
 	logic way1_found, way2_found;
-	logic [8:0] tag_out_1, tag_out_2, tag_out;
+	logic [7:0] tag_out_1, tag_out_2, tag_out;
 	logic [127:0] data_in;
 	logic [127:0] data_out_1, data_out_2;
 	logic [127:0] wdata_128, wdata_out;
 
-	assign index = cache_address[6:4];
-	assign tag = cache_address[15:7];
+	assign index = cache_address[7:4];
+	assign tag = cache_address[15:8];
 	
 	array DATA_1 (.clk, .write(load_data_1), .index, .datain(data_in), .dataout(data_out_1));
 	array DATA_2 (.clk, .write(load_data_2), .index, .datain(data_in), .dataout(data_out_2));
 	
-	array #(.width(9)) TAG_1 (.clk, .write(load_data_1), .index, .datain(tag), .dataout(tag_out_1));
-	array #(.width(9)) TAG_2 (.clk, .write(load_data_2), .index, .datain(tag), .dataout(tag_out_2));
+	array #(.width(8)) TAG_1 (.clk, .write(load_data_1), .index, .datain(tag), .dataout(tag_out_1));
+	array #(.width(8)) TAG_2 (.clk, .write(load_data_2), .index, .datain(tag), .dataout(tag_out_2));
 	
 	array #(.width(1)) VALID_1 (.clk, .write(load_data_1), .index, .datain(1'b1), .dataout(valid_out_1));
 	array #(.width(1)) VALID_2 (.clk, .write(load_data_2), .index, .datain(1'b1), .dataout(valid_out_2));
@@ -75,7 +75,7 @@ module cache_datapath
 	
 	// Writing Process
 	
-	mux2 #(.width(9)) TAG_OUT (.sel(LRU_out), .a(tag_out_1), .b(tag_out_2), .z(tag_out));
+	mux2 #(.width(8)) TAG_OUT (.sel(LRU_out), .a(tag_out_1), .b(tag_out_2), .z(tag_out));
 	
 	mux2 #(.width(1)) DIRTY_OUT (.sel(LRU_out), .a(dirty_out_1), .b(dirty_out_2), .z(dirty_out));
 	
@@ -85,7 +85,7 @@ module cache_datapath
 	
 	assign mem_wdata = wdata_out;
 	
-	mux4 #(.width(128)) DATA_IN (.sel({level, R_W}), .a(mem_rdata), .b(wdata_128), .c(mem_rdata), .d(cache_wdata_128), .z(data_in));
+	mux2 #(.width(128)) DATA_IN (.sel(R_W), .a(mem_rdata), .b(wdata_128), .z(data_in));
 	
 	mux2 #(.width(16)) MEM_ADDRESS (.sel(R_W), .a(cache_address), .b({{tag_out}, {index}, 4'h0}), .z(mem_address));
 	

@@ -27,16 +27,14 @@ cache icache (
 	.sb(cpu_icache),
 	.wb(icache_arbiter),
 	.got_hit_likah_bih(icache_hit),
-	.miss_me_wifdat_bs(icache_miss),
-	.level(1'b0)
+	.miss_me_wifdat_bs(icache_miss)
 );
 
 cache dcache (
 	.sb(cpu_dcache),
 	.wb(dcache_arbiter),
 	.got_hit_likah_bih(dcache_hit),
-	.miss_me_wifdat_bs(dcache_miss),
-	.level(1'b0)
+	.miss_me_wifdat_bs(dcache_miss)
 );
 
 arbiter sel_cache (

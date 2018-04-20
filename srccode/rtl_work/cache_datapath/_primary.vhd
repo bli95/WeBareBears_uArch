@@ -4,7 +4,6 @@ entity cache_datapath is
     port(
         clk             : in     vl_logic;
         R_W             : in     vl_logic;
-        level           : in     vl_logic;
         load_data_1     : in     vl_logic;
         load_data_2     : in     vl_logic;
         dirty_bit       : in     vl_logic;

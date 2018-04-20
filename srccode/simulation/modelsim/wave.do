@@ -1,9 +1,6 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
+add wave -noupdate -label clk -radix hexadecimal /full_mainpc_tb/clk
 add wave -noupdate -expand -group Metadata -label PC -radix hexadecimal /full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/pc/data
 add wave -noupdate -expand -group Metadata -label IF_ID_opcode -radix hexadecimal /full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/opcode
 add wave -noupdate -expand -group Metadata -label ID_EX_opcode -radix hexadecimal /full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/ID_EX/ifid_ctrl_word.opcode
@@ -17,38 +14,38 @@ add wave -noupdate -expand -group Registers -label Reg_4 -radix hexadecimal {/fu
 add wave -noupdate -expand -group Registers -label Reg_5 -radix hexadecimal {/full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[5]}
 add wave -noupdate -expand -group Registers -label Reg_6 -radix hexadecimal {/full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[6]}
 add wave -noupdate -expand -group Registers -label Reg_7 -radix hexadecimal {/full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/rf/data[7]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[0]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[1]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[2]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[3]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[4]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[5]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[6]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[7]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[8]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[9]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[10]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[11]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[12]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[13]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[14]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[15]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[16]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[17]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[18]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[19]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[20]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[21]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[22]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[23]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[24]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[25]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[26]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[27]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[28]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[29]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[30]}
-add wave -noupdate -expand -group L2cache_way0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[31]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line0 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[0]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line1 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[1]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line2 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[2]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line3 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[3]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line4 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[4]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line5 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[5]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line6 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[6]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line7 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[7]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line8 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[8]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line9 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[9]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line10 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[10]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line11 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[11]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line12 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[12]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line13 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[13]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line14 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[14]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line15 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[15]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line16 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[16]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line17 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[17]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line18 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[18]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line19 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[19]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line20 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[20]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line21 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[21]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line22 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[22]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line23 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[23]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line24 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[24]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line25 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[25]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line26 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[26]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line27 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[27]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line28 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[28]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line29 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[29]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line30 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[30]}
+add wave -noupdate -expand -group L2cache_way0 -label way0_line31 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_1/data[31]}
 add wave -noupdate -expand -group L2cache_way1 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_2/data[0]}
 add wave -noupdate -expand -group L2cache_way1 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_2/data[1]}
 add wave -noupdate -expand -group L2cache_way1 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_2/data[2]}
@@ -176,7 +173,7 @@ add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DA
 add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/d
 add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/sel
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {288617 ps} 0} {{Cursor 2} {870915000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {288617 ps} 0} {{Cursor 2} {722179289 ps} 0}
 quietly wave cursor active 2
 configure wave -namecolwidth 350
 configure wave -valuecolwidth 221
@@ -192,4 +189,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {870345832 ps} {871371224 ps}
+WaveRestoreZoom {0 ps} {1050 us}

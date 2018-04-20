@@ -2,7 +2,7 @@ library verilog;
 use verilog.vl_types.all;
 entity comparator is
     generic(
-        width           : integer := 9
+        width           : integer := 8
     );
     port(
         a               : in     vl_logic_vector;
