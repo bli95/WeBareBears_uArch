@@ -13,7 +13,8 @@ wishbone cpu_icache(pmembus.CLK);
 wishbone icache_arbiter(pmembus.CLK);
 wishbone dcache_arbiter(pmembus.CLK);
 wishbone arbiter_L2cache(pmembus.CLK);
-wishbone L2cache_ewb(pmembus.CLK);
+//wishbone L2cache_ewb(pmembus.CLK);
+wishbone L2cache_VC(pmembus.CLK);
 
 cpu main_cpu (
 	.icache(cpu_icache),
@@ -44,12 +45,21 @@ arbiter sel_cache (
 );
 
 L2cache L2_cache (
-	.wb(L2cache_ewb),
+	.wb(L2cache_VC),
 	.sb(arbiter_L2cache),
 	.got_hit_likah_bih(l2cache_hit),
 	.miss_me_wifdat_bs(l2cache_miss)
 );
 
+mux2 #(.width(1)) select_ACK (.sel(L2read_VC | L2cache_VC.WE), .a(pmembus.ACK), .b(VC_ack), .z(L2cache_VC.ACK));
+
+
+
+
+
+// All this shit below was used to connect EWB
+
+/*
 mux2 #(.width(1)) select_ACK (.sel(L2cache_ewb.WE || (L2cache_ewb.STB && EWB_busy)), .a(pmembus.ACK), .b(EWB_ack), .z(L2cache_ewb.ACK));
 
 write_buffer EWB (
@@ -71,5 +81,6 @@ assign pmembus.WE = EWB_req;
 assign pmembus.STB = EWB_req || (L2cache_ewb.STB && !EWB_busy && !L2cache_ewb.WE);
 assign pmembus.CYC = EWB_req || (L2cache_ewb.CYC && !EWB_busy && !L2cache_ewb.WE);
 assign pmembus.SEL = 16'hffff;
+*/
 
 endmodule : mainpc

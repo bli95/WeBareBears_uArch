@@ -31,6 +31,7 @@ module VCarray #(parameter width = 128)
 	assign dataout6 = data[5];
 	assign dataout7 = data[6];
 	assign dataout8 = data[7];
+    assign dataout = data[index];
 
 endmodule : VCarray
 		

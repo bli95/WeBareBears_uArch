@@ -22,7 +22,7 @@ module L2cache_control
 	output logic got_hit_likah_bih, miss_me_wifdat_bs
 );
 								 
-	enum int unsigned {hold, read_mem, write_mem, mem_break} state, next_state;
+	enum int unsigned {hold, read_vc, read_mem, write_mem, mem_break} state, next_state;
 	logic visited_miss_state = 0;
 		
 	always_comb begin
