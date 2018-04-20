@@ -7,9 +7,11 @@ module VC_datapath
 	input [2:0] data_index,
 	input [11:0] L2_address,
 	input [127:0] L2_data,
+	input load_VC, load_VC_dirty, load_LRU,
+	
 	
 	output [11:0] wb_address,
-	output [127:0] wb_data
+	output [127:0] wb_data,
 );
 
    logic [23:0] LRU_in, LRU_out;
@@ -29,7 +31,7 @@ module VC_datapath
 						 .dataout1(way1_valid), .dataout2(way2_valid), .dataout3(way3_valid), .dataout4(way4_valid), 
 						 .dataout5(way5_valid), .dataout6(way6_valid), .dataout7(way7_valid), .dataout8(way8_valid));
 	
-	VCarray #(.width(1)) VC_DIRTY (.clk, .write(load_VC), .index(data_index), .datain(vc_dirty_bit), 
+	VCarray #(.width(1)) VC_DIRTY (.clk, .write(load_VC_dirty), .index(data_index), .datain(vc_dirty_bit), 
 						 .dataout1(way1_dirty), .dataout2(way2_dirty), .dataout3(way3_dirty), .dataout4(way4_dirty), 
 						 .dataout5(way5_dirty), .dataout6(way6_dirty), .dataout7(way7_dirty), .dataout8(way8_dirty));
 	

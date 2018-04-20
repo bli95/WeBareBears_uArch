@@ -4,9 +4,10 @@ module VC_control
 (
 	input clk,
 	input L2_read, L2_write,
+	input vc_hit, L2_dirty_bit, VC_dirty_bit,
 	input [2:0] way,
 	
-	output logic load_LRU,
+	output logic load_LRU, load_VC, data_index, dirty_out
 );
 
 	// during L2 idle periods, your vc should be evicting dirty entries and cleaning up the victim cache
@@ -19,6 +20,16 @@ module VC_control
 			hold:
 			begin
 				if (L2_write) begin
+					if (hit) begin
+						load_VC = 1;
+						load_VC_dirty = 1;
+						data_index = way;
+						dirty_out = VC_dirty_bit | L2_dirty_bit;
+						
+					end
+					else begin
+				
+					end
 					// check if vc hit or not
 						// if hit, then update line and return in 1 cycle
 						// if not hit
@@ -49,9 +60,14 @@ module VC_control
 	always_comb begin
 		
 		case (state)
-			hold:
+			hold_1:
 			begin
 				
+			end
+		
+			hold_2:
+			begin
+			
 			end
 		
 			write_mem:
