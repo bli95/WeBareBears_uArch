@@ -24,7 +24,8 @@ module L2cache_datapath
 	input [1:0] cache_byte_enable,
 	input lc3b_word cache_address,
 	input [127:0] cache_wdata,
-	output lc3b_word cache_rdata
+	output lc3b_word cache_rdata,
+	output L2_dirty_bit
 );
 							 
 	logic [4:0] index;
@@ -103,5 +104,17 @@ module L2cache_datapath
 	mux2 #(.width(16)) MEM_ADDRESS (.sel(R_W), .a(cache_address), .b({{tag_out}, {index}, 4'h0}),  .z(mem_address));
 	
 	assign mem_byte_enable = 2'b11;
+	
+	always_comb begin
+		
+		case(LRU_way)
+			2'b00: L2_dirty_bit = dirty_out_1;
+			2'b01: L2_dirty_bit = dirty_out_2;
+			2'b10: L2_dirty_bit = dirty_out_3;
+			2'b11: L2_dirty_bit = dirty_out_4;
+			default: L2_dirty_bit = 0;
+		endcase
+		
+	end
 	
 endmodule : L2cache_datapath

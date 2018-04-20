@@ -47,15 +47,46 @@ arbiter sel_cache (
 L2cache L2_cache (
 	.wb(L2cache_VC),
 	.sb(arbiter_L2cache),
+	.L2_dirty_bit,
 	.got_hit_likah_bih(l2cache_hit),
 	.miss_me_wifdat_bs(l2cache_miss)
 );
 
-mux2 #(.width(1)) select_ACK (.sel(L2read_VC | L2cache_VC.WE), .a(pmembus.ACK), .b(VC_ack), .z(L2cache_VC.ACK));
+logic VC_read, Pmem_read, VC_write, foh, L2_dirty_bit;
+logic [11:0] wb_address;
+logic [127:0] wb_data;
+logic l2_req_muxsel = 1'b0;	// chooses what L2 interacts with between VC and PMEM 
 
+victim_cache Victim_cache (
+	 .clk(pmembus.CLK),
+    .L2_data(L2cache_VC.DAT_M),
+	 .L2_address(L2cache_VC.ADR),
+	 .mem_ack(pmembus.ACK), 
+	 .L2_read(VC_read), 
+	 .L2_write(L2cache_VC.WE), 
+	 .L2toPmem_busy(L2cache_VC.STB),
+    .L2_dirty_bit,
+	 .foh,
+	 .wb_data,
+	 .wb_address,
+	 .VC_ack, .VC_write
+);
 
+always_ff @(posedge pmembus.CLK) 
+begin
+	if ((l2_req_muxsel == 0 && foh == 1) || (l2_req_muxsel == 1 && pmembus.ACK))
+		l2_req_muxsel = ~l2_req_muxsel;
+end
 
+demux2 #(.width(1)) select_L2read (.sel(l2_req_muxsel), .a(L2cache_VC.STB & !L2cache_VC.WE), .y(VC_read), .z(Pmem_read));
+mux2 #(.width(1)) select_ACK (.sel(l2_req_muxsel), .a(VC_ack), .b(pmembus.ACK), .z(L2cache_VC.ACK));
+mux2 #(.width(128)) select_DATA (.sel(l2_req_muxsel), .a(wb_data), .b(pmembus.DAT_S), .z(L2cache_VC.DAT_S));
 
+assign pmembus.STB = Pmem_read | VC_write;
+assign pmembus.CYC = Pmem_read | VC_write;
+assign pmembus.WE = VC_write;
+assign pmembus.DAT_M = wb_data;
+assign pmembus.ADR = (VC_write) ? wb_address : L2cache_VC.ADR;
 
 // All this shit below was used to connect EWB
 

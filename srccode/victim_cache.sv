@@ -4,13 +4,13 @@ module victim_cache
 (
     input clk,
     input logic [127:0] L2_data,
-	input logic [11:0] L2_address,
-	input logic mem_ack, L2_read, L2_write, L2_busy,
+	 input logic [11:0] L2_address,
+	 input logic mem_ack, L2_read, L2_write, L2toPmem_busy,
     input L2_dirty_bit,
 	
-	output logic [127:0] wb_data,
-	output logic [11:0] wb_address,
-	output logic VC_ack, VC_req, VC_busy
+	 output logic [127:0] wb_data,
+	 output logic [11:0] wb_address,
+	 output logic VC_ack, VC_write, foh
 );
 				  
 	logic [2:0] data_index;

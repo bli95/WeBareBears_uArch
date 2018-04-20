@@ -12,9 +12,7 @@ module VC_LRUarray #(parameter width = 24)
 		
 	/* Initialize array */
 	initial begin
-		for (int i = 0; i < $size(data); i++) begin
-			data[i] = 24'b111110101100011010001000;
-		end
+		data = 24'b111110101100011010001000;
 	end
 		
 	always_ff @(posedge clk) begin
@@ -23,7 +21,7 @@ module VC_LRUarray #(parameter width = 24)
 		end
 	end
 		
-	assign dataout = data[index];
+	assign dataout = data;
 		
 endmodule : VC_LRUarray
 		

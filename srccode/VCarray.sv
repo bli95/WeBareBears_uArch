@@ -6,7 +6,7 @@ module VCarray #(parameter width = 128)
 	input write,
 	input [2:0] index,
 	input [width-1:0] datain,
-	output logic [width-1:0] dataout1, dataout2, dataout3, dataout4, dataout5, dataout6, dataout7, dataout8
+	output logic [width-1:0] dataout1, dataout2, dataout3, dataout4, dataout5, dataout6, dataout7, dataout8, dataout
 );
 														  
 	logic [width-1:0] data [7:0];
@@ -31,7 +31,7 @@ module VCarray #(parameter width = 128)
 	assign dataout6 = data[5];
 	assign dataout7 = data[6];
 	assign dataout8 = data[7];
-    assign dataout = data[index];
+   assign dataout = data[index];
 
 endmodule : VCarray
 		

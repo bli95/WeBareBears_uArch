@@ -4,7 +4,7 @@ module L2cache
 (
 	wishbone.master wb,
 	wishbone.slave sb,
-	output logic got_hit_likah_bih, miss_me_wifdat_bs
+	output logic got_hit_likah_bih, miss_me_wifdat_bs, L2_dirty_bit
 );
 				  
 	logic clk;
