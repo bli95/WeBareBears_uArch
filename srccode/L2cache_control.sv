@@ -77,7 +77,7 @@ module L2cache_control
 					end
 					cache_resp = 1'b1;
 				end
-				else if (!dirty_out && cache_write) begin
+				/*else if (!dirty_out && cache_write) begin
 					R_W = 1'b1;
 					dirty_bit = 1'b1;
 					load_LRU = 1'b1;
@@ -102,7 +102,7 @@ module L2cache_control
 						LRU_way = 2'b11;
 					end
 					cache_resp = 1'b1;
-				end
+				end*/
 				
 				if (read_hit | write_hit) begin
 					if (visited_miss_state)
@@ -142,27 +142,35 @@ module L2cache_control
 				   dirty_bit = 1'b0;
 					if (way1_hit) begin
 						load_dirty_1 = 1'b1;
+						load_data_1 = 1'b1;
 					end
 					else if (way2_hit) begin
 						load_dirty_2 = 1'b1;
+						load_data_2 = 1'b1;
 					end
 					else if (way3_hit) begin
 						load_dirty_3 = 1'b1;
+						load_data_3 = 1'b1;
 					end
 					else if (way4_hit) begin
 						load_dirty_4 = 1'b1;
+						load_data_4 = 1'b1;
 					end
 					else if (LRU_out[1:0] == 2'b00) begin
 						load_dirty_1 = 1'b1;
+						load_data_1 = 1'b1;
 					end
 					else if (LRU_out[1:0] == 2'b01) begin
 						load_dirty_2 = 1'b1;
+						load_data_2 = 1'b1;
 					end
 					else if (LRU_out[1:0] == 2'b10) begin
 						load_dirty_3 = 1'b1;
+						load_data_3 = 1'b1;
 					end
 					else begin
 						load_dirty_4 = 1'b1;
+						load_data_4 = 1'b1;
 					end
 				end
 			end
@@ -197,7 +205,7 @@ module L2cache_control
 						next_state = read_mem;
 					end
 				end
-				else if (!write_hit && cache_write && dirty_out) begin
+				else if (!write_hit && cache_write/* && dirty_out*/) begin
 					next_state = write_mem;
 				end
 				else begin

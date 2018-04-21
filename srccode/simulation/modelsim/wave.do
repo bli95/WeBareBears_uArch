@@ -1,5 +1,8 @@
 onerror {resume}
 quietly WaveActivateNextPane {} 0
+add wave -noupdate /full_mainpc_tb/clk
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/clk
 add wave -noupdate -label clk -radix hexadecimal /full_mainpc_tb/clk
 add wave -noupdate -expand -group Metadata -label PC -radix hexadecimal /full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/pc/data
 add wave -noupdate -expand -group Metadata -label IF_ID_opcode -radix hexadecimal /full_mainpc_tb/WeBareBears/main_cpu/pl_datpath/IF_ID/opcode
@@ -143,39 +146,53 @@ add wave -noupdate -expand -group L2cache_way3 -radix hexadecimal {/full_mainpc_
 add wave -noupdate -expand -group L2cache_way3 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_4/data[30]}
 add wave -noupdate -expand -group L2cache_way3 -radix hexadecimal {/full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_4/data[31]}
 add wave -noupdate -label L2cache_state -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CC/state
-add wave -noupdate -expand -group EWB -label EWB_valid -radix hexadecimal /full_mainpc_tb/WeBareBears/EWB/EWB_VALID_1/data
-add wave -noupdate -expand -group EWB -label EWB_address -radix hexadecimal /full_mainpc_tb/WeBareBears/EWB/EWB_ADDR_1/data
-add wave -noupdate -expand -group EWB -label EWB_data -radix hexadecimal /full_mainpc_tb/WeBareBears/EWB/EWB_DATA_1/data
-add wave -noupdate -expand -group EWB -label EWB_state -radix hexadecimal /full_mainpc_tb/WeBareBears/EWB/state
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/L2_address
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/L2_data
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/DAT_M -radix hexadecimal /full_mainpc_tb/EWB_mem/DAT_M
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/DAT_S -radix hexadecimal /full_mainpc_tb/EWB_mem/DAT_S
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/ACK -radix hexadecimal /full_mainpc_tb/EWB_mem/ACK
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/ADR -radix hexadecimal /full_mainpc_tb/EWB_mem/ADR
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/STB -radix hexadecimal /full_mainpc_tb/EWB_mem/STB
 add wave -noupdate -expand -group {Physical Memory Signals} -label EWB_mem/WE -radix hexadecimal /full_mainpc_tb/EWB_mem/WE
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/load_dirty_1
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/load_dirty_2
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/load_dirty_3
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/load_dirty_4
-add wave -noupdate -radix binary /full_mainpc_tb/WeBareBears/L2_cache/LRU_out
-add wave -noupdate -radix binary {/full_mainpc_tb/WeBareBears/L2_cache/CD/LRU/data[7]}
-add wave -noupdate -radix binary /full_mainpc_tb/WeBareBears/L2_cache/CD/TRUE_LRU/new_LRU
-add wave -noupdate -radix binary /full_mainpc_tb/WeBareBears/L2_cache/CD/TRUE_LRU/old_LRU
-add wave -noupdate -radix binary /full_mainpc_tb/WeBareBears/L2_cache/CD/TRUE_LRU/way
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/way1_hit
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/way2_hit
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/way3_hit
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/way4_hit
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/wdata_out
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/a
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/b
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/c
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/d
-add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/L2_cache/CD/DATA_WRITE/sel
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/VCC/state
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/L2_read
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/L2_write
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/L2toPmem_busy
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/VC_ack
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/VC_hit
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/foh
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/mem_ack
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/l2_req_muxsel
+add wave -noupdate -expand -group VC_data -label {VC_data[0]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[0]}
+add wave -noupdate -expand -group VC_data -label {VC_data[1]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[1]}
+add wave -noupdate -expand -group VC_data -label {VC_data[2]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[2]}
+add wave -noupdate -expand -group VC_data -label {VC_data[3]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[3]}
+add wave -noupdate -expand -group VC_data -label {VC_data[4]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[4]}
+add wave -noupdate -expand -group VC_data -label {VC_data[5]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[5]}
+add wave -noupdate -expand -group VC_data -label {VC_data[6]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[6]}
+add wave -noupdate -expand -group VC_data -label {VC_data[7]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_DATA/data[7]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[0]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[0]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[1]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[1]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[2]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[2]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[3]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[3]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[4]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[4]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[5]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[5]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[6]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[6]}
+add wave -noupdate -expand -group VC_address -label {VC_addr[7]} -radix hexadecimal {/full_mainpc_tb/WeBareBears/Victim_cache/VCD/VC_ADR/data[7]}
+add wave -noupdate /full_mainpc_tb/WeBareBears/Victim_cache/VC_LRU_dirty
+add wave -noupdate /full_mainpc_tb/WeBareBears/Victim_cache/VC_hit_dirty
+add wave -noupdate /full_mainpc_tb/WeBareBears/Victim_cache/hit_way
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/wb_address
+add wave -noupdate -radix hexadecimal /full_mainpc_tb/WeBareBears/Victim_cache/wb_data
+add wave -noupdate /full_mainpc_tb/WeBareBears/Victim_cache/load_VC
+add wave -noupdate -radix hexadecimal {/full_mainpc_tb/mem/mem[46]}
+add wave -noupdate /full_mainpc_tb/EWB_mem/CYC
+add wave -noupdate /full_mainpc_tb/EWB_mem/SEL
+add wave -noupdate /full_mainpc_tb/WeBareBears/L2_cache/dirty_out
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {288617 ps} 0} {{Cursor 2} {722179289 ps} 0}
+WaveRestoreCursors {{Cursor 1} {341084746 ps} 0} {{Cursor 2} {946961342 ps} 0}
 quietly wave cursor active 2
-configure wave -namecolwidth 350
+configure wave -namecolwidth 397
 configure wave -valuecolwidth 221
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -189,4 +206,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {1050 us}
+WaveRestoreZoom {946656008 ps} {947058494 ps}

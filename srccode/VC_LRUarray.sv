@@ -1,6 +1,6 @@
 import lc3b_types::*;
 
-module VC_LRUarray #(parameter width = 24) 
+module VC_LRU_array #(parameter width = 24) 
 (
 	input clk,
 	input write,
@@ -23,5 +23,5 @@ module VC_LRUarray #(parameter width = 24)
 		
 	assign dataout = data;
 		
-endmodule : VC_LRUarray
+endmodule : VC_LRU_array
 		

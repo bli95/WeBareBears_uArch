@@ -3,9 +3,10 @@ import lc3b_types::*;
 module VC_control
 (
 	input clk,
+	
 	input mem_ack, L2_read, L2_write, L2toPmem_busy,
 	input VC_hit, L2_dirty_bit, VC_hit_dirty, VC_LRU_dirty,
-	input [2:0] way,
+	input [2:0] hit_way,
 	input [23:0] LRU_out,
 
 	output logic load_LRU, load_VC, load_VC_dirty, VC_dirty_bit,
@@ -13,34 +14,37 @@ module VC_control
    output logic [2:0] data_index
 );
 
+	logic write_begin;
+
 	// during L2 idle periods, your vc should be evicting dirty entries and cleaning up the victim cache
 
 	enum int unsigned {hold, write_mem, mem_break} state, next_state;
 	
 	always_comb begin
 	
-        VC_ack = 1'b0;
-        VC_write = 1'b0;
-        load_VC = 1'b0;
-        load_VC_dirty = 1'b0;
-        load_LRU = 1'b0;
-        data_index = LRU_out[2:0];
-        VC_dirty_bit = VC_LRU_dirty;
-		  foh = 1'b0;
+      VC_ack = 1'b0;
+      VC_write = 1'b0;
+      load_VC = 1'b0;
+      load_VC_dirty = 1'b0;
+      load_LRU = 1'b0;
+      data_index = LRU_out[2:0];
+      VC_dirty_bit = VC_LRU_dirty;
+		foh = 1'b0;
+		write_begin = 1'b0;
 			
 		case(state)
 			hold:
 			begin
 				if (L2_write) begin
-					if (VC_hit) begin
+					if (VC_hit) begin // prioritize writing to matching address
 						load_VC = 1;
 						load_LRU = 1; 
 						load_VC_dirty = 1;
-						data_index = way;
+						data_index = hit_way;
 						VC_dirty_bit = VC_hit_dirty | L2_dirty_bit;
 						VC_ack = 1; 
 					end
-					else if (!VC_LRU_dirty) begin
+					else if (!VC_LRU_dirty) begin // overwrite clean data on least-recently used line
 						load_VC = 1;
 						load_LRU = 1;
 						load_VC_dirty = 1;
@@ -48,15 +52,15 @@ module VC_control
 						VC_dirty_bit = L2_dirty_bit;
 						VC_ack = 1;
 					end
-					else begin                                   // this is a write miss and dirty
+					else begin   // write back dirty data on least-recently used line
 						data_index = LRU_out[2:0]; 
-						VC_write = 1;
+						write_begin = 1;
 					end        
 				end
 				else if (L2_read) begin
 					if (VC_hit) begin
 						load_LRU = 1;
-						data_index = way;
+						data_index = hit_way;
 						VC_ack = 1;
 					end
 					else begin
@@ -66,7 +70,7 @@ module VC_control
 				else begin
 					if (VC_LRU_dirty && !L2toPmem_busy) begin
 						data_index = LRU_out[2:0]; 
-						VC_write = 1;
+						write_begin = 1;
 					end
 				end
 			end
@@ -90,7 +94,7 @@ module VC_control
 		case (state)
 			hold:
 			begin
-				if (VC_write) begin
+				if (write_begin) begin
 					next_state = write_mem;
 				end
 				else if (VC_ack) begin

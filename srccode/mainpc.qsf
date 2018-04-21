@@ -75,13 +75,13 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME full_mainpc_tb -section_i
 set_global_assignment -name EDA_TEST_BENCH_FILE ../testbenches/full_mainpc_tb.sv -section_id full_mainpc_tb
 set_global_assignment -name EDA_TEST_BENCH_FILE physical_memory.sv -section_id full_mainpc_tb
 
+set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
 set_global_assignment -name SYSTEMVERILOG_FILE victim_cache.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VCarray.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VC_LRUarray.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VC_LRU_stack.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VC_control.sv
 set_global_assignment -name SYSTEMVERILOG_FILE VC_datapath.sv
-set_global_assignment -name SYSTEMVERILOG_FILE lc3b_types.sv
 set_global_assignment -name SYSTEMVERILOG_FILE L2cache.sv
 set_global_assignment -name SYSTEMVERILOG_FILE L2cache_datapath.sv
 set_global_assignment -name SYSTEMVERILOG_FILE L2cache_control.sv

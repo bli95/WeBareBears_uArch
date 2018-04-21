@@ -7,6 +7,10 @@ logic EWB_ack, EWB_req, EWB_busy, L2_busy;
 logic [11:0] w_addr_out;
 logic [127:0] w_data_out;
 logic write_hit;
+logic VC_read, VC_ack, Pmem_read, VC_write, foh, L2_dirty_bit;
+logic [11:0] wb_address;
+logic [127:0] wb_data;
+logic l2_req_muxsel = 1'b0;	// chooses what L2 interacts with between VC and PMEM 
 
 wishbone cpu_dcache(pmembus.CLK);
 wishbone cpu_icache(pmembus.CLK);
@@ -52,10 +56,7 @@ L2cache L2_cache (
 	.miss_me_wifdat_bs(l2cache_miss)
 );
 
-logic VC_read, Pmem_read, VC_write, foh, L2_dirty_bit;
-logic [11:0] wb_address;
-logic [127:0] wb_data;
-logic l2_req_muxsel = 1'b0;	// chooses what L2 interacts with between VC and PMEM 
+
 
 victim_cache Victim_cache (
 	 .clk(pmembus.CLK),
@@ -64,8 +65,9 @@ victim_cache Victim_cache (
 	 .mem_ack(pmembus.ACK), 
 	 .L2_read(VC_read), 
 	 .L2_write(L2cache_VC.WE), 
-	 .L2toPmem_busy(L2cache_VC.STB),
+	 .L2toPmem_busy(l2_req_muxsel),
     .L2_dirty_bit,
+	 
 	 .foh,
 	 .wb_data,
 	 .wb_address,
@@ -87,6 +89,7 @@ assign pmembus.CYC = Pmem_read | VC_write;
 assign pmembus.WE = VC_write;
 assign pmembus.DAT_M = wb_data;
 assign pmembus.ADR = (VC_write) ? wb_address : L2cache_VC.ADR;
+assign pmembus.SEL = 16'hffff;
 
 // All this shit below was used to connect EWB
 

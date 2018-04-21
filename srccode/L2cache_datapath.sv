@@ -25,7 +25,7 @@ module L2cache_datapath
 	input lc3b_word cache_address,
 	input [127:0] cache_wdata,
 	output lc3b_word cache_rdata,
-	output L2_dirty_bit
+	output logic L2_dirty_bit
 );
 							 
 	logic [4:0] index;
