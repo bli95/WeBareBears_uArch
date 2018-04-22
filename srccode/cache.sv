@@ -42,7 +42,7 @@ module cache
 	assign mem_rdata = wb.DAT_S;
 		
 	assign wb.DAT_M = mem_wdata;
-	assign wb.ADR = mem_address[15:4];
+	//assign wb.ADR = mem_address[15:4];
 	assign wb.WE = mem_write;
 	assign wb.STB = (mem_read || mem_write) && !mem_done;
 	assign wb.CYC = (mem_read || mem_write) && !mem_done;
@@ -58,6 +58,8 @@ module cache
 	assign sb.ACK = cache_resp;
 	assign sb.DAT_S = data_out;
 	
+	register #(.width(12)) outgoing_addr (.clk, .load(1'b1), .in(mem_address[15:4]), .out(wb.ADR));
+
 	cache_datapath CD (.*);
 	cache_control CC (.*);
 		

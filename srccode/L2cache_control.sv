@@ -91,7 +91,7 @@ module L2cache_control
 						load_dirty_2 = 1'b1;
 						LRU_way = 2'b01;
 					end
-					else if (LRU_out[1:0] == 2'b10) begin
+					else if (LRU_out[1:0] == 2'b10) L2_addressbegin
 						load_data_3 = 1'b1;
 						load_dirty_3 = 1'b1;
 						LRU_way = 2'b10;
@@ -109,6 +109,11 @@ module L2cache_control
 						miss_me_wifdat_bs = 1;
 					else
 						got_hit_likah_bih = 1;
+				end
+				else begin
+					if ((cache_read && dirty_out) || cache_write) begin
+						R_W = 1'b1;
+					end
 				end
 			end
 			read_mem:
