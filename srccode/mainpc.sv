@@ -8,7 +8,7 @@ logic [11:0] w_addr_out;
 logic [127:0] w_data_out;
 logic write_hit;
 logic VC_read, VC_ack, Pmem_read, VC_write, foh, L2_dirty_bit;
-logic [11:0] wb_address;
+logic [11:0] wb_address, to_pmem_adr;
 logic [127:0] wb_data;
 logic l2_req_muxsel = 1'b0;	// chooses what L2 interacts with between VC and PMEM 
 
@@ -69,8 +69,8 @@ victim_cache Victim_cache (
     .L2_dirty_bit,
 	 
 	 .foh,
-	 .wb_data,
-	 .wb_address,
+	 .wb_data(pmembus.DAT_M),
+	 .wb_address(pmembus.ADR),
 	 .VC_ack, .VC_write
 );
 
@@ -87,9 +87,11 @@ mux2 #(.width(128)) select_DATA (.sel(l2_req_muxsel), .a(wb_data), .b(pmembus.DA
 assign pmembus.STB = Pmem_read | VC_write;
 assign pmembus.CYC = Pmem_read | VC_write;
 assign pmembus.WE = VC_write;
-assign pmembus.DAT_M = wb_data;
-assign pmembus.ADR = (VC_write) ? wb_address : L2cache_VC.ADR;
 assign pmembus.SEL = 16'hffff;
+// incorporated inside VC_datapath
+//mux2 #(.width(12)) select_ADR (.sel(VC_write), .a(L2cache_VC.ADR), .b(wb_address), .z(to_pmem_adr));
+//register #(.width(12)) pmem_MAR (.clk(pmembus.CLK), .load(1'b1), .in(to_pmem_adr), .out(pmembus.ADR));
+//assign pmembus.ADR = (VC_write) ? wb_address : L2cache_VC.ADR;
 
 // All this shit below was used to connect EWB
 

@@ -20,7 +20,6 @@ module L2cache
 	/* Cache signals */
 	logic cache_resp;
 	logic cache_read, cache_write;
-	logic [1:0] cache_byte_enable;
 	lc3b_word cache_address;
 	lc3b_word cache_rdata;
 	logic [127:0] cache_wdata;

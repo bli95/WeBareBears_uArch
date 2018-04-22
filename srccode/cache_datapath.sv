@@ -20,7 +20,6 @@ module cache_datapath
 	output [1:0] mem_byte_enable,
 							  
 	input cache_read, cache_write,
-	input [1:0] cache_byte_enable,
 	input lc3b_word cache_address,
 	input lc3b_word cache_wdata_16,
 	input [127:0] cache_wdata_128,

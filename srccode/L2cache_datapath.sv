@@ -21,10 +21,8 @@ module L2cache_datapath
 	output [1:0] mem_byte_enable,
 							  
 	input cache_read, cache_write,
-	input [1:0] cache_byte_enable,
 	input lc3b_word cache_address,
 	input [127:0] cache_wdata,
-	output lc3b_word cache_rdata,
 	output logic L2_dirty_bit
 );
 							 

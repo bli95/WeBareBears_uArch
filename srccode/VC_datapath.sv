@@ -8,7 +8,7 @@ module VC_datapath
 	input [11:0] L2_address,
 	input [127:0] L2_data,
 	input load_VC, load_VC_dirty, load_LRU,
-	input VC_dirty_bit,
+	input VC_dirty_bit, VC_write,
 	
    output logic VC_hit, VC_hit_dirty, VC_LRU_dirty,
    output logic [2:0] hit_way,
@@ -22,13 +22,16 @@ module VC_datapath
 	logic way1_found, way2_found, way3_found, way4_found, way5_found, way6_found, way7_found, way8_found;
 	logic way1_valid, way2_valid, way3_valid, way4_valid, way5_valid, way6_valid, way7_valid, way8_valid, way_valid_out;
 	logic way1_dirty, way2_dirty, way3_dirty, way4_dirty, way5_dirty, way6_dirty, way7_dirty, way8_dirty, way_dirty_out;
-	logic [11:0] way1_address, way2_address, way3_address, way4_address, way5_address, way6_address, way7_address, way8_address, way_address_out;
-	logic [127:0] way1_data, way2_data, way3_data, way4_data, way5_data, way6_data, way7_data, way8_data, way_data_out;
+	logic [11:0] way1_address, way2_address, way3_address, way4_address, way5_address, way6_address, way7_address, way8_address, way_address_out, wb_temp;
+	logic [127:0] way1_data, way2_data, way3_data, way4_data, way5_data, way6_data, way7_data, way8_data;
 
-	assign wb_data = way_data_out;
-	assign wb_address = way_address_out;
-	
 	assign VC_LRU_dirty = way_dirty_out;
+
+	// PMEM ADDR
+	
+	mux2 #(.width(12)) select_ADR (.sel(VC_write), .a(L2_address), .b(way_address_out), .z(wb_temp));
+	
+	register #(.width(12)) pmem_MAR (.clk, .load(1'b1), .in(wb_temp), .out(wb_address));
 	
 	// LRU
 	
@@ -40,7 +43,7 @@ module VC_datapath
 	
 	VCarray VC_DATA (.clk, .write(load_VC), .index(data_index), .datain(L2_data), 
 						  .dataout1(way1_data), .dataout2(way2_data), .dataout3(way3_data), .dataout4(way4_data), 
-						  .dataout5(way5_data), .dataout6(way6_data), .dataout7(way7_data), .dataout8(way8_data), .dataout(way_data_out));
+						  .dataout5(way5_data), .dataout6(way6_data), .dataout7(way7_data), .dataout8(way8_data), .dataout(wb_data));
 
 	VCarray #(.width(12)) VC_ADR (.clk, .write(load_VC), .index(data_index), .datain(L2_address), 
 										   .dataout1(way1_address), .dataout2(way2_address), .dataout3(way3_address), .dataout4(way4_address), 

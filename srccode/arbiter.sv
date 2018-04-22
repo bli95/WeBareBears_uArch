@@ -17,8 +17,8 @@ module arbiter
 		dcache_arbiter.DAT_S = arbiter_L2cache.DAT_S;
 		icache_arbiter.ACK = arbiter_L2cache.ACK && ~w;
 		dcache_arbiter.ACK = arbiter_L2cache.ACK && (state == dreq || state == both);
-		icache_arbiter.RTY = (icache_arbiter.ACK && icache_arbiter.STB) ? 0 : 1;
-		dcache_arbiter.RTY = (dcache_arbiter.ACK && dcache_arbiter.STB) ? 0 : 1;
+		icache_arbiter.RTY = (icache_arbiter.ACK && icache_arbiter.STB) ? 1'b0 : 1'b1;
+		dcache_arbiter.RTY = (dcache_arbiter.ACK && dcache_arbiter.STB) ? 1'b0 : 1'b1;
 		
 		w = 0;
 	
