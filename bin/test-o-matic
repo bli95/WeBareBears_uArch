@@ -8,14 +8,14 @@
 #MP project name
 MP=mainpc
 #MP directory
-MP_DIR=$HOME/ECE411/webarebears/srccode
+MP_DIR=$HOME/ece411/webarebears/srccode
 #Location of LC3bAssembler; Should usually be in bin
-ASSEMBLER=$HOME/ECE411/webarebears/bin/LC3bAssembler
+ASSEMBLER=$HOME/ece411/webarebears/bin/LC3bAssembler
 #Addressability of physical memory; from load_memory.sh
 ADDRESSABILITY=16
 
 #Testcode directory;Not required but can be used to avoid entering path everytime
-TESTCODE_DIR=$HOME/ECE411/webarebears/testcode
+TESTCODE_DIR=$HOME/ece411/webarebears/testcode
 
 ####
 ####Change according to your design
