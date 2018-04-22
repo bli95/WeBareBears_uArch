@@ -30,9 +30,8 @@ entity L2cache_datapath is
         mem_byte_enable : out    vl_logic_vector(1 downto 0);
         cache_read      : in     vl_logic;
         cache_write     : in     vl_logic;
-        cache_byte_enable: in     vl_logic_vector(1 downto 0);
         cache_address   : in     vl_logic_vector(15 downto 0);
         cache_wdata     : in     vl_logic_vector(127 downto 0);
-        cache_rdata     : out    vl_logic_vector(15 downto 0)
+        L2_dirty_bit    : out    vl_logic
     );
 end L2cache_datapath;

@@ -4,9 +4,9 @@ module VCarray #(parameter width = 128)
 (
 	input clk,
 	input write,
-	input [2:0] index,
+	input [2:0] read_index, write_index, wb_index_out,
 	input [width-1:0] datain,
-	output logic [width-1:0] dataout1, dataout2, dataout3, dataout4, dataout5, dataout6, dataout7, dataout8, dataout
+	output logic [width-1:0] dataout1, dataout2, dataout3, dataout4, dataout5, dataout6, dataout7, dataout8, rdataout, wdataout
 );
 														  
 	logic [width-1:0] data [7:0];
@@ -19,7 +19,7 @@ module VCarray #(parameter width = 128)
 		
 	always_ff @(posedge clk) begin
 		if (write == 1) begin
-			data[index] = datain;
+			data[write_index] = datain;
 		end
 	end
 		
@@ -31,7 +31,8 @@ module VCarray #(parameter width = 128)
 	assign dataout6 = data[5];
 	assign dataout7 = data[6];
 	assign dataout8 = data[7];
-   assign dataout = data[index];
+   assign rdataout = data[read_index];
+	assign wdataout = data[wb_index_out];
 
 endmodule : VCarray
 		

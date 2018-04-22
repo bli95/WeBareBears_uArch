@@ -6,6 +6,10 @@ entity pcmux_ctrlr is
         exme_opcode     : in     work.lc3b_types.lc3b_opcode;
         idex_opcode     : in     work.lc3b_types.lc3b_opcode;
         br_en           : in     vl_logic;
-        pcmux_sel       : out    vl_logic_vector(1 downto 0)
+        prediction      : in     vl_logic;
+        idex_prediction : in     vl_logic;
+        idex_dest       : in     vl_logic_vector(2 downto 0);
+        pc_opcode       : in     vl_logic_vector(3 downto 0);
+        pcmux_sel       : out    vl_logic_vector(2 downto 0)
     );
 end pcmux_ctrlr;

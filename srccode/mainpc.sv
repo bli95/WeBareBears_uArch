@@ -9,7 +9,7 @@ logic [127:0] w_data_out;
 logic write_hit;
 logic VC_read, VC_ack, Pmem_read, VC_write, foh, L2_dirty_bit;
 logic [11:0] wb_address, to_pmem_adr;
-logic [127:0] wb_data;
+logic [127:0] wb_data, rb_data;
 logic l2_req_muxsel = 1'b0;	// chooses what L2 interacts with between VC and PMEM 
 
 wishbone cpu_dcache(pmembus.CLK);
@@ -71,6 +71,7 @@ victim_cache Victim_cache (
 	 .foh,
 	 .wb_data(pmembus.DAT_M),
 	 .wb_address(pmembus.ADR),
+	 .rb_data,
 	 .VC_ack, .VC_write
 );
 
@@ -82,7 +83,7 @@ end
 
 demux2 #(.width(1)) select_L2read (.sel(l2_req_muxsel), .a(L2cache_VC.STB & !L2cache_VC.WE), .y(VC_read), .z(Pmem_read));
 mux2 #(.width(1)) select_ACK (.sel(l2_req_muxsel), .a(VC_ack), .b(pmembus.ACK), .z(L2cache_VC.ACK));
-mux2 #(.width(128)) select_DATA (.sel(l2_req_muxsel), .a(wb_data), .b(pmembus.DAT_S), .z(L2cache_VC.DAT_S));
+mux2 #(.width(128)) select_DATA (.sel(l2_req_muxsel), .a(rb_data), .b(pmembus.DAT_S), .z(L2cache_VC.DAT_S));
 
 assign pmembus.STB = Pmem_read | VC_write;
 assign pmembus.CYC = Pmem_read | VC_write;
