@@ -125,4 +125,6 @@ set_global_assignment -name SYSTEMVERILOG_FILE L2array.sv
 set_global_assignment -name SYSTEMVERILOG_FILE LRU_stack.sv
 set_global_assignment -name SYSTEMVERILOG_FILE LRUarray.sv
 set_global_assignment -name SYSTEMVERILOG_FILE demux2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE BR_array.sv
+set_global_assignment -name SYSTEMVERILOG_FILE branch_predictor.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
