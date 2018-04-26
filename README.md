@@ -8,3 +8,4 @@
 Spring 2018 UofI  
 Software: Altera Quartus  
 Layout: [Designs/](./designs)  
+Code:	[Srccode/](./srccode)  
