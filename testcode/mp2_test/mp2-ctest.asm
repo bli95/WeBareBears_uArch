@@ -20,21 +20,21 @@ SEGMENT 0 CODE:
    
 ;START TEST FOR STR 
                    
-                      	; cache miss to load instructions into cl0_0
+                      	; cache miss to load instructions (0x0) into L2 w0_0
 LEA R1, line1      
-LDR R2, R0, l2p         ; cache miss to load l2p into cl0_1
-LDR R3, R0, l3p         ; cache hit to load l3p
+LDR R2, R0, l2p         ; cache miss to load l2p (0x1) into L2 w0_1 & L1d w0_1
+LDR R3, R0, l3p         ; cache miss to load l3p (0x2) into L2 w0_2 & L1d w0_2
 NOP
 NOP
-LDR R4, R1, 0           ; cache miss to load line1 cl0_2
+LDR R4, R1, 0           ; cache miss to load (0x4) into L2 w0_4 & L1d w0_4
 NOP
 NOP
 NOP
 NOP
-STR R4, R1, 3           ; cache miss to store into cl0_4
-STR R4, R2, 3           ; cache miss to load line2 into cl1_2 and write to it 
-STR R4, R3, 3           ; cache miss and write back
-LDR R5, R1, 3           ; cache miss to load and verify write back worked;
+STR R4, R1, 3           ; cache hit to write to (0x4) L1 w0_4
+STR R4, R2, 3           ; cache miss to load (0xc) into L2 w1_4 & L1d w1_4 then write to it in L1d
+STR R4, R3, 3           ; cache miss to load (0x14) into L2 w1_4 & L1d w0_4 then write to it in L1d, first evicts (0x4) from L1 w0_4 to L2 w0_4, then evicts (0xc) from L2 w1_4 (not dirty)
+LDR R5, R1, 3           ; cache miss to load (0x4) into L2 w1_4 & L1d w1_4, first evicts L1d w1_4 to L2 w0_4, forces L2 w0_4 write back to EWB
 
 STOP:
 	BRnzp STOP

@@ -4,12 +4,12 @@ module array #(parameter width = 128)
 (
 	input clk,
 	input write,
-	input [2:0] index,
+	input [3:0] index,
 	input [width-1:0] datain,
 	output logic [width-1:0] dataout
 );
 														  
-	logic [width-1:0] data [7:0];
+	logic [width-1:0] data [15:0];
 		
 	/* Initialize array */
 	initial begin

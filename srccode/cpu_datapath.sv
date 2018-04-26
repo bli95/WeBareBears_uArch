@@ -29,7 +29,7 @@ module cpu_datapath
 
 /* INTERNAL SIGNALS */
 lc3b_word pc_plus2_out, pcmux_out, pc_out, instruction;
-logic [1:0] pcmux_sel;
+logic [2:0] pcmux_sel;
 
 lc3b_word ifid_next_pc, adjmux_out, reg1_out, reg2_out, regAmux_out, immvalmux_out;
 lc3b_word zext4_out, sext5_out, adj6_out, sext6_out, adj9_out, adj11_out, zadj8_out;
@@ -65,22 +65,41 @@ lc3b_word mewb_wbdata;
 lc3b_reg mewb_dest, mewb_src1, mewb_src2, destmux_out;
 lc3b_control_word mewb_ctrl_word;
 
+logic wrong_taken, wrong_not_taken;
+logic single_branch, branch_taken;
 logic rst1, rst2;
-assign rst1 = ((idex_ctrl_word.opcode == op_br) && br_en) || idex_ctrl_word.opcode==op_jsr || idex_ctrl_word.opcode==op_jmp;
-
 logic stall1, stall2;
-assign stall2 = ~icache_resp && idex_ctrl_word.opcode != op_jmp && idex_ctrl_word.opcode != op_jsr && ~((idex_ctrl_word.opcode == op_br) && br_en);
+
+logic prediction, ifid_prediction, idex_prediction;
+logic [15:0] target_address;
+
+assign rst1 = (wrong_not_taken) || (wrong_taken) || idex_ctrl_word.opcode==op_jsr || idex_ctrl_word.opcode==op_jmp;
+
+assign stall2 = ~icache_resp && icache_read;// && idex_ctrl_word.opcode != op_jmp && idex_ctrl_word.opcode != op_jsr && ~wrong_taken && ~wrong_not_taken; //((idex_ctrl_word.opcode == op_br) && br_en);
 assign global_stall = stall1 || stall2;
 
+assign wrong_not_taken = idex_ctrl_word.opcode == op_br && br_en && !idex_prediction;
+assign wrong_taken = idex_ctrl_word.opcode == op_br && !br_en && idex_prediction && idex_dest != 3'b000;
+
+assign single_branch = idex_ctrl_word.opcode == op_br && !global_stall && idex_dest != 3'b000;
+assign branch_taken = single_branch && br_en;
+
+register #(.width(1)) IFID_PREDICT (.clk, .load(~stall1 && ~stall2), .in(prediction), .out(ifid_prediction));
+register #(.width(1)) IDEX_PREDICT (.clk, .load(~stall1 && ~stall2), .in(ifid_prediction), .out(idex_prediction));
+
+/* BRANCH PREDICTION */
+branch_predictor BRP (.clk, .load_BR(single_branch), .target_offset(instruction[8:0]), .BR_taken(branch_taken), .current_PC(pc_plus2_out), .idex_PC(idex_next_pc - 2'b10), .prediction, .target_address);
+
 /* IF STAGE */
-pcmux_ctrlr pc_ctrl (.exme_opcode(exme_ctrl_word.opcode), .idex_opcode(idex_ctrl_word.opcode), .br_en, .pcmux_sel);
-mux4 pcmux (.sel(pcmux_sel), .a(pc_plus2_out), .b(br_adder_out), .c(jsrmux_out), .d(ldb_datmod_out), .z(pcmux_out));
+pcmux_ctrlr pc_ctrl (.exme_opcode(exme_ctrl_word.opcode), .idex_opcode(idex_ctrl_word.opcode), .pc_opcode(instruction[15:12]), .br_en, .prediction, .idex_dest, .idex_prediction, .pcmux_sel);
+mux8 pcmux (.sel(pcmux_sel), .a(pc_plus2_out), .b(br_adder_out), .c(jsrmux_out), .d(ldb_datmod_out), .e(target_address), .f(idex_next_pc), .z(pcmux_out));
 register pc (.clk, .load(~stall1 && ~stall2), .in(pcmux_out), .out(pc_out));
 plus pc_incr_2 (.in(pc_out), .out(pc_plus2_out));
 
 assign icache_addr = pc_out;
-assign icache_read = idex_ctrl_word.opcode != op_jmp && idex_ctrl_word.opcode != op_jsr && ~((idex_ctrl_word.opcode == op_br) && br_en);
+assign icache_read = idex_ctrl_word.opcode != op_jmp && idex_ctrl_word.opcode != op_jsr && ~wrong_not_taken && ~wrong_taken;//~((idex_ctrl_word.opcode == op_br) && br_en);
 extract_16 GET_INSTRUCTION (icache_rdata, isel_mask, instruction);
+
 //assign instruction = lc3b_word'(icache_rdata >> {icache_addr[3:1],4'h0});
 
 /* IF/ID PIPELINE */

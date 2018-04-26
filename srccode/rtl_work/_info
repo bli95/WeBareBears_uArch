@@ -2,64 +2,64 @@ m255
 K3
 13
 cModel Technology
-Z0 d/home/cli91/WeBareBears_uArch/srccode
+Z0 d/home/hornits2/ece411/webarebears/srccode
 vadj
 Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
-Z2 DXx4 work 10 lc3b_types 0 22 [hBKjRG3WWzcL]WaL3V4H3
-DXx4 work 11 adj_sv_unit 0 22 ;YlD]K>n2l1L`TAPUlU8;2
+Z2 DXx4 work 10 lc3b_types 0 22 56j5JB2XU:G?7PDBPdXgi2
+DXx4 work 11 adj_sv_unit 0 22 9M>9HWWbQY2h?IIlZF]`G2
 VSOAz4eiSaMfmm?72DcU_91
 r1
 31
-IlaCIVWF3:cH`W3h;RY`hF0
+IAFRSkBk<=Iz3U4_gF?dWQ0
 S1
-Z3 d/home/cli91/WeBareBears_uArch/srccode
-Z4 w1520543676
-Z5 8/home/cli91/WeBareBears_uArch/srccode/adj.sv
-Z6 F/home/cli91/WeBareBears_uArch/srccode/adj.sv
+Z3 d/home/hornits2/ece411/webarebears/srccode
+Z4 w1520929761
+Z5 8/home/hornits2/ece411/webarebears/srccode/adj.sv
+Z6 F/home/hornits2/ece411/webarebears/srccode/adj.sv
 L0 6
 Z7 OV;L;10.1d;51
-Z8 !s108 1523809602.525827
-Z9 !s107 /home/cli91/WeBareBears_uArch/srccode/adj.sv|
-Z10 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/adj.sv|
+Z8 !s108 1524427818.602396
+Z9 !s107 /home/hornits2/ece411/webarebears/srccode/adj.sv|
+Z10 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/adj.sv|
 Z11 o-sv -work work -O0
-Z12 !s92 -sv -work work +incdir+/home/cli91/WeBareBears_uArch/srccode -O0
+Z12 !s92 -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode -O0
 !s85 0
 !i10b 1
-!s100 ladV[71Q<:N4dC58M6Fb[2
+!s100 [I@UCe=CL_lH1FNJJ0>@]0
 !s105 adj_sv_unit
 !s101 -O0
 vadj_add_pc
 R1
 R2
-DXx4 work 18 adj_add_pc_sv_unit 0 22 CanN?fGR70bg_1B<Q1ALU3
+DXx4 work 18 adj_add_pc_sv_unit 0 22 4Z954]8O[h9eDd;WUF8602
 Vg6bOOa79>HcDUNhhEEi9c2
 r1
 31
-Ie;RKjf^72jj82YY<d]][P0
+Ib06@flGh0PaOifB;i1Az03
 S1
 R3
 R4
-Z13 8/home/cli91/WeBareBears_uArch/srccode/adj_add_pc.sv
-Z14 F/home/cli91/WeBareBears_uArch/srccode/adj_add_pc.sv
+Z13 8/home/hornits2/ece411/webarebears/srccode/adj_add_pc.sv
+Z14 F/home/hornits2/ece411/webarebears/srccode/adj_add_pc.sv
 L0 3
 R7
-Z15 !s108 1523809602.230478
-Z16 !s107 /home/cli91/WeBareBears_uArch/srccode/adj_add_pc.sv|
-Z17 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/adj_add_pc.sv|
+Z15 !s108 1524427818.126156
+Z16 !s107 /home/hornits2/ece411/webarebears/srccode/adj_add_pc.sv|
+Z17 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/adj_add_pc.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 `KocV@dCoULaZ:3jVUG_`1
+!s100 ]n_P^kXKTZ5<YHzHDES4U3
 !s105 adj_add_pc_sv_unit
 !s101 -O0
 Xadj_add_pc_sv_unit
 R1
 R2
-VCanN?fGR70bg_1B<Q1ALU3
+V4Z954]8O[h9eDd;WUF8602
 r1
 31
-ICanN?fGR70bg_1B<Q1ALU3
+I4Z954]8O[h9eDd;WUF8602
 S1
 R3
 R4
@@ -74,16 +74,16 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 7LzgSk8^<c>CKd`1IVA:f3
+!s100 iDoz<iGH^U@aD[oz7eM162
 !i103 1
 !s101 -O0
 Xadj_sv_unit
 R1
 R2
-V;YlD]K>n2l1L`TAPUlU8;2
+V9M>9HWWbQY2h?IIlZF]`G2
 r1
 31
-I;YlD]K>n2l1L`TAPUlU8;2
+I9M>9HWWbQY2h?IIlZF]`G2
 S1
 R3
 R4
@@ -98,41 +98,41 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 @HcZ72U`;?R93]ma`2de21
+!s100 ?e5hSQ:oB31Wz>Ko`mY<a2
 !i103 1
 !s101 -O0
 valu
 R1
 R2
-DXx4 work 11 alu_sv_unit 0 22 n=jdP4HmB`EHec]`zXH0`1
+DXx4 work 11 alu_sv_unit 0 22 A^BRPd@mTKT`oUW_1PTi:0
 V=ZN?TEUMd1Ge?6dcD7B5a3
 r1
 31
-IlD59:aSA;]g>B7mm2N:>H0
+I9FG>;c^AP64T[Pj89YjO42
 S1
 R3
 R4
-Z18 8/home/cli91/WeBareBears_uArch/srccode/alu.sv
-Z19 F/home/cli91/WeBareBears_uArch/srccode/alu.sv
+Z18 8/home/hornits2/ece411/webarebears/srccode/alu.sv
+Z19 F/home/hornits2/ece411/webarebears/srccode/alu.sv
 L0 3
 R7
-Z20 !s108 1523809602.426297
-Z21 !s107 /home/cli91/WeBareBears_uArch/srccode/alu.sv|
-Z22 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/alu.sv|
+Z20 !s108 1524427818.456711
+Z21 !s107 /home/hornits2/ece411/webarebears/srccode/alu.sv|
+Z22 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/alu.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 MEalh]5LG5BZ6ik:l1EZd2
+!s100 cD<=OoO`XHH^be``zg]@B3
 !s105 alu_sv_unit
 !s101 -O0
 Xalu_sv_unit
 R1
 R2
-Vn=jdP4HmB`EHec]`zXH0`1
+VA^BRPd@mTKT`oUW_1PTi:0
 r1
 31
-In=jdP4HmB`EHec]`zXH0`1
+IA^BRPd@mTKT`oUW_1PTi:0
 S1
 R3
 R4
@@ -147,41 +147,41 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 KJ^]E@iVkD1X^E7[GI2bC3
+!s100 eCORlL6D`oTkPL^n_jB]O2
 !i103 1
 !s101 -O0
 varbiter
 R1
 R2
-DXx4 work 15 arbiter_sv_unit 0 22 U:bn6l6k=ZBbXP7@zz>zE3
+DXx4 work 15 arbiter_sv_unit 0 22 `k5QSZ?TAFlK]<LOKEk981
 V59mOOSmBaafcfHPo^3bz>2
 r1
 31
-IoVionAjNU^:kU0A7jk7Q40
+I00k7e:00MAiGHhB@hCUgE3
 S1
 R3
-Z23 w1522804816
-Z24 8/home/cli91/WeBareBears_uArch/srccode/arbiter.sv
-Z25 F/home/cli91/WeBareBears_uArch/srccode/arbiter.sv
+Z23 w1524416578
+Z24 8/home/hornits2/ece411/webarebears/srccode/arbiter.sv
+Z25 F/home/hornits2/ece411/webarebears/srccode/arbiter.sv
 L0 3
 R7
-Z26 !s108 1523809601.541315
-Z27 !s107 /home/cli91/WeBareBears_uArch/srccode/arbiter.sv|
-Z28 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/arbiter.sv|
+Z26 !s108 1524427817.043431
+Z27 !s107 /home/hornits2/ece411/webarebears/srccode/arbiter.sv|
+Z28 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/arbiter.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 HkBTlR<OR5U4[Cz:11beA1
+!s100 `I^^]XeO2VlR6Jzaa:3gY1
 !s105 arbiter_sv_unit
 !s101 -O0
 Xarbiter_sv_unit
 R1
 R2
-VU:bn6l6k=ZBbXP7@zz>zE3
+V`k5QSZ?TAFlK]<LOKEk981
 r1
 31
-IU:bn6l6k=ZBbXP7@zz>zE3
+I`k5QSZ?TAFlK]<LOKEk981
 S1
 R3
 R23
@@ -196,138 +196,164 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 b_:^Z85JD=>d4ha]M@>c]0
+!s100 6m>HTW0RY5>gA;aWSF_RY2
 !i103 1
 !s101 -O0
 varray
 R1
 R2
-DXx4 work 13 array_sv_unit 0 22 2>ZljYbHoGM@ZIRKIP3:V0
-VbX7UlW@n_MiWTMTol9F9c0
+DXx4 work 13 array_sv_unit 0 22 OCFF7Q1HULBmRTUGdM8hg2
+ViLYZkY5a1LLP7o9=:4VL_2
 r1
 31
-IT_<2Aaai5H1`9f@nJXCYP3
+Izb<X=4UkQ34E48YXQ7GXl1
 S1
 R3
-R23
-Z29 8/home/cli91/WeBareBears_uArch/srccode/array.sv
-Z30 F/home/cli91/WeBareBears_uArch/srccode/array.sv
+Z29 w1524277933
+Z30 8/home/hornits2/ece411/webarebears/srccode/array.sv
+Z31 F/home/hornits2/ece411/webarebears/srccode/array.sv
 L0 3
 R7
-Z31 !s108 1523809601.016697
-Z32 !s107 /home/cli91/WeBareBears_uArch/srccode/array.sv|
-Z33 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/array.sv|
+Z32 !s108 1524427814.773116
+Z33 !s107 /home/hornits2/ece411/webarebears/srccode/array.sv|
+Z34 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/array.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 ]bOJ6gC>FR:m1LP<<Gmhf2
+!s100 3S4?ViJhA90hNBaQ@2iCf3
 !s105 array_sv_unit
 !s101 -O0
 Xarray_sv_unit
 R1
 R2
-V2>ZljYbHoGM@ZIRKIP3:V0
+VOCFF7Q1HULBmRTUGdM8hg2
 r1
 31
-I2>ZljYbHoGM@ZIRKIP3:V0
+IOCFF7Q1HULBmRTUGdM8hg2
 S1
 R3
-R23
 R29
 R30
+R31
 L0 1
 R7
-R31
 R32
 R33
+R34
 R11
 R12
 !s85 0
 !i10b 1
-!s100 ;64;EA`M2m:SHLNW@3T=G2
+!s100 Zz:H2z;@_lPLzLikAm<^[0
 !i103 1
 !s101 -O0
 vband_and_neq_comp
 R1
-I8XXIUI[=83_;foHl9^WU:2
+INh9Rcj_Ih48n@LZfRNS9o1
 VBbPHY9^hZG>iU_9zd;N^Z0
-Z34 !s105 special_db_comps_sv_unit
+Z35 !s105 special_db_comps_sv_unit
 S1
 R3
-Z35 w1520801336
-Z36 8/home/cli91/WeBareBears_uArch/srccode/special_db_comps.sv
-Z37 F/home/cli91/WeBareBears_uArch/srccode/special_db_comps.sv
+R4
+Z36 8/home/hornits2/ece411/webarebears/srccode/special_db_comps.sv
+Z37 F/home/hornits2/ece411/webarebears/srccode/special_db_comps.sv
 L0 14
 R7
 r1
 31
-Z38 !s108 1523809600.701876
-Z39 !s107 /home/cli91/WeBareBears_uArch/srccode/special_db_comps.sv|
-Z40 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/special_db_comps.sv|
+Z38 !s108 1524427814.498321
+Z39 !s107 /home/hornits2/ece411/webarebears/srccode/special_db_comps.sv|
+Z40 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/special_db_comps.sv|
 R11
 R12
 !i10b 1
-!s100 Qd9zYb5l4RmEUIK08_03[2
+!s100 O5cD`d?D[@FD483z50g951
 !s85 0
 !s101 -O0
-vcache
+vBR_array
 R1
 R2
-DXx4 work 13 cache_sv_unit 0 22 ^^oIPU4@eShR0kEkH^>dP0
-V<l22RFDH4iS3]a<142^^L0
+DXx4 work 16 BR_array_sv_unit 0 22 m8EZaU8EZj=Pf^1H_]ie@3
+V66QDNdGROUVi4CFhcMASM1
 r1
 31
-IeQXIfGW1iz7:d@E?m0Ndn3
+In68g8P[bE<YeU9Q?Qe0CC0
 S1
 R3
-Z41 w1523806652
-Z42 8/home/cli91/WeBareBears_uArch/srccode/cache.sv
-Z43 F/home/cli91/WeBareBears_uArch/srccode/cache.sv
+Z41 w1524416842
+Z42 8/home/hornits2/ece411/webarebears/srccode/BR_array.sv
+Z43 F/home/hornits2/ece411/webarebears/srccode/BR_array.sv
 L0 3
 R7
-Z44 !s108 1523809603.929053
-Z45 !s107 /home/cli91/WeBareBears_uArch/srccode/cache.sv|
-Z46 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cache.sv|
+Z44 !s108 1524427816.131395
+Z45 !s107 /home/hornits2/ece411/webarebears/srccode/BR_array.sv|
+Z46 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/BR_array.sv|
 R11
 R12
+n@b@r_array
 !s85 0
 !i10b 1
-!s100 HOX>6P6`a]^hhJUdL`Qzh0
-!s105 cache_sv_unit
+!s100 I_jF]fFNFL8mz0c=Chogn3
+!s105 BR_array_sv_unit
 !s101 -O0
-vcache_control
+XBR_array_sv_unit
 R1
 R2
-DXx4 work 21 cache_control_sv_unit 0 22 TnDOZ_LIji``iIaAoOEZg1
-VKEe2AljGP8HHi]IZ=KQzO3
+Vm8EZaU8EZj=Pf^1H_]ie@3
 r1
 31
-IcgW2^gbkDzg=E2WnQDGA60
+Im8EZaU8EZj=Pf^1H_]ie@3
 S1
 R3
-Z47 w1523745771
-Z48 8/home/cli91/WeBareBears_uArch/srccode/cache_control.sv
-Z49 F/home/cli91/WeBareBears_uArch/srccode/cache_control.sv
+R41
+R42
+R43
+L0 1
+R7
+R44
+R45
+R46
+R11
+R12
+n@b@r_array_sv_unit
+!s85 0
+!i10b 1
+!s100 8IeU=8W<25PYkf=IW@_LK2
+!i103 1
+!s101 -O0
+vbranch_predictor
+R1
+R2
+DXx4 work 24 branch_predictor_sv_unit 0 22 m_8U>F>@UB;8I1zB7:51?0
+VUXiznG]:TNY6^7gfXP_YX1
+r1
+31
+IJ2DE2?g3J@@ClWEW:?``N3
+S1
+R3
+Z47 w1524416871
+Z48 8/home/hornits2/ece411/webarebears/srccode/branch_predictor.sv
+Z49 F/home/hornits2/ece411/webarebears/srccode/branch_predictor.sv
 L0 3
 R7
-Z50 !s108 1523809600.856134
-Z51 !s107 /home/cli91/WeBareBears_uArch/srccode/cache_control.sv|
-Z52 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cache_control.sv|
+Z50 !s108 1524427820.497071
+Z51 !s107 /home/hornits2/ece411/webarebears/srccode/branch_predictor.sv|
+Z52 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/branch_predictor.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 ]IhZ?>5`:Q]_;G?YC5N^>3
-!s105 cache_control_sv_unit
+!s100 EZIRN1FM8D1a9QOUSdoK81
+!s105 branch_predictor_sv_unit
 !s101 -O0
-Xcache_control_sv_unit
+Xbranch_predictor_sv_unit
 R1
 R2
-VTnDOZ_LIji``iIaAoOEZg1
+Vm_8U>F>@UB;8I1zB7:51?0
 r1
 31
-ITnDOZ_LIji``iIaAoOEZg1
+Im_8U>F>@UB;8I1zB7:51?0
 S1
 R3
 R47
@@ -342,140 +368,69 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 Nm[4ZUe[Cbn1=YXoZodVa3
+!s100 MjFhDX>m8[_beG`[D0Dlk2
 !i103 1
 !s101 -O0
-vcache_datapath
+vcache
 R1
 R2
-DXx4 work 22 cache_datapath_sv_unit 0 22 _9=`C;YBWk?Of[H]NSZzH0
-VTAmIPF`j6WChO4VHIBbc93
+DXx4 work 13 cache_sv_unit 0 22 gXh7Q8^QS?Q15P1Hmk5J91
+VGNH?@Y:9RVcjP]h0f>LOT1
 r1
 31
-I>2CDV:M^jl`S:J8hC`O7<2
+Ie9>SLI5Kz=APKbYZg137@0
 S1
 R3
-Z53 w1523806372
-Z54 8/home/cli91/WeBareBears_uArch/srccode/cache_datapath.sv
-Z55 F/home/cli91/WeBareBears_uArch/srccode/cache_datapath.sv
+R23
+Z53 8/home/hornits2/ece411/webarebears/srccode/cache.sv
+Z54 F/home/hornits2/ece411/webarebears/srccode/cache.sv
 L0 3
 R7
-Z56 !s108 1523809603.688943
-Z57 !s107 /home/cli91/WeBareBears_uArch/srccode/cache_datapath.sv|
-Z58 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cache_datapath.sv|
+Z55 !s108 1524427822.335622
+Z56 !s107 /home/hornits2/ece411/webarebears/srccode/cache.sv|
+Z57 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cache.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 cL39d`PHYf[PAVJ3O4zXV2
-!s105 cache_datapath_sv_unit
+!s100 B5La`XFfgihEKi@Mn?:T33
+!s105 cache_sv_unit
 !s101 -O0
-Xcache_datapath_sv_unit
+vcache_control
 R1
 R2
-V_9=`C;YBWk?Of[H]NSZzH0
+DXx4 work 21 cache_control_sv_unit 0 22 ikc`ah8^?GVl:L25j:H5]0
+VKEe2AljGP8HHi]IZ=KQzO3
 r1
 31
-I_9=`C;YBWk?Of[H]NSZzH0
+I4B=iYZaf6d<N:6;<;A:3U1
 S1
 R3
-R53
-R54
-R55
-L0 1
+Z58 w1524015632
+Z59 8/home/hornits2/ece411/webarebears/srccode/cache_control.sv
+Z60 F/home/hornits2/ece411/webarebears/srccode/cache_control.sv
+L0 3
 R7
-R56
-R57
+Z61 !s108 1524427814.623909
+Z62 !s107 /home/hornits2/ece411/webarebears/srccode/cache_control.sv|
+Z63 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cache_control.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 K>7j:@=2Al[>Q1iCA[:0`3
+!s105 cache_control_sv_unit
+!s101 -O0
+Xcache_control_sv_unit
+R1
+R2
+Vikc`ah8^?GVl:L25j:H5]0
+r1
+31
+Iikc`ah8^?GVl:L25j:H5]0
+S1
+R3
 R58
-R11
-R12
-!s85 0
-!i10b 1
-!s100 Q3BZh[E`o5b4VXVAUUeTE2
-!i103 1
-!s101 -O0
-Xcache_sv_unit
-R1
-R2
-V^^oIPU4@eShR0kEkH^>dP0
-r1
-31
-I^^oIPU4@eShR0kEkH^>dP0
-S1
-R3
-R41
-R42
-R43
-L0 1
-R7
-R44
-R45
-R46
-R11
-R12
-!s85 0
-!i10b 1
-!s100 I_G7Q@@]Uacj:i?eU2SEG2
-!i103 1
-!s101 -O0
-vcomparator
-R1
-I@aFYH@b<BIfU7Hi735h091
-V?FR_3h8]f61MRFMdI^Eg01
-S1
-R3
-R23
-8/home/cli91/WeBareBears_uArch/srccode/comparator.sv
-F/home/cli91/WeBareBears_uArch/srccode/comparator.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 BJlOYJbjlf_8=fYjKQbz22
-!s105 comparator_sv_unit
-!s85 0
-!s108 1523809601.183852
-!s107 /home/cli91/WeBareBears_uArch/srccode/comparator.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/comparator.sv|
-!s101 -O0
-vcontrol_rom
-R1
-R2
-DXx4 work 19 control_rom_sv_unit 0 22 Q2YiB_:mQ8mTSV[8M^EcL0
-VNJCLTg5?S6L6XKI:l]YTG2
-r1
-31
-IOGbBhoX4?KEF;Vkce<Ei03
-S1
-R3
-R23
-Z59 8/home/cli91/WeBareBears_uArch/srccode/control_rom.sv
-Z60 F/home/cli91/WeBareBears_uArch/srccode/control_rom.sv
-L0 3
-R7
-Z61 !s108 1523809602.727130
-Z62 !s107 /home/cli91/WeBareBears_uArch/srccode/control_rom.sv|
-Z63 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/control_rom.sv|
-R11
-R12
-!s85 0
-!i10b 1
-!s100 3KCLRh^JlS7Wzoeh<3d2`3
-!s105 control_rom_sv_unit
-!s101 -O0
-Xcontrol_rom_sv_unit
-R1
-R2
-VQ2YiB_:mQ8mTSV[8M^EcL0
-r1
-31
-IQ2YiB_:mQ8mTSV[8M^EcL0
-S1
-R3
-R23
 R59
 R60
 L0 1
@@ -487,238 +442,406 @@ R11
 R12
 !s85 0
 !i10b 1
-!s100 Fj51ERhf@Ebb<JKEobXLK3
+!s100 Nkh[>ZzJ7z0JJDO1^3M:23
+!i103 1
+!s101 -O0
+vcache_datapath
+R1
+R2
+DXx4 work 22 cache_datapath_sv_unit 0 22 VQS;ghXWBFXKB8UBV8UDL0
+V6`f[7CdLeV3<`B05WHHc`2
+r1
+31
+I5Tz?93Rg7@=Z@nn]f9RMS2
+S1
+R3
+R23
+Z64 8/home/hornits2/ece411/webarebears/srccode/cache_datapath.sv
+Z65 F/home/hornits2/ece411/webarebears/srccode/cache_datapath.sv
+L0 3
+R7
+Z66 !s108 1524427821.110474
+Z67 !s107 /home/hornits2/ece411/webarebears/srccode/cache_datapath.sv|
+Z68 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cache_datapath.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 ZSZ:eoRHiGNP>S@CP_`?h1
+!s105 cache_datapath_sv_unit
+!s101 -O0
+Xcache_datapath_sv_unit
+R1
+R2
+VVQS;ghXWBFXKB8UBV8UDL0
+r1
+31
+IVQS;ghXWBFXKB8UBV8UDL0
+S1
+R3
+R23
+R64
+R65
+L0 1
+R7
+R66
+R67
+R68
+R11
+R12
+!s85 0
+!i10b 1
+!s100 :2@`]hb]m:cmYb`j0`^dT0
+!i103 1
+!s101 -O0
+Xcache_sv_unit
+R1
+R2
+VgXh7Q8^QS?Q15P1Hmk5J91
+r1
+31
+IgXh7Q8^QS?Q15P1Hmk5J91
+S1
+R3
+R23
+R53
+R54
+L0 1
+R7
+R55
+R56
+R57
+R11
+R12
+!s85 0
+!i10b 1
+!s100 o9H`Mhl?K6a@P41_44>E=2
+!i103 1
+!s101 -O0
+vcomparator
+R1
+IQn8]QP8WGWgbS=I@13^SI2
+VHgC=lDBadJ?C_F>XR<1j=0
+S1
+R3
+R29
+8/home/hornits2/ece411/webarebears/srccode/comparator.sv
+F/home/hornits2/ece411/webarebears/srccode/comparator.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 <4_7Vz6MA[0;2J]aWeZOc3
+!s105 comparator_sv_unit
+!s85 0
+!s108 1524427814.912206
+!s107 /home/hornits2/ece411/webarebears/srccode/comparator.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/comparator.sv|
+!s101 -O0
+vcontrol_rom
+R1
+R2
+DXx4 work 19 control_rom_sv_unit 0 22 R8c8=8mRdG4<h2YZaFOGj0
+VNJCLTg5?S6L6XKI:l]YTG2
+r1
+31
+I_6]a[P;a@EMSF@MmOo9>N3
+S1
+R3
+Z69 w1524416551
+Z70 8/home/hornits2/ece411/webarebears/srccode/control_rom.sv
+Z71 F/home/hornits2/ece411/webarebears/srccode/control_rom.sv
+L0 3
+R7
+Z72 !s108 1524427819.562820
+Z73 !s107 /home/hornits2/ece411/webarebears/srccode/control_rom.sv|
+Z74 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/control_rom.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 Abhn`aW;G_YkVb7FRD3bi2
+!s105 control_rom_sv_unit
+!s101 -O0
+Xcontrol_rom_sv_unit
+R1
+R2
+VR8c8=8mRdG4<h2YZaFOGj0
+r1
+31
+IR8c8=8mRdG4<h2YZaFOGj0
+S1
+R3
+R69
+R70
+R71
+L0 1
+R7
+R72
+R73
+R74
+R11
+R12
+!s85 0
+!i10b 1
+!s100 WC2^dH]GZzJWzWGd@=VK=2
 !i103 1
 !s101 -O0
 vcounter
 R1
 R2
-Z64 DXx4 work 28 performance_counters_sv_unit 0 22 kgGd8AnTB7lcT=0WR;X4o3
+Z75 DXx4 work 28 performance_counters_sv_unit 0 22 K_e06@SS<H01;XL03BH;k1
 Vn7GHnOSo>zC0Ad@UhSHEA3
 r1
 31
-IOjAmlzh3mlVU`25NHfI=T0
-Z65 !s105 performance_counters_sv_unit
+I@;`WihAY;YZ;2_@fOaUcF1
+Z76 !s105 performance_counters_sv_unit
 S1
 R3
-Z66 w1523746102
-Z67 8/home/cli91/WeBareBears_uArch/srccode/performance_counters.sv
-Z68 F/home/cli91/WeBareBears_uArch/srccode/performance_counters.sv
+R58
+Z77 8/home/hornits2/ece411/webarebears/srccode/performance_counters.sv
+Z78 F/home/hornits2/ece411/webarebears/srccode/performance_counters.sv
 L0 110
 R7
-Z69 !s108 1523809603.431447
-Z70 !s107 /home/cli91/WeBareBears_uArch/srccode/performance_counters.sv|
-Z71 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/performance_counters.sv|
+Z79 !s108 1524427816.642621
+Z80 !s107 /home/hornits2/ece411/webarebears/srccode/performance_counters.sv|
+Z81 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/performance_counters.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 6=YHbTjoXk9T8ZY9O>SO22
+!s100 4?NQMQUA6GUVogS7aLBi:1
 !s101 -O0
 vcpu
 R1
 R2
-DXx4 work 11 cpu_sv_unit 0 22 <;IinQQ7UR01=n4>C9dLG3
+DXx4 work 11 cpu_sv_unit 0 22 YkC3N<36=_=gh]76OlMoL1
 Veca8mkK3DV=SN7@LS>GgH0
 r1
 31
-IFLdGG27W_FZjm_GSi]IK=2
+IJH]Gc>4_X23R0cRmH3d=61
 S1
 R3
-Z72 w1523741672
-Z73 8/home/cli91/WeBareBears_uArch/srccode/cpu.sv
-Z74 F/home/cli91/WeBareBears_uArch/srccode/cpu.sv
+R58
+Z82 8/home/hornits2/ece411/webarebears/srccode/cpu.sv
+Z83 F/home/hornits2/ece411/webarebears/srccode/cpu.sv
 L0 3
 R7
-Z75 !s108 1523809603.799245
-Z76 !s107 /home/cli91/WeBareBears_uArch/srccode/cpu.sv|
-Z77 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cpu.sv|
+Z84 !s108 1524427822.194278
+Z85 !s107 /home/hornits2/ece411/webarebears/srccode/cpu.sv|
+Z86 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cpu.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 >?45hbh^Z68kdaHLKcA>I2
+!s100 0AzzMFkdmA5DW^AgZ0dfI1
 !s105 cpu_sv_unit
 !s101 -O0
 vcpu_datapath
 R1
 R2
-DXx4 work 20 cpu_datapath_sv_unit 0 22 `JAB=>QL44I9[TdRYXjA72
+DXx4 work 20 cpu_datapath_sv_unit 0 22 E>Z50]N;`ne1=i>[jNcQQ1
 V=8YWCKW72TmCVQziNVh?I0
 r1
 31
-IR6`6`l^ARnB1Md>PMSFBC2
+I^M?]O17RPz`en^1^@7Jm_2
 S1
 R3
-Z78 w1523806374
-Z79 8/home/cli91/WeBareBears_uArch/srccode/cpu_datapath.sv
-Z80 F/home/cli91/WeBareBears_uArch/srccode/cpu_datapath.sv
+Z87 w1524416989
+Z88 8/home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv
+Z89 F/home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv
 L0 3
 R7
-Z81 !s108 1523809603.574264
-Z82 !s107 /home/cli91/WeBareBears_uArch/srccode/cpu_datapath.sv|
-Z83 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cpu_datapath.sv|
+Z90 !s108 1524427820.927177
+Z91 !s107 /home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv|
+Z92 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cpu_datapath.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 LMMI5?l@;FLzBl[Yfc^>50
+!s100 _MYYGF[42@^L2HMlLU6C31
 !s105 cpu_datapath_sv_unit
 !s101 -O0
 Xcpu_datapath_sv_unit
 R1
 R2
-V`JAB=>QL44I9[TdRYXjA72
+VE>Z50]N;`ne1=i>[jNcQQ1
 r1
 31
-I`JAB=>QL44I9[TdRYXjA72
+IE>Z50]N;`ne1=i>[jNcQQ1
 S1
 R3
-R78
-R79
-R80
+R87
+R88
+R89
 L0 1
 R7
-R81
-R82
-R83
+R90
+R91
+R92
 R11
 R12
 !s85 0
 !i10b 1
-!s100 1jz5kjP?e^2KRa1:MDAi^2
+!s100 n6dQjb4AT[Ve7_`K0_ogL2
 !i103 1
 !s101 -O0
 vcpu_rwmod
 R1
 R2
-DXx4 work 17 cpu_rwmod_sv_unit 0 22 ?65Y;UA5^Ybj33HIII[TN3
+DXx4 work 17 cpu_rwmod_sv_unit 0 22 SORSPRnNzOj_[a3SAfTi^3
 VLkj^VmB4c76Y7`d][8[am2
 r1
 31
-I?hDSinX0n<3AMP[hOVO`a3
+IEaXmfZ?Vo8mm3zb[71oI82
 S1
 R3
-Z84 w1521076152
-Z85 8/home/cli91/WeBareBears_uArch/srccode/cpu_rwmod.sv
-Z86 F/home/cli91/WeBareBears_uArch/srccode/cpu_rwmod.sv
+Z93 w1521850997
+Z94 8/home/hornits2/ece411/webarebears/srccode/cpu_rwmod.sv
+Z95 F/home/hornits2/ece411/webarebears/srccode/cpu_rwmod.sv
 L0 3
 R7
-Z87 !s108 1523809602.828566
-Z88 !s107 /home/cli91/WeBareBears_uArch/srccode/cpu_rwmod.sv|
-Z89 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/cpu_rwmod.sv|
+Z96 !s108 1524427819.705649
+Z97 !s107 /home/hornits2/ece411/webarebears/srccode/cpu_rwmod.sv|
+Z98 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/cpu_rwmod.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 >Y]@1GS1HQAo1SAAfTjg30
+!s100 W==<>TEm6UIG3=6;Z<=B:2
 !s105 cpu_rwmod_sv_unit
 !s101 -O0
 Xcpu_rwmod_sv_unit
 R1
 R2
-V?65Y;UA5^Ybj33HIII[TN3
+VSORSPRnNzOj_[a3SAfTi^3
 r1
 31
-I?65Y;UA5^Ybj33HIII[TN3
+ISORSPRnNzOj_[a3SAfTi^3
 S1
 R3
-R84
-R85
-R86
+R93
+R94
+R95
 L0 1
 R7
-R87
-R88
-R89
+R96
+R97
+R98
 R11
 R12
 !s85 0
 !i10b 1
-!s100 <23XOlJ8C;QG9F>B4@i4F1
+!s100 [Zame8[`GXb?HZSVnLOSF0
 !i103 1
 !s101 -O0
 Xcpu_sv_unit
 R1
 R2
-V<;IinQQ7UR01=n4>C9dLG3
+VYkC3N<36=_=gh]76OlMoL1
 r1
 31
-I<;IinQQ7UR01=n4>C9dLG3
+IYkC3N<36=_=gh]76OlMoL1
 S1
 R3
-R72
-R73
-R74
+R58
+R82
+R83
 L0 1
 R7
-R75
-R76
-R77
+R84
+R85
+R86
 R11
 R12
 !s85 0
 !i10b 1
-!s100 lIYVKGV<[@B4>Y56Tn[Pz1
+!s100 9CMAj_8=jZ?`YJHAPn=V=1
 !i103 1
 !s101 -O0
 vdcache_ctrlr
 R1
 R2
-DXx4 work 20 dcache_ctrlr_sv_unit 0 22 k<_2ZWcK6<o8Xh5zfc]O[1
+DXx4 work 20 dcache_ctrlr_sv_unit 0 22 LEe5:fnA9Rf3;232EC=_^3
 ViodEiZem_hceEL8zz6BSc2
 r1
 31
-Ieb8nd:HPjzm=EDYef]XMB2
+I4JDE7_dU1QVREaEF1gl2W3
 S1
 R3
-Z90 w1523742451
-Z91 8/home/cli91/WeBareBears_uArch/srccode/dcache_ctrlr.sv
-Z92 F/home/cli91/WeBareBears_uArch/srccode/dcache_ctrlr.sv
+R58
+Z99 8/home/hornits2/ece411/webarebears/srccode/dcache_ctrlr.sv
+Z100 F/home/hornits2/ece411/webarebears/srccode/dcache_ctrlr.sv
 L0 3
 R7
-Z93 !s108 1523809602.939130
-Z94 !s107 /home/cli91/WeBareBears_uArch/srccode/dcache_ctrlr.sv|
-Z95 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/dcache_ctrlr.sv|
+Z101 !s108 1524427819.846604
+Z102 !s107 /home/hornits2/ece411/webarebears/srccode/dcache_ctrlr.sv|
+Z103 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/dcache_ctrlr.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 [8I483LmKFUleD<5SPCTP3
+!s100 ZW0j2=3OZ4J?SMMMagbXB0
 !s105 dcache_ctrlr_sv_unit
 !s101 -O0
 Xdcache_ctrlr_sv_unit
 R1
 R2
-Vk<_2ZWcK6<o8Xh5zfc]O[1
+VLEe5:fnA9Rf3;232EC=_^3
 r1
 31
-Ik<_2ZWcK6<o8Xh5zfc]O[1
+ILEe5:fnA9Rf3;232EC=_^3
 S1
 R3
-R90
-R91
-R92
+R58
+R99
+R100
 L0 1
 R7
-R93
-R94
-R95
+R101
+R102
+R103
 R11
 R12
 !s85 0
 !i10b 1
-!s100 =FIm3T]=NUIiTKW1=zD[_3
+!s100 XDo?]<@QIddC^C5R?jV730
 !i103 1
+!s101 -O0
+vdemux2
+R1
+I@AJ8D`NAcD>SBEmdLAnz@0
+V17c0A?b0BFo<?`:_ITUeZ2
+S1
+R3
+R29
+8/home/hornits2/ece411/webarebears/srccode/demux2.sv
+F/home/hornits2/ece411/webarebears/srccode/demux2.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 RLVTnRZ6hlP;d]KA1>U6f0
+!s105 demux2_sv_unit
+!s85 0
+!s108 1524427815.530338
+!s107 /home/hornits2/ece411/webarebears/srccode/demux2.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/demux2.sv|
 !s101 -O0
 veq_and_neq_comp
 R1
-IMhb[hOSZkef_X6=DfM5W23
+IUILBL`58]JVn7?J?L@]DW0
 ViaaUVN7N=?K:Y>zJW]zlR0
-R34
+R35
 S1
 R3
-R35
+R4
 R36
 R37
 L0 1
@@ -731,717 +854,388 @@ R40
 R11
 R12
 !i10b 1
-!s100 7b34H3Mb5IzL:z5JdU:VO3
+!s100 QUFQn8n=MV`]LoicUafWO0
 !s85 0
 !s101 -O0
 vexme_pipe
 R1
 R2
-Z96 DXx4 work 16 pipeline_sv_unit 0 22 GoXeVWZO5iR>g[oci:Xa^2
+Z104 DXx4 work 16 pipeline_sv_unit 0 22 cRa?i7GbA1]]?HmjBWmPf0
 VgQ3LGhPhN5Y67<LhQ^>G41
 r1
 31
-I=V0SUbfOI;GK@=`Yaio[H1
-Z97 !s105 pipeline_sv_unit
+IZT8DVeK>n0mDUXEPdzP712
+Z105 !s105 pipeline_sv_unit
 S1
 R3
-Z98 w1522804810
-Z99 8/home/cli91/WeBareBears_uArch/srccode/pipeline.sv
-Z100 F/home/cli91/WeBareBears_uArch/srccode/pipeline.sv
+R4
+Z106 8/home/hornits2/ece411/webarebears/srccode/pipeline.sv
+Z107 F/home/hornits2/ece411/webarebears/srccode/pipeline.sv
 L0 109
 R7
-Z101 !s108 1523809601.833720
-Z102 !s107 /home/cli91/WeBareBears_uArch/srccode/pipeline.sv|
-Z103 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/pipeline.sv|
+Z108 !s108 1524427817.358071
+Z109 !s107 /home/hornits2/ece411/webarebears/srccode/pipeline.sv|
+Z110 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/pipeline.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 ni4Oh?V5kMPd<5ikOczAQ0
+!s100 VE[=omd@AKMz6:LzVglQS3
 !s101 -O0
 vext
 R1
 R2
-DXx4 work 11 ext_sv_unit 0 22 WEF4X^^6XbO;LMPAU_RBI2
+DXx4 work 11 ext_sv_unit 0 22 7jnA4R?KA1:@9ROBh]BNQ0
 VET5dlg:i;[TFg3z5Q?AZm1
 r1
 31
-Ib`WWR^RURG1_O93;RVPZ30
+Im=ckBk__WSVLdj9E8IS8E2
 S1
 R3
-Z104 w1520543679
-Z105 8/home/cli91/WeBareBears_uArch/srccode/ext.sv
-Z106 F/home/cli91/WeBareBears_uArch/srccode/ext.sv
+R4
+Z111 8/home/hornits2/ece411/webarebears/srccode/ext.sv
+Z112 F/home/hornits2/ece411/webarebears/srccode/ext.sv
 L0 3
 R7
-Z107 !s108 1523809602.328791
-Z108 !s107 /home/cli91/WeBareBears_uArch/srccode/ext.sv|
-Z109 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/ext.sv|
+Z113 !s108 1524427818.285678
+Z114 !s107 /home/hornits2/ece411/webarebears/srccode/ext.sv|
+Z115 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/ext.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 P@_PaL0m8gD_oRG83RoCO2
+!s100 WZ_PI9J=:<ofRXNUm<d800
 !s105 ext_sv_unit
 !s101 -O0
 Xext_sv_unit
 R1
 R2
-VWEF4X^^6XbO;LMPAU_RBI2
+V7jnA4R?KA1:@9ROBh]BNQ0
 r1
 31
-IWEF4X^^6XbO;LMPAU_RBI2
+I7jnA4R?KA1:@9ROBh]BNQ0
 S1
 R3
-R104
-R105
-R106
+R4
+R111
+R112
 L0 1
 R7
-R107
-R108
-R109
+R113
+R114
+R115
 R11
 R12
 !s85 0
 !i10b 1
-!s100 3i;0660d:UScnDBfC46Jj1
+!s100 W=6[AXk?j@dlCGl@`RN773
 !i103 1
 !s101 -O0
 vextend_128
 R1
 R2
-DXx4 work 18 extend_128_sv_unit 0 22 2C<KWz@[P7d4Z`D=5KOid1
+DXx4 work 18 extend_128_sv_unit 0 22 d6V9C0]FNRK8C`16[L3Gn1
 V;kOOH0EU@W:UROJA@G@ze1
 r1
 31
-I^T[`<d4bV]em7QQOjnR?Q2
+I`U?MLRCG5aEeLoOAK9^7z2
 S1
 R3
-R23
-Z110 8/home/cli91/WeBareBears_uArch/srccode/extend_128.sv
-Z111 F/home/cli91/WeBareBears_uArch/srccode/extend_128.sv
+Z116 w1521318786
+Z117 8/home/hornits2/ece411/webarebears/srccode/extend_128.sv
+Z118 F/home/hornits2/ece411/webarebears/srccode/extend_128.sv
 L0 3
 R7
-Z112 !s108 1523809603.194546
-Z113 !s107 /home/cli91/WeBareBears_uArch/srccode/extend_128.sv|
-Z114 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/extend_128.sv|
+Z119 !s108 1524427820.186557
+Z120 !s107 /home/hornits2/ece411/webarebears/srccode/extend_128.sv|
+Z121 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/extend_128.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 R216h4YMa^=lUj;I9D3BH1
+!s100 oS=O0_P=ZikcdDZSznhPe1
 !s105 extend_128_sv_unit
 !s101 -O0
 Xextend_128_sv_unit
 R1
 R2
-V2C<KWz@[P7d4Z`D=5KOid1
+Vd6V9C0]FNRK8C`16[L3Gn1
 r1
 31
-I2C<KWz@[P7d4Z`D=5KOid1
+Id6V9C0]FNRK8C`16[L3Gn1
 S1
 R3
-R23
-R110
-R111
+R116
+R117
+R118
 L0 1
 R7
-R112
-R113
-R114
+R119
+R120
+R121
 R11
 R12
 !s85 0
 !i10b 1
-!s100 Zoa3MOWnLFiLhU>8SMf]Z0
+!s100 H8ghU^E>F5ecZGPR9h96J3
 !i103 1
 !s101 -O0
 vextract_16
 R1
 R2
-DXx4 work 18 extract_16_sv_unit 0 22 ECn?o^64eZ`SNfGn4X5:g2
+DXx4 work 18 extract_16_sv_unit 0 22 F<[AP_AS;:0T8<PiK@1lN0
 VoJCZ8LY^71`KW4iEm0Oo;1
 r1
 31
-IcRm?J;V19o_]MZRhdIZ=C2
+IIiaAHW=hhbLj[3Az0m7Nc2
 S1
 R3
-R23
-Z115 8/home/cli91/WeBareBears_uArch/srccode/extract_16.sv
-Z116 F/home/cli91/WeBareBears_uArch/srccode/extract_16.sv
+Z122 w1521845413
+Z123 8/home/hornits2/ece411/webarebears/srccode/extract_16.sv
+Z124 F/home/hornits2/ece411/webarebears/srccode/extract_16.sv
 L0 3
 R7
-Z117 !s108 1523809603.073453
-Z118 !s107 /home/cli91/WeBareBears_uArch/srccode/extract_16.sv|
-Z119 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/extract_16.sv|
+Z125 !s108 1524427819.999084
+Z126 !s107 /home/hornits2/ece411/webarebears/srccode/extract_16.sv|
+Z127 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/extract_16.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 UoU1CNXi>j9XNjegbk`Vl0
+!s100 C4f8zOfb@lZ]=Y`aZ6aIZ1
 !s105 extract_16_sv_unit
 !s101 -O0
 Xextract_16_sv_unit
 R1
 R2
-VECn?o^64eZ`SNfGn4X5:g2
+VF<[AP_AS;:0T8<PiK@1lN0
 r1
 31
-IECn?o^64eZ`SNfGn4X5:g2
+IF<[AP_AS;:0T8<PiK@1lN0
 S1
 R3
-R23
-R115
-R116
+R122
+R123
+R124
 L0 1
 R7
-R117
-R118
-R119
+R125
+R126
+R127
 R11
 R12
 !s85 0
 !i10b 1
-!s100 h@[z3<NoZA6EWccM<ei:R3
+!s100 A9ITIB`VI1Tk;Lhdc8_R;1
 !i103 1
 !s101 -O0
 vfull_mainpc_tb
 R1
-IH:iej4EG=[I`6bYBI_<7g1
+IDg]3UEc>ZQLfzKKIaP=BC3
 VBo2==7_8hWCH?AU=KEjIc1
 S1
 R3
-w1523807520
-8/home/cli91/WeBareBears_uArch/srccode/../testbenches/full_mainpc_tb.sv
-F/home/cli91/WeBareBears_uArch/srccode/../testbenches/full_mainpc_tb.sv
+w1524015641
+8/home/hornits2/ece411/webarebears/srccode/../testbenches/full_mainpc_tb.sv
+F/home/hornits2/ece411/webarebears/srccode/../testbenches/full_mainpc_tb.sv
 L0 1
 R7
 r1
 31
 R11
 !i10b 1
-!s100 FTU0_0idSejjb5TT[WE870
+!s100 ^mLzGI4`?LY_IMc5d2B>92
 !s105 full_mainpc_tb_sv_unit
 !s85 0
-!s108 1523809604.126876
-!s107 /home/cli91/WeBareBears_uArch/srccode/../testbenches/full_mainpc_tb.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode/../testbenches|/home/cli91/WeBareBears_uArch/srccode/../testbenches/full_mainpc_tb.sv|
+!s108 1524427822.589171
+!s107 /home/hornits2/ece411/webarebears/srccode/../testbenches/full_mainpc_tb.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode/../testbenches|/home/hornits2/ece411/webarebears/srccode/../testbenches/full_mainpc_tb.sv|
 !s101 -O0
-!s92 -sv -work work +incdir+/home/cli91/WeBareBears_uArch/srccode/../testbenches -O0
+!s92 -sv -work work +incdir+/home/hornits2/ece411/webarebears/srccode/../testbenches -O0
 vfwd_unit
 R1
 R2
-DXx4 work 16 fwd_unit_sv_unit 0 22 h=kli]kXJXiED^n9fKGHM3
+DXx4 work 16 fwd_unit_sv_unit 0 22 M_MeO0zaU?7n:ZlnHS[nb3
 V=l<WKIP>E;QOEg>GaQn0e2
 r1
 31
-IjQbm2R[MX9>L_INY[83cK3
+ID<4S<[VOXAhmFj?8C;:IA3
 S1
 R3
-Z120 w1523736526
-Z121 8/home/cli91/WeBareBears_uArch/srccode/fwd_unit.sv
-Z122 F/home/cli91/WeBareBears_uArch/srccode/fwd_unit.sv
+R58
+Z128 8/home/hornits2/ece411/webarebears/srccode/fwd_unit.sv
+Z129 F/home/hornits2/ece411/webarebears/srccode/fwd_unit.sv
 L0 3
 R7
-Z123 !s108 1523809601.378106
-Z124 !s107 /home/cli91/WeBareBears_uArch/srccode/fwd_unit.sv|
-Z125 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/fwd_unit.sv|
+Z130 !s108 1524427816.869305
+Z131 !s107 /home/hornits2/ece411/webarebears/srccode/fwd_unit.sv|
+Z132 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/fwd_unit.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 8KF]IRCOC=2TVQGz8iXJ?3
+!s100 fIBc1M]2HBB37l@Tg^nl`1
 !s105 fwd_unit_sv_unit
 !s101 -O0
 Xfwd_unit_sv_unit
 R1
 R2
-Vh=kli]kXJXiED^n9fKGHM3
+VM_MeO0zaU?7n:ZlnHS[nb3
 r1
 31
-Ih=kli]kXJXiED^n9fKGHM3
+IM_MeO0zaU?7n:ZlnHS[nb3
 S1
 R3
-R120
-R121
-R122
+R58
+R128
+R129
 L0 1
 R7
-R123
-R124
-R125
+R130
+R131
+R132
 R11
 R12
 !s85 0
 !i10b 1
-!s100 MamV@Q;KjEnj=>LE:Ok1Y3
+!s100 `eND0_>dS<IL9^AB0o?lI0
 !i103 1
 !s101 -O0
 vgencc
 R1
 R2
-DXx4 work 13 gencc_sv_unit 0 22 d;Y<O4W]I]@ZfS=4nB60m3
+DXx4 work 13 gencc_sv_unit 0 22 O[243<B;K_QRK?AeEZN]k3
 VDYU=?>1fFkeDOdoWU8EHP1
 r1
 31
-IjCkC_63Q:9nfgEMzJz1I]0
+IY049<OLUo:5bFPBlGde2J1
 S1
 R3
-Z126 w1520806979
-Z127 8/home/cli91/WeBareBears_uArch/srccode/gencc.sv
-Z128 F/home/cli91/WeBareBears_uArch/srccode/gencc.sv
+R4
+Z133 8/home/hornits2/ece411/webarebears/srccode/gencc.sv
+Z134 F/home/hornits2/ece411/webarebears/srccode/gencc.sv
 L0 3
 R7
-Z129 !s108 1523809602.131506
-Z130 !s107 /home/cli91/WeBareBears_uArch/srccode/gencc.sv|
-Z131 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/gencc.sv|
+Z135 !s108 1524427817.631634
+Z136 !s107 /home/hornits2/ece411/webarebears/srccode/gencc.sv|
+Z137 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/gencc.sv|
 R11
 R12
 !s85 0
 !i10b 1
-!s100 i2z^HNIJ4[FlPZ28ZAU<i1
+!s100 CUQ<622SI>32RDXTho4bR0
 !s105 gencc_sv_unit
 !s101 -O0
 Xgencc_sv_unit
 R1
 R2
-Vd;Y<O4W]I]@ZfS=4nB60m3
+VO[243<B;K_QRK?AeEZN]k3
 r1
 31
-Id;Y<O4W]I]@ZfS=4nB60m3
+IO[243<B;K_QRK?AeEZN]k3
 S1
 R3
-R126
-R127
-R128
+R4
+R133
+R134
 L0 1
 R7
-R129
-R130
-R131
+R135
+R136
+R137
 R11
 R12
 !s85 0
 !i10b 1
-!s100 17o_G;oc7^BAmaMS9V4gf2
+!s100 TmZQQ9JnF1305zHKZ68g80
 !i103 1
 !s101 -O0
 videx_pipe
 R1
 R2
-R96
+R104
 VL971j_WI`NZh49IkOWZLV2
 r1
 31
-IYi]6e657G?INPaZDY>iXe1
-R97
+IdO1z2=U`G:471bh79DCEQ3
+R105
 S1
 R3
-R98
-R99
-R100
+R4
+R106
+R107
 L0 61
 R7
-R101
-R102
-R103
+R108
+R109
+R110
 R11
 R12
 !s85 0
 !i10b 1
-!s100 le0mnk]@FHo_0m=fa8C3l3
+!s100 @n^<EYHj]E@W=4i`H@meK2
 !s101 -O0
 vifid_pipe
 R1
 R2
-R96
+R104
 VLXm>Z@H]FPFe18KB]LSln2
 r1
 31
-IaSQoZ`T`13gl`4T@fhV`93
-R97
+INiKIaRLaf9ao7XeD[6=_<1
+R105
 S1
 R3
-R98
-R99
-R100
+R4
+R106
+R107
 L0 3
 R7
-R101
-R102
-R103
+R108
+R109
+R110
 R11
 R12
 !s85 0
 !i10b 1
-!s100 MkF92>oYD@md5>nXDADJk2
+!s100 O7AhHVlVFlP=HRBBlI2gB2
 !s101 -O0
-Xlc3b_types
-R1
-I[hBKjRG3WWzcL]WaL3V4H3
-V[hBKjRG3WWzcL]WaL3V4H3
-S1
-R3
-w1520808217
-8/home/cli91/WeBareBears_uArch/srccode/lc3b_types.sv
-F/home/cli91/WeBareBears_uArch/srccode/lc3b_types.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 SIibc3Dd4PO[K`gjVd]aQ0
-!s85 0
-!s108 1523809600.112279
-!s107 /home/cli91/WeBareBears_uArch/srccode/lc3b_types.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/lc3b_types.sv|
-!s101 -O0
-vmainpc
-R1
-Il>5>g_2N8zMn8DF:hlz8o2
-V1?]WV9TWfaUdY5H@a[nMj1
-S1
-R3
-w1523807659
-8/home/cli91/WeBareBears_uArch/srccode/mainpc.sv
-F/home/cli91/WeBareBears_uArch/srccode/mainpc.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 8AJH7O^z3lN=AKzH^`QWc0
-!s105 mainpc_sv_unit
-!s85 0
-!s108 1523809604.059133
-!s107 /home/cli91/WeBareBears_uArch/srccode/mainpc.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/mainpc.sv|
-!s101 -O0
-vmewb_pipe
+vL2array
 R1
 R2
-R96
-VGeSIS:XGjKo2=<CnKG4FP3
+DXx4 work 15 L2array_sv_unit 0 22 CdQGmRQ=A^S@l>6Sc=[9@1
+VG;@RM<M8^5Jj[@ni@YgDY1
 r1
 31
-IEz=2oSMk5Yb?ANUzPAa^H0
-R97
+Ioj[6jT5z9m`d?oWNDGb??2
 S1
 R3
-R98
-R99
-R100
-L0 159
-R7
-R101
-R102
-R103
-R11
-R12
-!s85 0
-!i10b 1
-!s100 IgnDHUdoF^RcYXX=G;jRN1
-!s101 -O0
-vmux16
-R1
-IEba_^L<?zilH>cmKQMg5]0
-VR8DTKoCAlENOO7_]T5AO53
-S1
-R3
-w1522885662
-8/home/cli91/WeBareBears_uArch/srccode/mux16.sv
-F/home/cli91/WeBareBears_uArch/srccode/mux16.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 g>[6G>ALRaV@9bm7TG`;f2
-!s105 mux16_sv_unit
-!s85 0
-!s108 1523809599.933574
-!s107 /home/cli91/WeBareBears_uArch/srccode/mux16.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/mux16.sv|
-!s101 -O0
-vmux2
-R1
-IQQ2LoXWl0FE0X18d^HL4d0
-VM^55ETEI;`EA6EVkzH64?2
-S1
-R3
-Z132 w1520801333
-8/home/cli91/WeBareBears_uArch/srccode/mux2.sv
-F/home/cli91/WeBareBears_uArch/srccode/mux2.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 0HWN4FmV2EZKd>YTiEHVb2
-!s105 mux2_sv_unit
-!s85 0
-!s108 1523809600.420010
-!s107 /home/cli91/WeBareBears_uArch/srccode/mux2.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/mux2.sv|
-!s101 -O0
-vmux4
-R1
-I@bD:M[D0ddblg?YeQ2Dmj3
-Vi`MT0hZ]:`Z0XVbz20nm11
-S1
-R3
-R132
-8/home/cli91/WeBareBears_uArch/srccode/mux4.sv
-F/home/cli91/WeBareBears_uArch/srccode/mux4.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 B0dlTnOLW4_`hX`ck22g?3
-!s105 mux4_sv_unit
-!s85 0
-!s108 1523809600.268658
-!s107 /home/cli91/WeBareBears_uArch/srccode/mux4.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/mux4.sv|
-!s101 -O0
-vmux8
-R1
-ITAkY^a8[obTSA_W4X5]d`3
-VLW@]Q9jG?]4e3cRfHC;Pc1
-S1
-R3
-Z133 w1520543680
-8/home/cli91/WeBareBears_uArch/srccode/mux8.sv
-F/home/cli91/WeBareBears_uArch/srccode/mux8.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 QQj`L_c0<J[W]Q?hjXb@B2
-!s105 mux8_sv_unit
-!s85 0
-!s108 1523809600.337788
-!s107 /home/cli91/WeBareBears_uArch/srccode/mux8.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/mux8.sv|
-!s101 -O0
-vpcmux_ctrlr
-R1
-R2
-DXx4 work 19 pcmux_ctrlr_sv_unit 0 22 U2Ym7<UONVKViTb4;EP1F2
-VK^<ET9cJgoi_8fzPWAVm52
-r1
-31
-IdE3hJNG:V]Sc3]G20l9aj2
-S1
-R3
-R132
-Z134 8/home/cli91/WeBareBears_uArch/srccode/pcmux_ctrlr.sv
-Z135 F/home/cli91/WeBareBears_uArch/srccode/pcmux_ctrlr.sv
+Z138 w1524086910
+Z139 8/home/hornits2/ece411/webarebears/srccode/L2array.sv
+Z140 F/home/hornits2/ece411/webarebears/srccode/L2array.sv
 L0 3
 R7
-Z136 !s108 1523809601.681601
-Z137 !s107 /home/cli91/WeBareBears_uArch/srccode/pcmux_ctrlr.sv|
-Z138 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/pcmux_ctrlr.sv|
+Z141 !s108 1524427814.999870
+Z142 !s107 /home/hornits2/ece411/webarebears/srccode/L2array.sv|
+Z143 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/L2array.sv|
 R11
 R12
+n@l2array
 !s85 0
 !i10b 1
-!s100 o70gLmQOX<0Hk:Qg7OcI^0
-!s105 pcmux_ctrlr_sv_unit
+!s100 =73gCl5d9X5bX6oYo@z?i1
+!s105 L2array_sv_unit
 !s101 -O0
-Xpcmux_ctrlr_sv_unit
+XL2array_sv_unit
 R1
 R2
-VU2Ym7<UONVKViTb4;EP1F2
+VCdQGmRQ=A^S@l>6Sc=[9@1
 r1
 31
-IU2Ym7<UONVKViTb4;EP1F2
+ICdQGmRQ=A^S@l>6Sc=[9@1
 S1
 R3
-R132
-R134
-R135
-L0 1
-R7
-R136
-R137
 R138
-R11
-R12
-!s85 0
-!i10b 1
-!s100 CfkRG?g:HH2UGDiEV]aeP0
-!i103 1
-!s101 -O0
-vperformance_counters
-R1
-R2
-R64
-VajR?MN5k=G;_PoU2fd;he1
-r1
-31
-I7JLA?MV?QoTDMUe2CleOm0
-R65
-S1
-R3
-R66
-R67
-R68
-L0 3
-R7
-R69
-R70
-R71
-R11
-R12
-!s85 0
-!i10b 1
-!s100 AAhBTL_QD9I<AWh9Le>n01
-!s101 -O0
-Xperformance_counters_sv_unit
-R1
-R2
-VkgGd8AnTB7lcT=0WR;X4o3
-r1
-31
-IkgGd8AnTB7lcT=0WR;X4o3
-S1
-R3
-R66
-R67
-R68
-L0 1
-R7
-R69
-R70
-R71
-R11
-R12
-!s85 0
-!i10b 1
-!s100 KUG7TG=<:=Kbe^L1dKS:U1
-!i103 1
-!s101 -O0
-vphysical_memory
-R1
-!i10b 1
-!s100 ;=i:lZZBgHAGdQ6?8UN@61
-IZERXhz<kg9Q2_gVG?L7E32
-Vb6PGT=m5H:B?37KfbU`bO3
-!s105 physical_memory_sv_unit
-S1
-R3
-w1521087882
-8/home/cli91/WeBareBears_uArch/srccode/physical_memory.sv
-F/home/cli91/WeBareBears_uArch/srccode/physical_memory.sv
-L0 1
-R7
-r1
-!s85 0
-31
-!s108 1523809604.194048
-!s107 /home/cli91/WeBareBears_uArch/srccode/physical_memory.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/physical_memory.sv|
-!s101 -O0
-R11
-R12
-Xpipeline_sv_unit
-R1
-R2
-VGoXeVWZO5iR>g[oci:Xa^2
-r1
-31
-IGoXeVWZO5iR>g[oci:Xa^2
-S1
-R3
-R98
-R99
-R100
-L0 1
-R7
-R101
-R102
-R103
-R11
-R12
-!s85 0
-!i10b 1
-!s100 3J0Uo7iS6dW4a9ANzWPOF0
-!i103 1
-!s101 -O0
-vplus
-R1
-I7bGiNhPK<BZV7COaRFCMD0
-Vc5Ik8JX_zWToCJ0jRjZRT3
-S1
-R3
-R132
-8/home/cli91/WeBareBears_uArch/srccode/plus.sv
-F/home/cli91/WeBareBears_uArch/srccode/plus.sv
-L0 1
-R7
-r1
-31
-R11
-R12
-!i10b 1
-!s100 l:mlCZ8klUal>GYHc8hVA1
-!s105 plus_sv_unit
-!s85 0
-!s108 1523809600.568104
-!s107 /home/cli91/WeBareBears_uArch/srccode/plus.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/plus.sv|
-!s101 -O0
-vregfile
-R1
-R2
-DXx4 work 15 regfile_sv_unit 0 22 WHEbhbf]L<Fnm`MGn=ooE0
-V`Wb6ocgM=VWm:Fa<3Fznl1
-r1
-31
-ICUA4EA:44FX]ZKfSPNETX1
-S1
-R3
-R133
-Z139 8/home/cli91/WeBareBears_uArch/srccode/regfile.sv
-Z140 F/home/cli91/WeBareBears_uArch/srccode/regfile.sv
-L0 3
-R7
-Z141 !s108 1523809602.623357
-Z142 !s107 /home/cli91/WeBareBears_uArch/srccode/regfile.sv|
-Z143 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/regfile.sv|
-R11
-R12
-!s85 0
-!i10b 1
-!s100 zn1TE>e=DTmIT6LNod0G62
-!s105 regfile_sv_unit
-!s101 -O0
-Xregfile_sv_unit
-R1
-R2
-VWHEbhbf]L<Fnm`MGn=ooE0
-r1
-31
-IWHEbhbf]L<Fnm`MGn=ooE0
-S1
-R3
-R133
 R139
 R140
 L0 1
@@ -1451,20 +1245,174 @@ R142
 R143
 R11
 R12
+n@l2array_sv_unit
 !s85 0
 !i10b 1
-!s100 Hallg:6KmeI@jNFLfUTd`3
+!s100 XMBQiW:7A@hVAD<=]Znfz0
 !i103 1
 !s101 -O0
-vregister
+vL2cache
 R1
-IgXD>FDgX@O2J<I8b=J=HD0
-VVWH2GIcWRQ29K?3;26c491
+R2
+DXx4 work 15 L2cache_sv_unit 0 22 jE1LW4PSh@h?UkE=PEN<Y1
+VZgQk2BoEVeb4[^mFZehIf2
+r1
+31
+Iok?S@bf1bl[ndiQ:VKfgT2
 S1
 R3
-R133
-8/home/cli91/WeBareBears_uArch/srccode/register.sv
-F/home/cli91/WeBareBears_uArch/srccode/register.sv
+R23
+Z144 8/home/hornits2/ece411/webarebears/srccode/L2cache.sv
+Z145 F/home/hornits2/ece411/webarebears/srccode/L2cache.sv
+L0 3
+R7
+Z146 !s108 1524427820.777414
+Z147 !s107 /home/hornits2/ece411/webarebears/srccode/L2cache.sv|
+Z148 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/L2cache.sv|
+R11
+R12
+n@l2cache
+!s85 0
+!i10b 1
+!s100 Q6Z9=h4MX_DR4`E2<XgYY3
+!s105 L2cache_sv_unit
+!s101 -O0
+vL2cache_control
+R1
+R2
+DXx4 work 23 L2cache_control_sv_unit 0 22 C=75]9=<e^hV?PdW4fBb;2
+VXeUkFTz1J[<Db:V1hXYbY1
+r1
+31
+IeHFn8Uh5bn34eHmGn=KPC1
+S1
+R3
+R23
+Z149 8/home/hornits2/ece411/webarebears/srccode/L2cache_control.sv
+Z150 F/home/hornits2/ece411/webarebears/srccode/L2cache_control.sv
+L0 3
+R7
+Z151 !s108 1524427813.627612
+Z152 !s107 /home/hornits2/ece411/webarebears/srccode/L2cache_control.sv|
+Z153 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/L2cache_control.sv|
+R11
+R12
+n@l2cache_control
+!s85 0
+!i10b 1
+!s100 <]AB`DZDM2?`Oi7c47=BZ1
+!s105 L2cache_control_sv_unit
+!s101 -O0
+XL2cache_control_sv_unit
+R1
+R2
+VC=75]9=<e^hV?PdW4fBb;2
+r1
+31
+IC=75]9=<e^hV?PdW4fBb;2
+S1
+R3
+R23
+R149
+R150
+L0 1
+R7
+R151
+R152
+R153
+R11
+R12
+n@l2cache_control_sv_unit
+!s85 0
+!i10b 1
+!s100 Zlf@NXM;g9oWT3lVJf4l83
+!i103 1
+!s101 -O0
+vL2cache_datapath
+R1
+R2
+DXx4 work 24 L2cache_datapath_sv_unit 0 22 LjPYf8V16z>D53dZ3I8D@0
+V7:A88mUa3nPk4`aTYkR421
+r1
+31
+I0X3W4aHA>N`ze8bQR=]4^0
+S1
+R3
+R23
+Z154 8/home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv
+Z155 F/home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv
+L0 3
+R7
+Z156 !s108 1524427816.435730
+Z157 !s107 /home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv|
+Z158 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/L2cache_datapath.sv|
+R11
+R12
+n@l2cache_datapath
+!s85 0
+!i10b 1
+!s100 1mmhQF?GnP7Sc?DP><SDz1
+!s105 L2cache_datapath_sv_unit
+!s101 -O0
+XL2cache_datapath_sv_unit
+R1
+R2
+VLjPYf8V16z>D53dZ3I8D@0
+r1
+31
+ILjPYf8V16z>D53dZ3I8D@0
+S1
+R3
+R23
+R154
+R155
+L0 1
+R7
+R156
+R157
+R158
+R11
+R12
+n@l2cache_datapath_sv_unit
+!s85 0
+!i10b 1
+!s100 _VOSP>XLhG0UFn4X4?Q[V1
+!i103 1
+!s101 -O0
+XL2cache_sv_unit
+R1
+R2
+VjE1LW4PSh@h?UkE=PEN<Y1
+r1
+31
+IjE1LW4PSh@h?UkE=PEN<Y1
+S1
+R3
+R23
+R144
+R145
+L0 1
+R7
+R146
+R147
+R148
+R11
+R12
+n@l2cache_sv_unit
+!s85 0
+!i10b 1
+!s100 cS[iBZ4MZO7mn;`e>]A6_0
+!i103 1
+!s101 -O0
+Xlc3b_types
+R1
+I56j5JB2XU:G?7PDBPdXgi2
+V56j5JB2XU:G?7PDBPdXgi2
+S1
+R3
+R69
+8/home/hornits2/ece411/webarebears/srccode/lc3b_types.sv
+F/home/hornits2/ece411/webarebears/srccode/lc3b_types.sv
 L0 1
 R7
 r1
@@ -1472,71 +1420,856 @@ r1
 R11
 R12
 !i10b 1
-!s100 6[8;c[SLCk[?0Uz59Xm^50
-!s105 register_sv_unit
+!s100 6MhZh=5@?YHD<:M3W=8gP3
 !s85 0
-!s108 1523809600.480586
-!s107 /home/cli91/WeBareBears_uArch/srccode/register.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/register.sv|
+!s108 1524427812.341902
+!s107 /home/hornits2/ece411/webarebears/srccode/lc3b_types.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/lc3b_types.sv|
 !s101 -O0
-vsel_bytes
+vLRU_stack
 R1
 R2
-DXx4 work 17 sel_bytes_sv_unit 0 22 T_95[j^]C7T?mNWTo6Hnj1
-VX2>EV87;5T]l9<KYVzm@M3
+DXx4 work 17 LRU_stack_sv_unit 0 22 <YCFBjj@P=:YHDWAgB3=92
+Vk2dWS@OzGe>kj3N4[glRX0
 r1
 31
-I>VmkKh>B_@C2hh49NBl[n2
+I4H0Tc`QinY6V1:RhanT820
 S1
 R3
-Z144 w1522804819
-Z145 8/home/cli91/WeBareBears_uArch/srccode/sel_bytes.sv
-Z146 F/home/cli91/WeBareBears_uArch/srccode/sel_bytes.sv
+Z159 w1524113402
+Z160 8/home/hornits2/ece411/webarebears/srccode/LRU_stack.sv
+Z161 F/home/hornits2/ece411/webarebears/srccode/LRU_stack.sv
 L0 3
 R7
-Z147 !s108 1523809603.322695
-Z148 !s107 /home/cli91/WeBareBears_uArch/srccode/sel_bytes.sv|
-Z149 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/sel_bytes.sv|
+Z162 !s108 1524427815.169565
+Z163 !s107 /home/hornits2/ece411/webarebears/srccode/LRU_stack.sv|
+Z164 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/LRU_stack.sv|
+R11
+R12
+n@l@r@u_stack
+!s85 0
+!i10b 1
+!s100 Gl<bDU5`mbe1lcBEGe_4j3
+!s105 LRU_stack_sv_unit
+!s101 -O0
+XLRU_stack_sv_unit
+R1
+R2
+V<YCFBjj@P=:YHDWAgB3=92
+r1
+31
+I<YCFBjj@P=:YHDWAgB3=92
+S1
+R3
+R159
+R160
+R161
+L0 1
+R7
+R162
+R163
+R164
+R11
+R12
+n@l@r@u_stack_sv_unit
+!s85 0
+!i10b 1
+!s100 Y^>MA0@1NYHIdW9BALMRQ0
+!i103 1
+!s101 -O0
+vLRUarray
+R1
+R2
+DXx4 work 16 LRUarray_sv_unit 0 22 <Ml4T`d>JkPCSMCG7HN=?3
+VN<Nb[Y:]d=6ofH__93ZH>0
+r1
+31
+I0:i=J<2FnA?]>XhKSk=Zo2
+S1
+R3
+Z165 w1524113433
+Z166 8/home/hornits2/ece411/webarebears/srccode/LRUarray.sv
+Z167 F/home/hornits2/ece411/webarebears/srccode/LRUarray.sv
+L0 3
+R7
+Z168 !s108 1524427815.321589
+Z169 !s107 /home/hornits2/ece411/webarebears/srccode/LRUarray.sv|
+Z170 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/LRUarray.sv|
+R11
+R12
+n@l@r@uarray
+!s85 0
+!i10b 1
+!s100 QFN?cDIWkHODXGofLHkCO1
+!s105 LRUarray_sv_unit
+!s101 -O0
+XLRUarray_sv_unit
+R1
+R2
+V<Ml4T`d>JkPCSMCG7HN=?3
+r1
+31
+I<Ml4T`d>JkPCSMCG7HN=?3
+S1
+R3
+R165
+R166
+R167
+L0 1
+R7
+R168
+R169
+R170
+R11
+R12
+n@l@r@uarray_sv_unit
+!s85 0
+!i10b 1
+!s100 G2c65HBLZL4_Fhba0gomi1
+!i103 1
+!s101 -O0
+vmainpc
+R1
+I3G@@VWMdi_0VbdbIEJi>11
+V1?]WV9TWfaUdY5H@a[nMj1
+S1
+R3
+w1524427765
+8/home/hornits2/ece411/webarebears/srccode/mainpc.sv
+F/home/hornits2/ece411/webarebears/srccode/mainpc.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 YM=10L1E?ZR=b2J^^mL6E2
+!s105 mainpc_sv_unit
+!s85 0
+!s108 1524427822.494728
+!s107 /home/hornits2/ece411/webarebears/srccode/mainpc.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/mainpc.sv|
+!s101 -O0
+vmewb_pipe
+R1
+R2
+R104
+VGeSIS:XGjKo2=<CnKG4FP3
+r1
+31
+I?6hRB75XAdVHX[a]EiEG]1
+R105
+S1
+R3
+R4
+R106
+R107
+L0 159
+R7
+R108
+R109
+R110
 R11
 R12
 !s85 0
 !i10b 1
-!s100 V@DQ98Y6dnYRXUVLSFN5J0
+!s100 M1O<^70F<]k7<NKzX0h^n3
+!s101 -O0
+vmux16
+R1
+I[k]_TCzO[FKNnVM:gX`e^1
+VR8DTKoCAlENOO7_]T5AO53
+S1
+R3
+R58
+8/home/hornits2/ece411/webarebears/srccode/mux16.sv
+F/home/hornits2/ece411/webarebears/srccode/mux16.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 5PnC<2IcGWHC^RSZ4bzf^0
+!s105 mux16_sv_unit
+!s85 0
+!s108 1524427813.780227
+!s107 /home/hornits2/ece411/webarebears/srccode/mux16.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/mux16.sv|
+!s101 -O0
+vmux2
+R1
+I^Ln78=n<6RPii:b<4^Zh72
+VM^55ETEI;`EA6EVkzH64?2
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/mux2.sv
+F/home/hornits2/ece411/webarebears/srccode/mux2.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 ZVn1jGI:YPU6Mm;6Q=DmE2
+!s105 mux2_sv_unit
+!s85 0
+!s108 1524427814.200689
+!s107 /home/hornits2/ece411/webarebears/srccode/mux2.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/mux2.sv|
+!s101 -O0
+vmux4
+R1
+I;M39eWXib]iTkM^g_[j]E1
+Vi`MT0hZ]:`Z0XVbz20nm11
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/mux4.sv
+F/home/hornits2/ece411/webarebears/srccode/mux4.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 ]2iN]OQz[K9m<IgN=T10T0
+!s105 mux4_sv_unit
+!s85 0
+!s108 1524427813.947974
+!s107 /home/hornits2/ece411/webarebears/srccode/mux4.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/mux4.sv|
+!s101 -O0
+vmux8
+R1
+IJlg4XK=_YlJZE90EzmH7f3
+VLW@]Q9jG?]4e3cRfHC;Pc1
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/mux8.sv
+F/home/hornits2/ece411/webarebears/srccode/mux8.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 Q=9VzZTOz5bRHaIfJKN;L0
+!s105 mux8_sv_unit
+!s85 0
+!s108 1524427814.114006
+!s107 /home/hornits2/ece411/webarebears/srccode/mux8.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/mux8.sv|
+!s101 -O0
+vpcmux_ctrlr
+R1
+R2
+DXx4 work 19 pcmux_ctrlr_sv_unit 0 22 cMloQZQoahJXX=Dl>VAN>2
+V:`Ud^0=iiho^67Ia2H^9K2
+r1
+31
+IQ_83]1ZzVflfPZGV5;6_h1
+S1
+R3
+Z171 w1524416794
+Z172 8/home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv
+Z173 F/home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv
+L0 3
+R7
+Z174 !s108 1524427817.202763
+Z175 !s107 /home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv|
+Z176 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/pcmux_ctrlr.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 `Rge048mZbaQ12Y`4zO4K3
+!s105 pcmux_ctrlr_sv_unit
+!s101 -O0
+Xpcmux_ctrlr_sv_unit
+R1
+R2
+VcMloQZQoahJXX=Dl>VAN>2
+r1
+31
+IcMloQZQoahJXX=Dl>VAN>2
+S1
+R3
+R171
+R172
+R173
+L0 1
+R7
+R174
+R175
+R176
+R11
+R12
+!s85 0
+!i10b 1
+!s100 Zmml304OUBMnB7oCNRAPz2
+!i103 1
+!s101 -O0
+vperformance_counters
+R1
+R2
+R75
+VajR?MN5k=G;_PoU2fd;he1
+r1
+31
+IiG]eE?;TSj9_D13=11la>1
+R76
+S1
+R3
+R58
+R77
+R78
+L0 3
+R7
+R79
+R80
+R81
+R11
+R12
+!s85 0
+!i10b 1
+!s100 IaPB5F351?S6:n=NR^nEn1
+!s101 -O0
+Xperformance_counters_sv_unit
+R1
+R2
+VK_e06@SS<H01;XL03BH;k1
+r1
+31
+IK_e06@SS<H01;XL03BH;k1
+S1
+R3
+R58
+R77
+R78
+L0 1
+R7
+R79
+R80
+R81
+R11
+R12
+!s85 0
+!i10b 1
+!s100 GKS3Tcz]UV0BlOS0`a;>I2
+!i103 1
+!s101 -O0
+vphysical_memory
+R1
+!i10b 1
+!s100 UiWkaYR9D6I17ji:ljCJj0
+I<fao>7WKYX`EB4YdnPgfS3
+Vb6PGT=m5H:B?37KfbU`bO3
+!s105 physical_memory_sv_unit
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/physical_memory.sv
+F/home/hornits2/ece411/webarebears/srccode/physical_memory.sv
+L0 1
+R7
+r1
+!s85 0
+31
+!s108 1524427822.676222
+!s107 /home/hornits2/ece411/webarebears/srccode/physical_memory.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/physical_memory.sv|
+!s101 -O0
+R11
+R12
+Xpipeline_sv_unit
+R1
+R2
+VcRa?i7GbA1]]?HmjBWmPf0
+r1
+31
+IcRa?i7GbA1]]?HmjBWmPf0
+S1
+R3
+R4
+R106
+R107
+L0 1
+R7
+R108
+R109
+R110
+R11
+R12
+!s85 0
+!i10b 1
+!s100 ^^gYW;n3ol^CD]hGWA`DT1
+!i103 1
+!s101 -O0
+vplus
+R1
+IjeazGW<JUc;KFfKBPX6XD3
+Vc5Ik8JX_zWToCJ0jRjZRT3
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/plus.sv
+F/home/hornits2/ece411/webarebears/srccode/plus.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 fRXQP:;gNj_2]MZ?a8gk00
+!s105 plus_sv_unit
+!s85 0
+!s108 1524427814.377903
+!s107 /home/hornits2/ece411/webarebears/srccode/plus.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/plus.sv|
+!s101 -O0
+vregfile
+R1
+R2
+DXx4 work 15 regfile_sv_unit 0 22 gaoDPSDj8dD7OSeizffEi0
+V`Wb6ocgM=VWm:Fa<3Fznl1
+r1
+31
+I<CHo=2O[TGXoOeH44aj8[3
+S1
+R3
+R4
+Z177 8/home/hornits2/ece411/webarebears/srccode/regfile.sv
+Z178 F/home/hornits2/ece411/webarebears/srccode/regfile.sv
+L0 3
+R7
+Z179 !s108 1524427819.415864
+Z180 !s107 /home/hornits2/ece411/webarebears/srccode/regfile.sv|
+Z181 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/regfile.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 @^PT=Mk_7F`UOLYeBWfc<2
+!s105 regfile_sv_unit
+!s101 -O0
+Xregfile_sv_unit
+R1
+R2
+VgaoDPSDj8dD7OSeizffEi0
+r1
+31
+IgaoDPSDj8dD7OSeizffEi0
+S1
+R3
+R4
+R177
+R178
+L0 1
+R7
+R179
+R180
+R181
+R11
+R12
+!s85 0
+!i10b 1
+!s100 W5CS=SSJBA>DCU1YDP3H13
+!i103 1
+!s101 -O0
+vregister
+R1
+I@CX9NJ^?Z76N9gaRoLCk:0
+VVWH2GIcWRQ29K?3;26c491
+S1
+R3
+R4
+8/home/hornits2/ece411/webarebears/srccode/register.sv
+F/home/hornits2/ece411/webarebears/srccode/register.sv
+L0 1
+R7
+r1
+31
+R11
+R12
+!i10b 1
+!s100 lo5P1j[YNeiaGL[]nHJa:2
+!s105 register_sv_unit
+!s85 0
+!s108 1524427814.286451
+!s107 /home/hornits2/ece411/webarebears/srccode/register.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/register.sv|
+!s101 -O0
+vsel_bytes
+R1
+R2
+DXx4 work 17 sel_bytes_sv_unit 0 22 Q<Mc<LJJAm0ih6bfZ8X`L0
+VX2>EV87;5T]l9<KYVzm@M3
+r1
+31
+IR<8jX>5bGcVQ=RnTkN8m;3
+S1
+R3
+Z182 w1521852234
+Z183 8/home/hornits2/ece411/webarebears/srccode/sel_bytes.sv
+Z184 F/home/hornits2/ece411/webarebears/srccode/sel_bytes.sv
+L0 3
+R7
+Z185 !s108 1524427820.340537
+Z186 !s107 /home/hornits2/ece411/webarebears/srccode/sel_bytes.sv|
+Z187 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/sel_bytes.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 LT28zZJ_nme@58jK:l?dR2
 !s105 sel_bytes_sv_unit
 !s101 -O0
 Xsel_bytes_sv_unit
 R1
 R2
-VT_95[j^]C7T?mNWTo6Hnj1
+VQ<Mc<LJJAm0ih6bfZ8X`L0
 r1
 31
-IT_95[j^]C7T?mNWTo6Hnj1
+IQ<Mc<LJJAm0ih6bfZ8X`L0
 S1
 R3
-R144
-R145
-R146
+R182
+R183
+R184
 L0 1
 R7
-R147
-R148
-R149
+R185
+R186
+R187
 R11
 R12
 !s85 0
 !i10b 1
-!s100 <gQG[XVfdDRbWD0YI27eX0
+!s100 C8SDHBUl7f6Co;Xh;6Po41
+!i103 1
+!s101 -O0
+vVC_control
+R1
+R2
+DXx4 work 18 VC_control_sv_unit 0 22 RO1mLL>E?NTVD?dQb`dI?0
+Vkeo[d>Q?Q7jd;RMCNloeg1
+r1
+31
+I5@M0J_cTd_3fbfGhL5mRF0
+S1
+R3
+Z188 w1524426191
+Z189 8/home/hornits2/ece411/webarebears/srccode/VC_control.sv
+Z190 F/home/hornits2/ece411/webarebears/srccode/VC_control.sv
+L0 3
+R7
+Z191 !s108 1524427813.491578
+Z192 !s107 /home/hornits2/ece411/webarebears/srccode/VC_control.sv|
+Z193 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/VC_control.sv|
+R11
+R12
+n@v@c_control
+!s85 0
+!i10b 1
+!s100 hQOiB9E=zbYFz:=[3azIQ2
+!s105 VC_control_sv_unit
+!s101 -O0
+XVC_control_sv_unit
+R1
+R2
+VRO1mLL>E?NTVD?dQb`dI?0
+r1
+31
+IRO1mLL>E?NTVD?dQb`dI?0
+S1
+R3
+R188
+R189
+R190
+L0 1
+R7
+R191
+R192
+R193
+R11
+R12
+n@v@c_control_sv_unit
+!s85 0
+!i10b 1
+!s100 k:]kS^?]>bb7OzXV?h5X^2
+!i103 1
+!s101 -O0
+vVC_datapath
+R1
+R2
+DXx4 work 19 VC_datapath_sv_unit 0 22 EfmmaMio0z5Czz=4SNY0W0
+VllQn3WK<GI=:o4j3Z;<5E0
+r1
+31
+IiC9zUPzhnlK1Tjao3980l1
+S1
+R3
+Z194 w1524425805
+Z195 8/home/hornits2/ece411/webarebears/srccode/VC_datapath.sv
+Z196 F/home/hornits2/ece411/webarebears/srccode/VC_datapath.sv
+L0 3
+R7
+Z197 !s108 1524427816.279298
+Z198 !s107 /home/hornits2/ece411/webarebears/srccode/VC_datapath.sv|
+Z199 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/VC_datapath.sv|
+R11
+R12
+n@v@c_datapath
+!s85 0
+!i10b 1
+!s100 Q92[jk;EnW:ZjW8KOaeAJ2
+!s105 VC_datapath_sv_unit
+!s101 -O0
+XVC_datapath_sv_unit
+R1
+R2
+VEfmmaMio0z5Czz=4SNY0W0
+r1
+31
+IEfmmaMio0z5Czz=4SNY0W0
+S1
+R3
+R194
+R195
+R196
+L0 1
+R7
+R197
+R198
+R199
+R11
+R12
+n@v@c_datapath_sv_unit
+!s85 0
+!i10b 1
+!s100 4D_:<JR6A@j`8:lXa=aM33
+!i103 1
+!s101 -O0
+vVC_LRU_array
+R1
+R2
+DXx4 work 19 VC_LRUarray_sv_unit 0 22 VVk9Yjka?J7a?H;WC`>7U1
+V<SlOa;D4Pf<kM_]heHT=91
+r1
+31
+ILRCZWoWZA5IXfZL_Lii>[3
+S1
+R3
+Z200 w1524285241
+Z201 8/home/hornits2/ece411/webarebears/srccode/VC_LRUarray.sv
+Z202 F/home/hornits2/ece411/webarebears/srccode/VC_LRUarray.sv
+L0 3
+R7
+Z203 !s108 1524427812.815090
+Z204 !s107 /home/hornits2/ece411/webarebears/srccode/VC_LRUarray.sv|
+Z205 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/VC_LRUarray.sv|
+R11
+R12
+n@v@c_@l@r@u_array
+!s85 0
+!i10b 1
+!s100 4MTn:a^N0Q>VI4]`fjd`@0
+!s105 VC_LRUarray_sv_unit
+!s101 -O0
+vVC_LRU_stack
+R1
+R2
+DXx4 work 20 VC_LRU_stack_sv_unit 0 22 c_f;kO:WX6bMN;8kClld10
+VDiZSH:bT:^?M==WXKllj>2
+r1
+31
+IKD:ee8WR]DHDj`zcY_oKI0
+S1
+R3
+R29
+Z206 8/home/hornits2/ece411/webarebears/srccode/VC_LRU_stack.sv
+Z207 F/home/hornits2/ece411/webarebears/srccode/VC_LRU_stack.sv
+L0 3
+R7
+Z208 !s108 1524427813.195700
+Z209 !s107 /home/hornits2/ece411/webarebears/srccode/VC_LRU_stack.sv|
+Z210 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/VC_LRU_stack.sv|
+R11
+R12
+n@v@c_@l@r@u_stack
+!s85 0
+!i10b 1
+!s100 bZm2KLQ7RM10WL0aSFEND3
+!s105 VC_LRU_stack_sv_unit
+!s101 -O0
+XVC_LRU_stack_sv_unit
+R1
+R2
+Vc_f;kO:WX6bMN;8kClld10
+r1
+31
+Ic_f;kO:WX6bMN;8kClld10
+S1
+R3
+R29
+R206
+R207
+L0 1
+R7
+R208
+R209
+R210
+R11
+R12
+n@v@c_@l@r@u_stack_sv_unit
+!s85 0
+!i10b 1
+!s100 o9AW;h6>NMB><A5V98U3P0
+!i103 1
+!s101 -O0
+XVC_LRUarray_sv_unit
+R1
+R2
+VVVk9Yjka?J7a?H;WC`>7U1
+r1
+31
+IVVk9Yjka?J7a?H;WC`>7U1
+S1
+R3
+R200
+R201
+R202
+L0 1
+R7
+R203
+R204
+R205
+R11
+R12
+n@v@c_@l@r@uarray_sv_unit
+!s85 0
+!i10b 1
+!s100 TUjc_[2EU@KlhYedEJ3Y<3
+!i103 1
+!s101 -O0
+vVCarray
+R1
+R2
+DXx4 work 15 VCarray_sv_unit 0 22 idl]nkOY6;]4=^0eR`i5Y1
+Vlc>fS3deb`SnRHX6eaNKN0
+r1
+31
+I_lHN[;f3W163@[gM3hWof3
+S1
+R3
+Z211 w1524421938
+Z212 8/home/hornits2/ece411/webarebears/srccode/VCarray.sv
+Z213 F/home/hornits2/ece411/webarebears/srccode/VCarray.sv
+L0 3
+R7
+Z214 !s108 1524427812.526272
+Z215 !s107 /home/hornits2/ece411/webarebears/srccode/VCarray.sv|
+Z216 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/VCarray.sv|
+R11
+R12
+n@v@carray
+!s85 0
+!i10b 1
+!s100 M?_]_L4_[GAK5_kgGP0_`1
+!s105 VCarray_sv_unit
+!s101 -O0
+XVCarray_sv_unit
+R1
+R2
+Vidl]nkOY6;]4=^0eR`i5Y1
+r1
+31
+Iidl]nkOY6;]4=^0eR`i5Y1
+S1
+R3
+R211
+R212
+R213
+L0 1
+R7
+R214
+R215
+R216
+R11
+R12
+n@v@carray_sv_unit
+!s85 0
+!i10b 1
+!s100 55KRadB1okLgf=dcb4OCQ1
+!i103 1
+!s101 -O0
+vvictim_cache
+R1
+R2
+DXx4 work 20 victim_cache_sv_unit 0 22 XS5OC?_`2n6^6RaMVXQR11
+V1n@J7:eB<NjT^6c2KnFNG1
+r1
+31
+InC1DkgheEdzYM_3j65IgX3
+S1
+R3
+Z217 w1524422246
+Z218 8/home/hornits2/ece411/webarebears/srccode/victim_cache.sv
+Z219 F/home/hornits2/ece411/webarebears/srccode/victim_cache.sv
+L0 3
+R7
+Z220 !s108 1524427820.624146
+Z221 !s107 /home/hornits2/ece411/webarebears/srccode/victim_cache.sv|
+Z222 !s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/victim_cache.sv|
+R11
+R12
+!s85 0
+!i10b 1
+!s100 >]G4dNoK;^[eST>JzEz?i0
+!s105 victim_cache_sv_unit
+!s101 -O0
+Xvictim_cache_sv_unit
+R1
+R2
+VXS5OC?_`2n6^6RaMVXQR11
+r1
+31
+IXS5OC?_`2n6^6RaMVXQR11
+S1
+R3
+R217
+R218
+R219
+L0 1
+R7
+R220
+R221
+R222
+R11
+R12
+!s85 0
+!i10b 1
+!s100 Ao9I@@M:F@H@<fD:C0BiJ1
 !i103 1
 !s101 -O0
 Ywishbone
 R1
-Il^OcEOhoYj9A:^ZVC0B4m0
+IT8Q>G6GeYB64Om_iNkimD0
 VPb?@ZGYY13KOKQz0;6;n91
 S1
 R3
-w1520543687
-8/home/cli91/WeBareBears_uArch/srccode/wishbone.sv
-F/home/cli91/WeBareBears_uArch/srccode/wishbone.sv
+R4
+8/home/hornits2/ece411/webarebears/srccode/wishbone.sv
+F/home/hornits2/ece411/webarebears/srccode/wishbone.sv
 L0 1
 R7
 r1
@@ -1544,59 +2277,10 @@ r1
 R11
 R12
 !i10b 1
-!s100 G^e6VZdTc3VoWV4LgMhoI2
+!s100 obOX6MSZ?P?VFTcOO<:1d3
 !s105 wishbone_sv_unit
 !s85 0
-!s108 1523809600.192813
-!s107 /home/cli91/WeBareBears_uArch/srccode/wishbone.sv|
-!s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/wishbone.sv|
-!s101 -O0
-vwrite_buffer
-R1
-R2
-DXx4 work 20 write_buffer_sv_unit 0 22 ^jKaH0ESibHAO:NR?YPH42
-VPo=lhcihhzWPQNS?Mfl>f2
-r1
-31
-I_IN:V4fP8b5Ng`I5kogcN1
-S1
-R3
-Z150 w1523806373
-Z151 8/home/cli91/WeBareBears_uArch/srccode/write_buffer.sv
-Z152 F/home/cli91/WeBareBears_uArch/srccode/write_buffer.sv
-L0 3
-R7
-Z153 !s108 1523809601.261701
-Z154 !s107 /home/cli91/WeBareBears_uArch/srccode/write_buffer.sv|
-Z155 !s90 -sv|-work|work|+incdir+/home/cli91/WeBareBears_uArch/srccode|/home/cli91/WeBareBears_uArch/srccode/write_buffer.sv|
-R11
-R12
-!s85 0
-!i10b 1
-!s100 ]H[]eegEi<7jOTL`O0Gan3
-!s105 write_buffer_sv_unit
-!s101 -O0
-Xwrite_buffer_sv_unit
-R1
-R2
-V^jKaH0ESibHAO:NR?YPH42
-r1
-31
-I^jKaH0ESibHAO:NR?YPH42
-S1
-R3
-R150
-R151
-R152
-L0 1
-R7
-R153
-R154
-R155
-R11
-R12
-!s85 0
-!i10b 1
-!s100 giBjmL`R4c41BCM[10Pg20
-!i103 1
+!s108 1524427813.866042
+!s107 /home/hornits2/ece411/webarebears/srccode/wishbone.sv|
+!s90 -sv|-work|work|+incdir+/home/hornits2/ece411/webarebears/srccode|/home/hornits2/ece411/webarebears/srccode/wishbone.sv|
 !s101 -O0

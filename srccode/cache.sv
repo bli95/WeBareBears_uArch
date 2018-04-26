@@ -4,7 +4,6 @@ module cache
 (
 	wishbone.master wb,
 	wishbone.slave sb,
-	input logic level,
 	output logic got_hit_likah_bih, miss_me_wifdat_bs
 );
 				  
@@ -21,7 +20,6 @@ module cache
 	/* Cache signals */
 	logic cache_resp;
 	logic cache_read, cache_write;
-	logic [1:0] cache_byte_enable;
 	lc3b_word cache_address;
 	lc3b_word cache_rdata, cache_wdata_16;
 	logic [127:0] cache_wdata_128;
@@ -43,11 +41,11 @@ module cache
 	assign mem_rdata = wb.DAT_S;
 		
 	assign wb.DAT_M = mem_wdata;
-	assign wb.ADR = mem_address[15:4];
+	//assign wb.ADR = mem_address[15:4];
 	assign wb.WE = mem_write;
 	assign wb.STB = (mem_read || mem_write) && !mem_done;
 	assign wb.CYC = (mem_read || mem_write) && !mem_done;
-	assign wb.SEL = sel_mask;
+	assign wb.SEL = 16'hffff;
 		
 	assign cache_read = (sb.STB && sb.CYC) && !sb.WE;
 	assign cache_write = sb.WE;
@@ -59,6 +57,8 @@ module cache
 	assign sb.ACK = cache_resp;
 	assign sb.DAT_S = data_out;
 	
+	register #(.width(12)) outgoing_addr (.clk, .load(1'b1), .in(mem_address[15:4]), .out(wb.ADR));
+
 	cache_datapath CD (.*);
 	cache_control CC (.*);
 		

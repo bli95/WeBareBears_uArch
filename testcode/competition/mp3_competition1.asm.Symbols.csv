@@ -1,0 +1,42 @@
+__date__, Define
+__file__, Define
+__line__, Define
+__time__, Define
+__version_3__, Define
+__version__, Define
+codesegment, Label, 4x0, 4x0
+cs_ptr, Label, 4x144, 4xE
+cs_start, Label, 4x146, 4x0
+datasegment, Label, 4x136, 4x0
+datasize, Label, 4x138, 4x2
+datavector, Label, 4x136, 4x0
+donepartition, Label, 4x132, 4x132
+dontfirstqs, Label, 4x62, 4x62
+dontsecondqs, Label, 4x72, 4x72
+end_m_i_loop, Label, 4xCC, 4xCC
+end_m_j_loop, Label, 4x102, 4x102
+float, Struct
+float.exponent, Member, 4x1
+float.mantissa, Member, 4x2
+float.sign, Member, 4x0
+floatsize, Define
+halt, Label, 4x150, 4xA
+i_loop_else, Label, 4xBA, 4xBA
+j_loop_else, Label, 4xF0, 4xF0
+nfloatsize, Define
+nstacksize, Define
+partition, Label, 4x78, 4x78
+partitionloop, Label, 4x8A, 4x8A
+primenum, Label, 4x13A, 4x4
+qsstack, Struct
+qsstack.p, Member, 4x2
+qsstack.q, Member, 4x6
+qsstack.r, Member, 4x4
+qsstack.returnaddress, Member, 4x0
+quicksort, Label, 4x48, 4x48
+randloop, Label, 4xE, 4xE
+stacksize, Define
+start_i_loop, Label, 4x96, 4x96
+start_j_loop, Label, 4xCC, 4xCC
+temp, Label, 4x140, 4xA
+x, Label, 4x13C, 4x6

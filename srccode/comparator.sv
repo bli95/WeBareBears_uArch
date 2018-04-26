@@ -1,4 +1,4 @@
-module comparator #(parameter width = 9) 
+module comparator #(parameter width = 8) 
 (
 	input [width-1:0] a, b,
 	output logic f
